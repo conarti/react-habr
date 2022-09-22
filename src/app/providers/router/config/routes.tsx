@@ -3,7 +3,7 @@ import { MainPage } from 'pages/MainPage';
 import { RouteObject } from 'react-router-dom';
 
 export const enum AppRoutes {
-    MAIN = 'main',
+    MAIN = '',
     ABOUT = 'about'
 }
 
