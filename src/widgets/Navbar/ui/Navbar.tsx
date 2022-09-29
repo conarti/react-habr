@@ -1,6 +1,6 @@
-import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -8,8 +8,6 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
-    const { toggleTheme } = useTheme();
-
     const links = [
         {
             to: '/',
@@ -35,7 +33,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                         </AppLink>
                     ))
                 }
-                <button onClick={toggleTheme}>toggle theme</button>
+                <ThemeSwitcher />
             </div>
         </div>
     );
