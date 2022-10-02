@@ -8,10 +8,13 @@
 	background: var(--inverted-bg-color);
 
 	transition: width 0.25s;
+	transition-delay: 0.25s;
 }
 
 .collapsed {
 	width: var(--sidebar-width-collapsed);
+
+	transition-delay: 0s;
 }
 
 .switchers {

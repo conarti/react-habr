@@ -11,16 +11,11 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
 	const [collapsed, setCollapsed] = useState(true);
 
-	let timeout: ReturnType<typeof setTimeout> = null;
-
 	const collapsedOff = () => {
-		timeout = setTimeout(() => {
-			setCollapsed(false);
-		}, 300);
+		setCollapsed(false);
 	};
 
 	const collapsedOn = () => {
-		clearTimeout(timeout);
 		setCollapsed(true);
 	};
 
