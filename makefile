@@ -12,6 +12,8 @@ build-prod:
 
 lint:
 	npm run lint
+	npm run lint:styles
 
 lint-fix:
 	npm run lint:fix
+	npm run lint:styles:fix
