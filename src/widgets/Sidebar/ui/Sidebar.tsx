@@ -9,18 +9,33 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(true);
+	const [collapsed, setCollapsed] = useState(true);
 
-    return (
-        <div
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
-            onMouseOver={() => setCollapsed(false)}
-            onMouseOut={() => setCollapsed(true)}
-        >
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher className={cls.langSwitcher} />
-            </div>
-        </div>
-    );
+	let timeout: ReturnType<typeof setTimeout> = null;
+
+	const collapsedOff = () => {
+		timeout = setTimeout(() => {
+			setCollapsed(false);
+		}, 300);
+	};
+
+	const collapsedOn = () => {
+		clearTimeout(timeout);
+		setCollapsed(true);
+	};
+
+	return (
+		<div
+			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+			onMouseOver={collapsedOff}
+			onMouseOut={collapsedOn}
+			onBlur={collapsedOff}
+			onFocus={collapsedOn}
+		>
+			<div className={cls.switchers}>
+				<ThemeSwitcher />
+				<LangSwitcher className={cls.langSwitcher} />
+			</div>
+		</div>
+	);
 };

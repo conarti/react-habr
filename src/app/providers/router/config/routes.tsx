@@ -8,12 +8,12 @@ export const enum AppRoutes {
 }
 
 export const routes: RouteObject[] = [
-    {
-        path: AppRoutes.MAIN,
-        element: <MainPage/>,
-    },
-    {
-        path: AppRoutes.ABOUT,
-        element: <AboutPage/>,
-    },
+	{
+		path: AppRoutes.MAIN,
+		element: <MainPage />,
+	},
+	{
+		path: AppRoutes.ABOUT,
+		element: <AboutPage />,
+	},
 ];
