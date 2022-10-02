@@ -26,6 +26,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			onMouseOut={collapsedOn}
 			onBlur={collapsedOff}
 			onFocus={collapsedOn}
+			data-testid="sidebar"
 		>
 			<div className={cls.switchers}>
 				<ThemeSwitcher />
