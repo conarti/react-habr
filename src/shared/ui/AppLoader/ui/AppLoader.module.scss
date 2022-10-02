@@ -1,0 +1,50 @@
+.app-loader {
+	position: relative;
+
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+
+	&.is-fill {
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		max-height: 100%;
+	}
+
+	&-spinner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		margin: -25px 0 0 -25px;
+
+		border: 4px rgb(0 0 0 / 25%) solid;
+		border-top: 4px black solid;
+		border-radius: 50%;
+
+		animation: spin2 1s infinite ease-in-out;
+	}
+}
+
+@keyframes spin2 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(359deg);
+	}
+}
+@keyframes spin2 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(359deg);
+	}
+}

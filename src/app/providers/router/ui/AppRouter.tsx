@@ -1,16 +1,17 @@
 import { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
+import { AppLoader } from 'shared/ui/AppLoader';
 import { routes } from '../config/routes';
 
 const AppRouter = () => {
 	const routesElement = useRoutes(routes);
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			<div className="page-wrapper">
+		<div className="page-wrapper">
+			<Suspense fallback={<AppLoader isFill />}>
 				{routesElement}
-			</div>
-		</Suspense>
+			</Suspense>
+		</div>
 	);
 };
 
