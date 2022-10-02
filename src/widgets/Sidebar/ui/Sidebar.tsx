@@ -24,8 +24,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
 			onMouseOver={collapsedOff}
 			onMouseOut={collapsedOn}
-			onBlur={collapsedOff}
-			onFocus={collapsedOn}
+			onBlur={collapsedOn}
+			onFocus={collapsedOff}
 			data-testid="sidebar"
 		>
 			<div className={cls.switchers}>
