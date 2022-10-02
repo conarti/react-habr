@@ -1,11 +1,12 @@
-.appButton {
-  color: var(--primary-color);
+.app-button {
+	color: var(--primary-color);
 }
 
 .clear {
-  padding: 0;
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
+	padding: 0;
+
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }

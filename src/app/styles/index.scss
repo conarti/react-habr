@@ -4,19 +4,19 @@
 @import "themes";
 
 .app {
-  font: var(--font-m);
+	min-height: 100vh;
 
-  background-color: var(--bg-color);
-  color: var(--primary-color);
+	color: var(--primary-color);
+	font: var(--font-m);
 
-  min-height: 100vh;
+	background-color: var(--bg-color);
 }
 
 .page-container {
-  display: flex;
+	display: flex;
 }
 
 .page-wrapper {
-  padding: 20px;
-  flex-grow: 1;
+	flex-grow: 1;
+	padding: 20px;
 }
