@@ -41,6 +41,7 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': 'warn',
 		'no-tabs': 'off',
 		'react/jsx-max-props-per-line': [2, { maximum: 2 }],
+		'max-len': ['error', { ignoreComments: true, code: 100 }],
 	},
 	globals: {
 		__IS_DEV__: true,
