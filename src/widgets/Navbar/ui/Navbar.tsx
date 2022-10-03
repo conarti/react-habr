@@ -27,6 +27,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 							className={classNames(cls.link)}
 							theme={AppLinkTheme.SECONDARY}
 							to={to}
+							key={to}
 						>
 							{label}
 						</AppLink>
