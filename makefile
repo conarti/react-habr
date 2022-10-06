@@ -18,14 +18,20 @@ lint-fix:
 	npm run lint:fix
 	npm run lint:styles:fix
 
-unit:
-	npm run unit
+test-unit:
+	npm run test:unit
 
-watch-unit:
+test-unit-watch:
 	npm run unit -- --watch
+
+test-ui:
+	npm run test:ui
+
+test-ui-ok:
+	npm run test:ui:ok
 
 storybook:
 	npm run storybook
 
-build-storybook:
-	npm run build-storybook
+storybook-build:
+	npm run storybook:build
