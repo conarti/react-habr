@@ -2,14 +2,13 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: var(--navbar-height);
-	padding: 20px;
+	padding: var(--spacer-md);
 }
 
 .links {
+	display: inline-grid;
+	grid-auto-flow: column;
 	margin-left: auto;
-}
 
-.link {
-	margin-right: 15px;
+	column-gap: var(--spacer-md);
 }
