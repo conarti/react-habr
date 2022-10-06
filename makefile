@@ -21,6 +21,9 @@ lint-fix:
 unit:
 	npm run unit
 
+watch-unit:
+	npm run unit -- --watch
+
 storybook:
 	npm run storybook
 
