@@ -11,6 +11,10 @@
 	font: var(--font-m);
 
 	background-color: var(--bg-color);
+
+	&.is-story {
+		display: block;
+	}
 }
 
 .app-content {

@@ -8,8 +8,8 @@ export default {
 
 const Template: ComponentStory<typeof AppButton> = (args) => <AppButton {...args} />;
 
-export const Outline = Template.bind({});
-Outline.args = {
+export const Primary = Template.bind({});
+Primary.args = {
 	children: 'Text',
 	theme: ThemeButton.PRIMARY,
 };
