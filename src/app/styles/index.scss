@@ -4,19 +4,29 @@
 @import "themes";
 
 .app {
+	display: flex;
 	min-height: 100vh;
 
-	color: var(--primary-color);
+	color: var(--on-bg-secondary);
 	font: var(--font-m);
 
 	background-color: var(--bg-color);
 }
 
-.page-container {
-	display: flex;
+.app-content {
+	flex-grow: 1;
 }
 
-.page-wrapper {
-	flex-grow: 1;
-	padding: 20px;
+.app-page {
+	padding: var(--spacer-md);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--on-bg-primary);
+	font-weight: 500;
 }

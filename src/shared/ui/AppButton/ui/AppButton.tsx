@@ -4,19 +4,25 @@ import cls from './AppButton.module.scss';
 
 export const enum ThemeButton {
     CLEAR = 'clear',
-	OUTLINE = 'outline'
+		PRIMARY = 'primary',
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ThemeButton;
+		isFill?: boolean;
 }
 
 export const AppButton: FC<AppButtonProps> = ({
-	className, children, theme, ...otherProps
+	className,
+	children,
+	theme,
+	isFill = false,
+	...otherProps
 }) => (
 	<button
-		className={classNames(cls.appButton, {}, [className, cls[theme]])} type="button"
+		className={classNames(cls.appButton, { [cls.isFill]: isFill }, [className, cls[theme]])}
+		type="button"
 		{...otherProps}
 	>
 		{children}

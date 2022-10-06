@@ -1,23 +1,41 @@
 .app-button {
+	display: inline-grid;
+	grid-auto-flow: column;
+	gap: 16px;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 16px;
+
 	color: var(--primary-color);
+	font-weight: 500;
 
 	background: none;
+	border-color: transparent;
 	border-style: solid;
 	border-width: 1px;
+	border-radius: var(--border-radius-base);
 	outline: none;
 	cursor: pointer;
+
+	transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.is-fill {
+	width: 100%;
 }
 
 .clear {
-	padding: 0;
+	color: var(--on-bg-secondary);
 
-	border-color: transparent;
+	background-color: transparent;
+
+	&:hover {
+		background-color: var(--on-bg-secondary-hover);
+	}
 }
 
-.outline {
-	padding: 10px;
-
+.primary {
 	color: var(--primary-color);
 
-	border-color: var(--primary-color);
+	background-color: var(--primary-color-hover);
 }

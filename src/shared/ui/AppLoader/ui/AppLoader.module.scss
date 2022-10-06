@@ -12,6 +12,20 @@
 		max-height: 100%;
 	}
 
+	&.is-absolute {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: var(--z-index-loader-absolute);
+
+		width: 100%;
+		height: 100%;
+
+		background-color: var(--on-bg-secondary-hover);
+
+		backdrop-filter: blur(6px);
+	}
+
 	&-spinner {
 		position: absolute;
 		top: 50%;
@@ -22,8 +36,8 @@
 		height: 50px;
 		margin: -25px 0 0 -25px;
 
-		border: 4px rgb(0 0 0 / 25%) solid;
-		border-top: 4px black solid;
+		border: 4px var(--on-bg-secondary-hover) solid;
+		border-top: 4px var(--on-bg-secondary) solid;
 		border-radius: 50%;
 
 		animation: spin2 1s infinite ease-in-out;

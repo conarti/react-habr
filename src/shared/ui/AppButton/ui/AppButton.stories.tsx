@@ -11,7 +11,7 @@ const Template: ComponentStory<typeof AppButton> = (args) => <AppButton {...args
 export const Outline = Template.bind({});
 Outline.args = {
 	children: 'Text',
-	theme: ThemeButton.OUTLINE,
+	theme: ThemeButton.PRIMARY,
 };
 
 export const Clear = Template.bind({});

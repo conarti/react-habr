@@ -12,9 +12,9 @@ export function App() {
 	return (
 		<div className={classNames('app', {}, [theme])}>
 			<Suspense fallback="">
-				<Navbar />
-				<div className="page-container">
-					<Sidebar />
+				<Sidebar />
+				<div className="app-content">
+					<Navbar />
 					<AppRouter />
 				</div>
 			</Suspense>

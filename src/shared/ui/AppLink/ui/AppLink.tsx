@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
@@ -8,7 +8,7 @@ export enum AppLinkTheme {
     SECONDARY = 'secondary',
 }
 
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends NavLinkProps {
     className?: string;
     theme?: AppLinkTheme;
 }
@@ -23,11 +23,16 @@ export const AppLink: FC<AppLinkProps> = (props) => {
 	} = props;
 
 	return (
-		<Link
-			className={classNames(cls.appLink, {}, [className, cls[theme]])} to={to}
+		<NavLink
+			className={({ isActive }) => classNames(
+				cls.appLink,
+				{ [cls.active]: isActive },
+				[className, cls[theme]],
+			)}
+			to={to}
 			{...otherProps}
 		>
 			{children}
-		</Link>
+		</NavLink>
 	);
 };

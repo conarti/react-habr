@@ -7,8 +7,8 @@ const AppRouter = () => {
 	const routesElement = useRoutes(routes);
 
 	return (
-		<div className="page-wrapper">
-			<Suspense fallback={<AppLoader isFill />}>
+		<div className="app-page">
+			<Suspense fallback={<AppLoader isAbsolute />}>
 				{routesElement}
 			</Suspense>
 		</div>

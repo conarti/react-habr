@@ -1,11 +1,17 @@
 .app-link {
-	text-decoration: none;
+	text-decoration: underline;
+
+	transition: color 0.25s;
 }
 
 .primary {
-	color: var(--primary-color);
+	color: var(--on-bg-primary);
 }
 
 .secondary {
-	color: var(--inverted-primary-color);
+	color: var(--on-bg-secondary);
+}
+
+.active {
+	color: var(--primary-color);
 }

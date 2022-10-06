@@ -2,13 +2,20 @@ import { fireEvent, screen } from '@testing-library/react';
 import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWithTranslation';
 import { Sidebar } from 'widgets/Sidebar';
 
-const COLLAPSED_CLASS_NAME = 'collapsed';
+const EXPANDED_CLASS_NAME = 'expanded';
 const TEST_ID = 'sidebar';
 
 describe('Sidebar', () => {
-	test('test', () => {
+	test('should render', () => {
 		renderWithTranslation(<Sidebar />);
 		expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
+	});
+
+	test('should be collapsed by default', () => {
+		renderWithTranslation(<Sidebar />);
+		const sidebarEl = screen.getByTestId(TEST_ID);
+
+		expect(sidebarEl).not.toHaveClass(EXPANDED_CLASS_NAME);
 	});
 
 	test('collapse on mouse over/out', () => {
@@ -16,10 +23,10 @@ describe('Sidebar', () => {
 		const sidebarEl = screen.getByTestId(TEST_ID);
 
 		fireEvent.mouseOver(sidebarEl);
-		expect(sidebarEl).not.toHaveClass(COLLAPSED_CLASS_NAME);
+		expect(sidebarEl).toHaveClass(EXPANDED_CLASS_NAME);
 
 		fireEvent.mouseOut(sidebarEl);
-		expect(sidebarEl).toHaveClass(COLLAPSED_CLASS_NAME);
+		expect(sidebarEl).not.toHaveClass(EXPANDED_CLASS_NAME);
 	});
 
 	test('collapse on focus/blur', () => {
@@ -27,9 +34,9 @@ describe('Sidebar', () => {
 		const sidebarEl = screen.getByTestId(TEST_ID);
 
 		fireEvent.focus(sidebarEl);
-		expect(sidebarEl).not.toHaveClass(COLLAPSED_CLASS_NAME);
+		expect(sidebarEl).toHaveClass(EXPANDED_CLASS_NAME);
 
 		fireEvent.blur(sidebarEl);
-		expect(sidebarEl).toHaveClass(COLLAPSED_CLASS_NAME);
+		expect(sidebarEl).not.toHaveClass(EXPANDED_CLASS_NAME);
 	});
 });

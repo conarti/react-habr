@@ -9,29 +9,32 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-	const [collapsed, setCollapsed] = useState(true);
+	const [expanded, setExpanded] = useState(false);
 
-	const collapsedOff = () => {
-		setCollapsed(false);
+	const expandedOn = () => {
+		setExpanded(true);
 	};
 
-	const collapsedOn = () => {
-		setCollapsed(true);
+	const expandedOff = () => {
+		setExpanded(false);
 	};
 
 	return (
-		<div
-			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
-			onMouseOver={collapsedOff}
-			onMouseOut={collapsedOn}
-			onBlur={collapsedOn}
-			onFocus={collapsedOff}
-			data-testid="sidebar"
-		>
-			<div className={cls.switchers}>
-				<ThemeSwitcher />
-				<LangSwitcher className={cls.langSwitcher} />
+		<>
+			<div className={cls.sidebarPlaceholder} />
+			<div
+				className={classNames(cls.sidebar, { [cls.expanded]: expanded }, [className])}
+				onMouseOver={expandedOn}
+				onMouseOut={expandedOff}
+				onBlur={expandedOff}
+				onFocus={expandedOn}
+				data-testid="sidebar"
+			>
+				<div className={cls.switchers}>
+					<ThemeSwitcher className={cls.switcherBtn} />
+					<LangSwitcher className={cls.switcherBtn} />
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
