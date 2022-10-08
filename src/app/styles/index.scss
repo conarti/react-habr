@@ -13,6 +13,11 @@
 	background-color: var(--bg-color);
 
 	&.is-story {
+		align-items: center;
+		justify-content: center;
+	}
+
+	&.is-page-story {
 		display: block;
 	}
 }
