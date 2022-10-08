@@ -10,19 +10,27 @@ build-dev:
 build-prod:
 	npm run build:prod
 
-lint:
+lint-ts:
 	npm run lint
+
+lint-styles:
 	npm run lint:styles
 
-lint-fix:
+lint-ts-fix:
 	npm run lint:fix
+
+lint-styles-fix:
 	npm run lint:styles:fix
+
+lint: lint-ts lint-styles
+
+lint-fix: lint-ts-fix lint-styles-fix
 
 test-unit:
 	npm run test:unit
 
 test-unit-watch:
-	npm run unit -- --watch
+	npm run test:unit -- --watch
 
 test-ui:
 	npm run test:ui
