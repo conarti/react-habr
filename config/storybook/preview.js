@@ -1,7 +1,7 @@
 import { addDecorator } from '@storybook/react';
-import { withTheme } from 'shared/config/storybook/withTheme';
-import { withStyles } from 'shared/config/storybook/withStyles';
-import { withRouter } from 'shared/config/storybook/withRouter';
+import { withTheme } from 'shared/lib/storybook/withTheme';
+import { withStyles } from 'shared/lib/storybook/withStyles';
+import { withRouter } from 'shared/lib/storybook/withRouter';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
