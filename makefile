@@ -38,6 +38,9 @@ test-ui:
 test-ui-ok:
 	npm run test:ui:ok
 
+test-ui-report:
+	npm run test:ui:report
+
 storybook:
 	npm run storybook
 
