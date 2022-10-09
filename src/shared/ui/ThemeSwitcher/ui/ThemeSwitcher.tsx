@@ -17,10 +17,9 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 		<AppButton
 			className={classNames('', {}, [className])}
 			theme={ThemeButton.CLEAR}
-			isFill
+			icon={theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
 			onClick={toggleTheme}
 		>
-			{theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
 			{theme === Theme.LIGHT ? t('Светлая') : t('Темная')}
 		</AppButton>
 	);

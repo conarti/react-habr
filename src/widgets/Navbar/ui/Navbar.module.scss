@@ -3,12 +3,10 @@
 	align-items: center;
 	width: 100%;
 	padding: var(--spacer-md);
-}
 
-.links {
-	display: inline-grid;
-	grid-auto-flow: column;
-	margin-left: auto;
+	&-title {
+		margin: 0 0 0 auto;
 
-	column-gap: var(--spacer-md);
+		font: var(--font-m);
+	}
 }

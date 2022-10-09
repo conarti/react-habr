@@ -19,10 +19,24 @@
 	box-shadow: 0 0 0 var(--on-bg-secondary-hover);
 
 	transition: width 0.35s, border-radius 0.35s, box-shadow 0.35s;
-}
 
-.sidebar-placeholder {
-	width: var(--sidebar-width);
+	&-placeholder {
+		width: var(--sidebar-width);
+	}
+
+	&-btn-group {
+		display: grid;
+		row-gap: var(--spacer-sm);
+
+		&--is-bottom {
+			margin-top: auto;
+		}
+	}
+
+	&-btn {
+		justify-content: start;
+		overflow-x: hidden;
+	}
 }
 
 .expanded {
@@ -33,16 +47,4 @@
 	box-shadow: 0 5px 20px var(--on-bg-secondary-hover);
 
 	transition-delay: 0.25s;
-}
-
-.switchers {
-	display: grid;
-	margin-top: auto;
-	row-gap: var(--spacer-sm);
-}
-
-.switcher-btn {
-	justify-content: start;
-
-	overflow-x: hidden;
 }

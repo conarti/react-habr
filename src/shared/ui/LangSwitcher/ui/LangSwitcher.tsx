@@ -18,10 +18,9 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 		<AppButton
 			className={classNames('', {}, [className])}
 			theme={ThemeButton.CLEAR}
-			isFill
+			icon={<LangIcon />}
 			onClick={toggle}
 		>
-			<LangIcon />
 			{ t('Язык') }
 		</AppButton>
 	);

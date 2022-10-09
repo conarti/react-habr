@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWithTranslation';
+import { componentRender } from 'shared/lib/tests/componentRender';
 import { Sidebar } from 'widgets/Sidebar';
 
 const EXPANDED_CLASS_NAME = 'expanded';
@@ -7,19 +7,19 @@ const TEST_ID = 'sidebar';
 
 describe('Sidebar', () => {
 	test('should render', () => {
-		renderWithTranslation(<Sidebar />);
+		componentRender(<Sidebar />);
 		expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
 	});
 
 	test('should be collapsed by default', () => {
-		renderWithTranslation(<Sidebar />);
+		componentRender(<Sidebar />);
 		const sidebarEl = screen.getByTestId(TEST_ID);
 
 		expect(sidebarEl).not.toHaveClass(EXPANDED_CLASS_NAME);
 	});
 
 	test('collapse on mouse over/out', () => {
-		renderWithTranslation(<Sidebar />);
+		componentRender(<Sidebar />);
 		const sidebarEl = screen.getByTestId(TEST_ID);
 
 		fireEvent.mouseOver(sidebarEl);
@@ -30,7 +30,7 @@ describe('Sidebar', () => {
 	});
 
 	test('collapse on focus/blur', () => {
-		renderWithTranslation(<Sidebar />);
+		componentRender(<Sidebar />);
 		const sidebarEl = screen.getByTestId(TEST_ID);
 
 		fireEvent.focus(sidebarEl);

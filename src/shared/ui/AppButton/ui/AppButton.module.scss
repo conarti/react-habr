@@ -7,7 +7,7 @@
 	padding: 12px 16px;
 
 	color: var(--primary-color);
-	font-weight: 500;
+	font: var(--font-s);
 
 	background: none;
 	border-color: transparent;
@@ -24,6 +24,10 @@
 	width: 100%;
 }
 
+.is-link {
+	text-decoration: none;
+}
+
 .clear {
 	color: var(--on-bg-secondary);
 
@@ -38,4 +42,8 @@
 	color: var(--primary-color);
 
 	background-color: var(--primary-color-hover);
+
+	&:hover {
+		background-color: var(--primary-color-hover);
+	}
 }
