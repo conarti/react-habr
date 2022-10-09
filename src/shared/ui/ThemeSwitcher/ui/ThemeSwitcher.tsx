@@ -1,8 +1,8 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppButton, ThemeButton } from 'shared/ui/AppButton';
 
 interface ThemeSwitcherProps {
@@ -15,7 +15,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 
 	return (
 		<AppButton
-			className={classNames('', {}, [className])}
+			className={classNames(className)}
 			theme={ThemeButton.CLEAR}
 			icon={theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
 			onClick={toggleTheme}

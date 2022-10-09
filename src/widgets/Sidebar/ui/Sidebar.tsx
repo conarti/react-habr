@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppButton } from 'shared/ui/AppButton';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
@@ -27,7 +27,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
 		<>
 			<div className={cls.sidebarPlaceholder} />
 			<div
-				className={classNames(cls.sidebar, { [cls.expanded]: expanded }, [className])}
+				className={classNames(
+					cls.sidebar,
+					className,
+					{ [cls.expanded]: expanded },
+				)}
 				onMouseOver={expandedOn}
 				onMouseOut={expandedOff}
 				onBlur={expandedOff}
@@ -48,7 +52,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 						))
 					}
 				</div>
-				<div className={`${cls.sidebarBtnGroup} ${cls.sidebarBtnGroupIsBottom}`}>
+				<div className={classNames(cls.sidebarBtnGroup, cls.sidebarBtnGroupIsBottom)}>
 					<ThemeSwitcher className={cls.sidebarBtn} />
 					<LangSwitcher className={cls.sidebarBtn} />
 				</div>

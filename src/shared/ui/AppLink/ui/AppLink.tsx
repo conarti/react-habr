@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import { FC } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -26,8 +26,9 @@ export const AppLink: FC<AppLinkProps> = (props) => {
 		<NavLink
 			className={({ isActive }) => classNames(
 				cls.appLink,
+				className,
+				cls[theme],
 				{ [cls.active]: isActive },
-				[className, cls[theme]],
 			)}
 			to={to}
 			{...otherProps}

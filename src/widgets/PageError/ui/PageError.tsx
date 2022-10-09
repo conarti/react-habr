@@ -1,5 +1,5 @@
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppButton, ThemeButton } from 'shared/ui/AppButton';
 import cls from './PageError.module.scss';
 
@@ -15,7 +15,7 @@ export const PageError = ({ className }: PageErrorProps) => {
 	};
 
 	return (
-		<div className={classNames(cls.pageError, {}, [className])}>
+		<div className={classNames(cls.pageError, className)}>
 			<h1>{t('Произошла ошибка')}</h1>
 			<AppButton
 				theme={ThemeButton.CLEAR}

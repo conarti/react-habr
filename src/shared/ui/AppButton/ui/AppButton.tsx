@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppButton.module.scss';
 
 export const enum ThemeButton {
@@ -32,8 +32,13 @@ export const AppButton: FC<AppButtonProps> = ({
 			<NavLink
 				className={({ isActive }) => classNames(
 					cls.appButton,
-					{ [cls.isFill]: isFill, [cls.primary]: isActive, [cls.clear]: !isActive },
-					[className, cls.isLink],
+					cls.isLink,
+					className,
+					{
+						[cls.isFill]: isFill,
+						[cls.primary]: isActive,
+						[cls.clear]: !isActive,
+					},
 				)}
 				to={to}
 			>

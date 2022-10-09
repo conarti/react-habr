@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import classNames from 'classnames';
 import cls from './AppLoader.module.scss';
 
 interface AppLoaderProps {
@@ -10,8 +10,11 @@ interface AppLoaderProps {
 export const AppLoader = ({ className, isFill = false, isAbsolute = false }: AppLoaderProps) => (
 	<div className={classNames(
 		cls.appLoader,
-		{ [cls.isFill]: isFill, [cls.isAbsolute]: isAbsolute },
-		[className],
+		className,
+		{
+			[cls.isFill]: isFill,
+			[cls.isAbsolute]: isAbsolute,
+		},
 	)}
 	>
 		<div className={cls.appLoaderSpinner} />
