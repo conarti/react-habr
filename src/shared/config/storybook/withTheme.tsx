@@ -1,6 +1,6 @@
 import { Story, StoryContext } from '@storybook/react';
 
-export const ThemeDecorator = (StoryComponent: Story, { globals, parameters }: StoryContext) => {
+export const withTheme = (StoryComponent: Story, { globals, parameters }: StoryContext) => {
 	const { theme } = globals;
 	const { hasPageLayout } = parameters;
 
