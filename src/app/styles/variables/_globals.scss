@@ -1,4 +1,5 @@
 :root {
+	/** font **/
 	--font-family-main: roboto, sans-serif;
 	--font-size-s: 14px;
 	--font-line-s: 20px;
@@ -9,9 +10,15 @@
 	--font-size-l: 24px;
 	--font-line-l: 32px;
 	--font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+	/** border-radius **/
 	--border-radius-base: 10px;
+
+	/** spacers **/
 	--spacer-sm: 10px;
 	--spacer-md: 20px;
 	--spacer-lg: 30px;
+
+	/** z-index **/
 	--z-index-loader-absolute: 100000;
 }
