@@ -38,6 +38,9 @@ test-ui:
 test-ui-ok:
 	npm run test:ui:ok
 
+test-ui-update:
+	npm run test:ui:report
+
 test-ui-report:
 	npm run test:ui:report
 
