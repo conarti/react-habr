@@ -14,7 +14,7 @@
 	gap: 16px;
 	align-items: center;
 	justify-content: center;
-	padding: 12px 16px;
+	padding: var(--app-button-padding-md);
 
 	color: var(--primary-color);
 	font: var(--font-s);
@@ -35,6 +35,14 @@
 
 	&--is-link {
 		text-decoration: none;
+	}
+
+	&-sm {
+		padding: var(--app-button-padding-sm);
+	}
+
+	&-lg {
+		padding: var(--app-button-padding-lg);
 	}
 
 	&-clear {

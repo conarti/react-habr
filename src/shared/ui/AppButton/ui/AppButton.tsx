@@ -8,12 +8,19 @@ export const enum ThemeButton {
 	PRIMARY = 'primary',
 }
 
+export const enum AppButtonSize {
+	SM = 'sm',
+	MD = 'md',
+	LG = 'lg',
+}
+
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 	theme?: ThemeButton;
 	isFill?: boolean;
 	to?: string;
 	icon?: ReactElement<any, any>;
+	size?: AppButtonSize;
 }
 
 export const AppButton: FC<AppButtonProps> = ({
@@ -22,6 +29,7 @@ export const AppButton: FC<AppButtonProps> = ({
 	theme,
 	to,
 	icon,
+	size = AppButtonSize.MD,
 	isFill = false,
 	...otherProps
 }) => {
@@ -51,7 +59,15 @@ export const AppButton: FC<AppButtonProps> = ({
 	return (
 		<button
 			className={
-				classNames(cls.appButton, { [cls.appButtonIsFill]: isFill }, className, cls[`app-button-${theme}`])
+				classNames(
+					cls.appButton,
+					{
+						[cls.appButtonIsFill]: isFill,
+					},
+					className,
+					cls[`app-button-${theme}`],
+					cls[`app-button-${size}`],
+				)
 			}
 			type="button"
 			{...otherProps}
