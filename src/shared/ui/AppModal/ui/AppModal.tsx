@@ -48,7 +48,7 @@ export const AppModal = (props: AppModalProps) => {
 	}, [isOpened, onKeyDown]);
 
 	return (
-		<AppPortal to=".app">
+		<AppPortal to="body">
 			<div
 				className={classNames(cls.appModal, className, { [cls.appModalIsOpened]: isOpened })}
 				onClick={onOverlayClick}
