@@ -32,12 +32,12 @@ export const AppButton: FC<AppButtonProps> = ({
 			<NavLink
 				className={({ isActive }) => classNames(
 					cls.appButton,
-					cls.isLink,
+					cls.appButtonIsLink,
 					className,
 					{
-						[cls.isFill]: isFill,
-						[cls.primary]: isActive,
-						[cls.clear]: !isActive,
+						[cls.appButtonIsFill]: isFill,
+						[cls.appButtonPrimary]: isActive,
+						[cls.appButtonClear]: !isActive,
 					},
 				)}
 				to={to}
@@ -51,7 +51,7 @@ export const AppButton: FC<AppButtonProps> = ({
 	return (
 		<button
 			className={
-				classNames(cls.appButton, { [cls.isFill]: isFill }, [className, cls[theme]])
+				classNames(cls.appButton, { [cls.appButtonIsFill]: isFill }, className, cls[`app-button-${theme}`])
 			}
 			type="button"
 			{...otherProps}

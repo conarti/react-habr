@@ -18,32 +18,32 @@
 	cursor: pointer;
 
 	transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
-}
 
-.is-fill {
-	width: 100%;
-}
-
-.is-link {
-	text-decoration: none;
-}
-
-.clear {
-	color: var(--on-bg-secondary);
-
-	background-color: transparent;
-
-	&:hover {
-		background-color: var(--on-bg-secondary-hover);
+	&--is-fill {
+		width: 100%;
 	}
-}
 
-.primary {
-	color: var(--primary-color);
+	&--is-link {
+		text-decoration: none;
+	}
 
-	background-color: var(--primary-color-hover);
+	&-clear {
+		color: var(--on-bg-secondary);
 
-	&:hover {
+		background-color: transparent;
+
+		&:hover {
+			background-color: var(--on-bg-secondary-hover);
+		}
+	}
+
+	&-primary {
+		color: var(--primary-color);
+
 		background-color: var(--primary-color-hover);
+
+		&:hover {
+			background-color: var(--primary-color-hover);
+		}
 	}
 }
