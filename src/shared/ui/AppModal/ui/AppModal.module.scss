@@ -1,0 +1,61 @@
+.app-modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--overlay-color);
+	opacity: 0;
+
+	transition: opacity 0.25s ease-in-out;
+
+	pointer-events: none;
+
+	&--is-opened {
+		opacity: 1;
+
+		pointer-events: auto;
+	}
+
+	&-content {
+		position: relative;
+
+		max-width: 500px;
+		margin: var(--spacer-md);
+		padding: var(--spacer-md);
+
+		background-color: var(--bg-light-color);
+		border-radius: var(--border-radius-base);
+		transform: translateY(30px);
+
+		transition: transform 0.25s ease-in-out;
+	}
+
+	&--is-opened &-content {
+		transform: translateY(0);
+	}
+
+	&-header {
+		display: flex;
+		align-items: center;
+		padding-bottom: var(--spacer-md);
+	}
+
+	&-close-btn {
+		margin-left: auto;
+	}
+
+	&-close-btn-icon {
+		// FIXME: remove sizes after svg loader fix
+		width: 24px;
+		height: 24px;
+
+		// FIXME: fix svg loader to add 'fill' attribute if it's not exist
+		fill: currentcolor;
+	}
+}

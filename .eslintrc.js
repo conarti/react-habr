@@ -18,16 +18,15 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: [
-		'react',
-		'@typescript-eslint',
-		'i18next',
-	],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 	rules: {
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
 		indent: [2, 'tab'],
-		'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+		'react/jsx-filename-extension': [
+			2,
+			{ extensions: ['.js', '.jsx', '.tsx'] },
+		],
 		'import/no-unresolved': 'off',
 		'import/prefer-default-export': 'off',
 		'no-unused-vars': 'off',
@@ -43,6 +42,10 @@ module.exports = {
 		'no-tabs': 'off',
 		'react/jsx-max-props-per-line': [2, { maximum: 1 }],
 		'max-len': 'off',
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error',
+		'jsx-a11y/click-events-have-key-events': 'off',
+		'jsx-a11y/no-static-element-interactions': 'off',
 	},
 	globals: {
 		__IS_DEV__: true,
