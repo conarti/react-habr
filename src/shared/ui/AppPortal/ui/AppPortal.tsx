@@ -11,6 +11,11 @@ export const AppPortal = (props: AppPortalProps) => {
 
 	if (typeof to === 'string') {
 		const element = document.querySelector(to);
+
+		if (element === null) {
+			throw new Error(`can't find portal target element with selector "${to}"`);
+		}
+
 		return createPortal(children, element);
 	}
 
