@@ -2,41 +2,4 @@
 
 @import "variables";
 @import "themes";
-
-.app {
-	display: flex;
-	min-height: 100vh;
-
-	color: var(--on-bg-secondary);
-	font: var(--font-m);
-
-	background-color: var(--bg-color);
-
-	&.is-story {
-		align-items: center;
-		justify-content: center;
-	}
-
-	&.is-page-story {
-		display: block;
-	}
-}
-
-.app-content {
-	flex-grow: 1;
-}
-
-.app-page {
-	padding: var(--spacer-md);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: var(--on-bg-primary);
-	font-weight: 500;
-	font-family: var(--font-family-main);
-}
+@import "general";
