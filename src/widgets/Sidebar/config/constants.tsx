@@ -1,5 +1,5 @@
+import InformationIcon from 'shared/assets/icons/circle-information.svg';
 import HouseIcon from 'shared/assets/icons/house-floor.svg';
-import QuestionIcon from 'shared/assets/icons/question.svg';
 
 export const links = [
 	{
@@ -10,6 +10,6 @@ export const links = [
 	{
 		to: '/about',
 		label: 'О сайте',
-		icon: <QuestionIcon />,
+		icon: <InformationIcon />,
 	},
 ];
