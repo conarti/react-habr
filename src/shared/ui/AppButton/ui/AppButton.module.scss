@@ -1,3 +1,13 @@
+@mixin button-theme($color, $bg-color, $bg-color-hover) {
+	color: $color;
+
+	background-color: $bg-color;
+
+	&:hover {
+		background-color: $bg-color-hover;
+	}
+}
+
 .app-button {
 	display: inline-grid;
 	grid-auto-flow: column;
@@ -28,22 +38,10 @@
 	}
 
 	&-clear {
-		color: var(--on-bg-secondary);
-
-		background-color: transparent;
-
-		&:hover {
-			background-color: var(--on-bg-secondary-hover);
-		}
+		@include button-theme(var(--on-bg-secondary), transparent, var(--on-bg-secondary-hover));
 	}
 
 	&-primary {
-		color: var(--primary-color);
-
-		background-color: var(--primary-color-hover);
-
-		&:hover {
-			background-color: var(--primary-color-hover);
-		}
+		@include button-theme(var(--primary-color), var(--primary-color-hover), var(--primary-color-hover));
 	}
 }
