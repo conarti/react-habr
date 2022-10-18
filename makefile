@@ -4,8 +4,14 @@ install:
 serve:
 	npm run serve
 
+serve-analyzer:
+	npm run serve:bundle-analyzer
+
 build-dev:
 	npm run build:dev
+
+build-dev-analyzer:
+	npm run build:dev:bundle-analyzer
 
 build-prod:
 	npm run build:prod

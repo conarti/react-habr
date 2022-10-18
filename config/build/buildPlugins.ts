@@ -5,7 +5,7 @@ import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions) => {
+export const buildPlugins = ({ paths, isDev, needBundleAnalyzer }: BuildOptions) => {
 	const plugins = [
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
@@ -22,9 +22,10 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions) => {
 
 	if (isDev) {
 		plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
-		plugins.push(new BundleAnalyzerPlugin({
-			openAnalyzer: false,
-		}));
+	}
+
+	if (needBundleAnalyzer) {
+		plugins.push(new BundleAnalyzerPlugin());
 	}
 
 	return plugins;
