@@ -1,0 +1,16 @@
+.counter {
+	display: inline-flex;
+	flex-direction: column;
+	margin-top: var(--spacer-md);
+	padding: var(--spacer-md);
+
+	background-color: var(--bg-light-color);
+	border-radius: var(--border-radius-base);
+	row-gap: var(--spacer-sm);
+
+	&-btn-group {
+		display: inline-flex;
+
+		column-gap: var(--spacer-sm);
+	}
+}
