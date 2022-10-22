@@ -26,9 +26,9 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const AppButton: FC<AppButtonProps> = ({
 	className,
 	children,
-	theme,
 	to,
 	icon,
+	theme = ThemeButton.PRIMARY,
 	size = AppButtonSize.MD,
 	isFill = false,
 	...otherProps
