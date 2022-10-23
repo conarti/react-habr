@@ -13,7 +13,7 @@
     "lint:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
     "lint:styles": "npx stylelint ./src/**/*.scss",
     "lint:styles:fix": "npx stylelint ./src/**/*.scss --fix",
-    "test:unit": "npx jest --config ./config/jest/jest.config.ts",
+    "test:unit": "npx jest --config ./config/jest/jest.config.ts --detectOpenHandles",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:update": "npx loki update",

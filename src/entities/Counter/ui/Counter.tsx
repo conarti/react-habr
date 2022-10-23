@@ -24,7 +24,7 @@ export const Counter = ({ className }: CounterProps) => {
 	};
 	return (
 		<div className={classNames(cls.counter, className)}>
-			<h2>
+			<h2 data-testid="value-title">
 				Counter value -&nbsp;
 				{value}
 			</h2>
@@ -32,12 +32,14 @@ export const Counter = ({ className }: CounterProps) => {
 				<AppButton
 					size={AppButtonSize.SM}
 					onClick={increment}
+					data-testid="increment-btn"
 				>
 					Increment
 				</AppButton>
 				<AppButton
 					size={AppButtonSize.SM}
 					onClick={decrement}
+					data-testid="decrement-btn"
 				>
 					Decrement
 				</AppButton>
