@@ -55,3 +55,6 @@ storybook:
 
 storybook-build:
 	npm run storybook:build
+
+fake-api:
+	npm run json-server
