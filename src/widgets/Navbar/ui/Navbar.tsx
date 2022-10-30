@@ -1,7 +1,8 @@
 import classNames from 'classnames';
+import { LoginModal } from 'features/user/auth-by-username';
 import { useTranslation } from 'react-i18next';
 import { AppButton, ThemeButton } from 'shared/ui/AppButton';
-import { AppModal, useModal } from 'shared/ui/AppModal';
+import { useModal } from 'shared/ui/AppModal';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -26,14 +27,10 @@ export const Navbar = ({ className }: NavbarProps) => {
 				</AppButton>
 			</div>
 
-			<AppModal
-				title="Авторизация"
+			<LoginModal
 				isOpened={isModalOpened}
 				onRequestClose={closeModal}
-			>
-				{/* eslint-disable i18next/no-literal-string */}
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequuntur corporis distinctio dolorem ea eaque minima porro quam sit ut?
-			</AppModal>
+			/>
 		</div>
 	);
 };

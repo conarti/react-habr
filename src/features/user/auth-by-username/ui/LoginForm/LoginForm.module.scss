@@ -1,0 +1,7 @@
+.login-form {
+	&-forms {
+		display: grid;
+		margin-bottom: var(--spacer-md);
+		row-gap: var(--spacer-sm);
+	}
+}
