@@ -1,0 +1,31 @@
+.app-input {
+	display: inline-grid;
+	row-gap: var(--spacer-sm);
+
+	&--is-fill {
+		width: 100%;
+	}
+
+	&-native {
+		padding: var(--app-input-padding-md);
+
+		font: var(--font-m);
+
+		background-color: transparent;
+		border: none;
+		border-radius: var(--border-radius-base);
+		outline: none;
+		box-shadow: 0 0 0 1px var(--on-bg-secondary-hover);
+
+		transition-duration: 0.3s;
+		transition-property: background-color, box-shadow;
+
+		&:hover {
+			box-shadow: 0 0 0 1px var(--on-bg-secondary-hover), 0 0 0 3px var(--primary-color-bg);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 2px transparent, 0 0 0 2px var(--primary-color);
+		}
+	}
+}
