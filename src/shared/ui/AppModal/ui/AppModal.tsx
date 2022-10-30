@@ -1,12 +1,15 @@
 import classNames from 'classnames';
-import React, { ReactNode, useCallback, useEffect } from 'react';
+import React, {
+	ReactNode, useCallback, useEffect, useRef,
+} from 'react';
+import { CSSTransition } from 'react-transition-group';
 import CloseIcon from 'shared/assets/icons/close.svg';
 import { AppButton, ThemeButton } from 'shared/ui/AppButton';
 import { AppButtonSize } from 'shared/ui/AppButton/ui/AppButton';
 import { AppPortal } from 'shared/ui/AppPortal';
 import cls from './AppModal.module.scss';
 
-interface AppModalProps {
+export interface AppModalProps {
 	className?: string;
 	title: string;
 	children?: ReactNode;
@@ -22,6 +25,8 @@ export const AppModal = (props: AppModalProps) => {
 		isOpened,
 		onRequestClose,
 	} = props;
+
+	const modalRef = useRef(null);
 
 	const onOverlayClick = () => {
 		onRequestClose();
@@ -49,29 +54,43 @@ export const AppModal = (props: AppModalProps) => {
 
 	return (
 		<AppPortal to="body">
-			<div
-				className={classNames(cls.appModal, className, { [cls.appModalIsOpened]: isOpened })}
-				onClick={onOverlayClick}
+			<CSSTransition
+				in={isOpened}
+				nodeRef={modalRef}
+				timeout={250}
+				classNames={{
+					enter: cls.appModalEnter,
+					enterActive: cls.appModalEnterActive,
+					exit: cls.appModalExit,
+					exitActive: cls.appModalExitActive,
+				}}
+				unmountOnExit
 			>
 				<div
-					className={classNames(cls.appModalContent)}
-					onClick={onContentClick}
+					className={classNames(cls.appModal, className)}
+					onClick={onOverlayClick}
+					ref={modalRef}
 				>
-					<div className={classNames(cls.appModalHeader)}>
-						<h2>{ title }</h2>
+					<div
+						className={classNames(cls.appModalContent)}
+						onClick={onContentClick}
+					>
+						<div className={classNames(cls.appModalHeader)}>
+							<h2>{ title }</h2>
 
-						<AppButton
-							className={classNames(cls.appModalCloseBtn)}
-							theme={ThemeButton.CLEAR}
-							size={AppButtonSize.SM}
-							onClick={onRequestClose}
-						>
-							<CloseIcon className={classNames(cls.appModalCloseBtnIcon)} />
-						</AppButton>
+							<AppButton
+								className={classNames(cls.appModalCloseBtn)}
+								theme={ThemeButton.CLEAR}
+								size={AppButtonSize.SM}
+								onClick={onRequestClose}
+							>
+								<CloseIcon className={classNames(cls.appModalCloseBtnIcon)} />
+							</AppButton>
+						</div>
+						{children}
 					</div>
-					{children}
 				</div>
-			</div>
+			</CSSTransition>
 		</AppPortal>
 	);
 };

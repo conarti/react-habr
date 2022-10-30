@@ -10,17 +10,6 @@
 	justify-content: center;
 
 	background-color: var(--overlay-color);
-	opacity: 0;
-
-	transition: opacity 0.25s ease-in-out;
-
-	pointer-events: none;
-
-	&--is-opened {
-		opacity: 1;
-
-		pointer-events: auto;
-	}
 
 	&-content {
 		position: relative;
@@ -32,13 +21,6 @@
 
 		background-color: var(--bg-light-color);
 		border-radius: var(--border-radius-base);
-		transform: translateY(30px);
-
-		transition: transform 0.25s ease-in-out;
-	}
-
-	&--is-opened &-content {
-		transform: translateY(0);
 	}
 
 	&-header {
@@ -58,5 +40,46 @@
 
 		// FIXME: fix svg loader to add 'fill' attribute if it's not exist
 		fill: currentcolor;
+	}
+
+	/* React Transition */
+	&-enter {
+		opacity: 0;
+	}
+
+	&-enter &-content {
+		transform: translateY(30px);
+	}
+
+	&-enter-active {
+		opacity: 1;
+
+		transition: opacity 0.25s ease-in-out;
+	}
+
+	&-enter-active &-content {
+		transform: translateY(0);
+
+		transition: transform 0.25s ease-in-out;
+	}
+
+	&-exit {
+		opacity: 1;
+	}
+
+	&-exit &-content {
+		transform: translateY(0);
+
+		transition: transform 0.25s ease-in-out;
+	}
+
+	&-exit-active {
+		opacity: 0;
+
+		transition: opacity 0.25s ease-in-out;
+	}
+
+	&-exit-active &-content {
+		transform: translateY(30px);
 	}
 }
