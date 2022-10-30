@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { AppModal, AppModalProps } from 'shared/ui/AppModal';
 import { LoginForm } from '../LoginForm/LoginForm';
-import cls from './LoginModal.module.scss';
 
 interface LoginModalProps extends Omit<AppModalProps, 'children' | 'title'> {
     className?: string;
@@ -12,7 +11,7 @@ export const LoginModal = (props: LoginModalProps) => {
 
 	return (
 		<AppModal
-			className={classNames(cls.loginModal, className)}
+			className={classNames(className)}
 			title="Авторизация"
 			isOpened={isOpened}
 			onRequestClose={onRequestClose}
