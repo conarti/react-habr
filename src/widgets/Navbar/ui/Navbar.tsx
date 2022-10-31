@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { LoginModal } from 'features/user/auth-by-username';
+import { LoginModal } from 'features/auth-by-username';
 import { useTranslation } from 'react-i18next';
 import { useModal } from 'shared/lib/hooks';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
