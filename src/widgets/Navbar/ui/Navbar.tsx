@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { LoginModal } from 'features/user/auth-by-username';
 import { useTranslation } from 'react-i18next';
 import { useModal } from 'shared/lib/hooks/useModal';
-import { AppButton, ThemeButton } from 'shared/ui/AppButton';
+import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -20,7 +20,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
 			<div className={classNames(cls.navbarToolbar)}>
 				<AppButton
-					theme={ThemeButton.PRIMARY}
+					theme={AppButtonTheme.PRIMARY}
 					onClick={openModal}
 				>
 					{t('Войти')}

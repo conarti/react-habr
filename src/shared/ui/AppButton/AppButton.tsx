@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import cls from './AppButton.module.scss';
 
-export const enum ThemeButton {
+export const enum AppButtonTheme {
 	CLEAR = 'clear',
 	PRIMARY = 'primary',
 }
@@ -16,7 +16,7 @@ export const enum AppButtonSize {
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
-	theme?: ThemeButton;
+	theme?: AppButtonTheme;
 	isFill?: boolean;
 	to?: string;
 	icon?: ReactElement<any, any>;
@@ -28,7 +28,7 @@ export const AppButton: FC<AppButtonProps> = ({
 	children,
 	to,
 	icon,
-	theme = ThemeButton.PRIMARY,
+	theme = AppButtonTheme.PRIMARY,
 	size = AppButtonSize.MD,
 	isFill = false,
 	...otherProps
