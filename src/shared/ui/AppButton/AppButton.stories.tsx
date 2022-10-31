@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
-import { AppButton, ThemeButton } from 'shared/ui/AppButton/index';
+import { AppButton, AppButtonSize, ThemeButton } from './AppButton';
 
 export default {
 	title: 'shared/Button',

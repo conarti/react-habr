@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
-import { AppButton, ThemeButton } from 'shared/ui/AppButton';
+import { AppButton, ThemeButton } from '../AppButton';
 
 interface ThemeSwitcherProps {
     className?: string;

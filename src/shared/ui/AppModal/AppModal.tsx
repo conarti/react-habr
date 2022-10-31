@@ -4,9 +4,8 @@ import React, {
 } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import CloseIcon from 'shared/assets/icons/close.svg';
-import { AppButton, ThemeButton } from 'shared/ui/AppButton';
-import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
-import { AppPortal } from 'shared/ui/AppPortal';
+import { AppButton, AppButtonSize, ThemeButton } from '../AppButton';
+import { AppPortal } from '../AppPortal';
 import cls from './AppModal.module.scss';
 
 export interface AppModalProps {

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { LangSwitcher } from 'shared/ui/LangSwitcher/index';
+import { LangSwitcher } from './LangSwitcher';
 
 export default {
 	title: 'shared/LangSwitcher',

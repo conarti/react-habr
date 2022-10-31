@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AppLoader } from 'shared/ui/AppLoader/index';
+import { AppLoader } from './AppLoader';
 
 export default {
 	title: 'shared/AppLoader',

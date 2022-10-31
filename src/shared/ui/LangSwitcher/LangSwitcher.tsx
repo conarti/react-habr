@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import LangIcon from 'shared/assets/icons/globe-alt.svg';
-import { AppButton, ThemeButton } from 'shared/ui/AppButton';
+import { AppButton, ThemeButton } from '../AppButton';
 
 interface LangSwitcherProps {
     className?: string;
