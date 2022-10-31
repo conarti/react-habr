@@ -1,1 +1,1 @@
-export { AppPortal } from './ui/AppPortal';
+export { AppPortal } from './AppPortal';

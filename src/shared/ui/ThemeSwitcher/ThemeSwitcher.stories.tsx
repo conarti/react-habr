@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/index';
 
 export default {
 	title: 'shared/ThemeSwitcher',

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AppLink } from 'shared/ui/AppLink/ui/AppLink';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 export default {
 	title: 'shared/AppLink',

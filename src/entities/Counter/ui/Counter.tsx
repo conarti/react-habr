@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppButton } from 'shared/ui/AppButton';
-import { AppButtonSize } from 'shared/ui/AppButton/ui/AppButton';
+import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
 import { counterActions } from '../model';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import cls from './Counter.module.scss';

@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { LoginModal } from 'features/user/auth-by-username';
 import { useTranslation } from 'react-i18next';
+import { useModal } from 'shared/lib/hooks/useModal';
 import { AppButton, ThemeButton } from 'shared/ui/AppButton';
-import { useModal } from 'shared/ui/AppModal';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
