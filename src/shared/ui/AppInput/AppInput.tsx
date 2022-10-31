@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { ChangeEvent, InputHTMLAttributes } from 'react';
 import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
 import cls from './AppInput.module.scss';
+import './AppInput.variables.scss';
 
 interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput'>{
     className?: string;

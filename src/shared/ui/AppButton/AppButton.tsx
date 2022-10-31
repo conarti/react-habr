@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
+import './AppButon.variables.scss';
 import cls from './AppButton.module.scss';
 
 export const enum AppButtonTheme {

@@ -6,6 +6,7 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { links } from '../config';
 import cls from './Sidebar.module.scss';
+import './Sidebar.variables.scss';
 
 interface SidebarProps {
     className?: string;
