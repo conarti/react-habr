@@ -4,8 +4,8 @@ import { NotFound } from 'pages/NotFound';
 import { RouteObject } from 'react-router-dom';
 
 export const enum AppRoutes {
-    MAIN = '',
-    ABOUT = 'about',
+	MAIN = '',
+	ABOUT = 'about',
 	NOT_FOUND = '*'
 }
 

@@ -1,7 +1,7 @@
+import { routes } from 'pages';
 import { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { AppLoader } from 'shared/ui/AppLoader';
-import { routes } from '../config/routes';
 
 const AppRouter = () => {
 	const routesElement = useRoutes(routes);
