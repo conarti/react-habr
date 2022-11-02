@@ -50,10 +50,10 @@ test-ui-update:
 test-ui-report:
 	npm run test:ui:report
 
-storybook:
+stories:
 	npm run storybook
 
-storybook-build:
+stories-build:
 	npm run storybook:build
 
 fake-api:
