@@ -38,6 +38,9 @@ test-unit:
 test-unit-watch:
 	npm run test:unit -- --watch
 
+test-unit-coverage:
+	npm run test:unit -- --coverage
+
 test-ui:
 	npm run test:ui
 
