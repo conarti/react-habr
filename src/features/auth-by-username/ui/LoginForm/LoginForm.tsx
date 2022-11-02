@@ -1,8 +1,13 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppButton } from 'shared/ui/AppButton';
 import { AppInput } from 'shared/ui/AppInput';
+import { AppText } from 'shared/ui/AppText';
+import { getLoginState } from '../../model/selectors';
+import { loginByUserName } from '../../model/services/loginByUserName';
+import { loginActions } from '../../model/store';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -11,7 +16,23 @@ interface LoginFormProps {
 
 export const LoginForm = ({ className }: LoginFormProps) => {
 	const { t } = useTranslation();
-	const [formState, setFormState] = useState({ login: '', password: '' });
+	const dispatch = useDispatch();
+
+	const {
+		password, username, isLoading, error,
+	} = useSelector(getLoginState);
+
+	const onInputUsername = useCallback((value) => {
+		dispatch(loginActions.setUsername(value));
+	}, [dispatch]);
+
+	const onInputPassword = useCallback((value) => {
+		dispatch(loginActions.setPassword(value));
+	}, [dispatch]);
+
+	const login = useCallback(() => {
+		dispatch(loginByUserName({ username, password }));
+	}, [dispatch, password, username]);
 
 	return (
 		<div className={classNames(cls.loginForm, className)}>
@@ -19,19 +40,23 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 				<AppInput
 					label="Логин"
 					isFill
-					value={formState.login}
+					value={username}
 					autoFocus
-					onInput={(value) => setFormState({ ...formState, login: value })}
+					onInput={onInputUsername}
 				/>
 				<AppInput
 					label="Пароль"
 					type="password"
 					isFill
-					value={formState.password}
-					onInput={(value) => setFormState({ ...formState, password: value })}
+					value={password}
+					onInput={onInputPassword}
 				/>
+				{error && <AppText message={error} />}
 			</div>
-			<AppButton>
+			<AppButton
+				onClick={login}
+				disabled={isLoading}
+			>
 				{t('Войти')}
 			</AppButton>
 		</div>

@@ -1,8 +1,8 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import React, { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { StateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';
+import { StateSchema } from '../config/types';
 
 interface StoreProviderProps {
 	children?: ReactNode;
