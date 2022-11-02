@@ -69,10 +69,12 @@ export const AppModal = (props: AppModalProps) => {
 					className={classNames(cls.appModal, className)}
 					onClick={onOverlayClick}
 					ref={modalRef}
+					data-testid="app-modal"
 				>
 					<div
 						className={classNames(cls.appModalContent)}
 						onClick={onContentClick}
+						data-testid="app-modal-content"
 					>
 						<div className={classNames(cls.appModalHeader)}>
 							<h2>{ title }</h2>
@@ -82,6 +84,7 @@ export const AppModal = (props: AppModalProps) => {
 								theme={AppButtonTheme.CLEAR}
 								size={AppButtonSize.SM}
 								onClick={onRequestClose}
+								data-testid="app-modal-close"
 							>
 								<CloseIcon className={classNames(cls.appModalCloseBtnIcon)} />
 							</AppButton>
