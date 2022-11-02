@@ -3,10 +3,10 @@ import { UserSchema } from '../config';
 
 const initialState: UserSchema = {};
 
-export const counterSlice = createSlice({
+export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {},
 });
 
-export const { actions: userActions, reducer: userReducer } = counterSlice;
+export const { actions: userActions, reducer: userReducer } = userSlice;
