@@ -1,5 +1,5 @@
 import path from 'path';
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { buildSassLoader } from '../build/loaders/buildSassLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
@@ -22,5 +22,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
 		return rule;
 	});
 	config.module.rules.push(buildSassLoader(true), buildSvgLoader());
+	config.plugins.push(new DefinePlugin({
+		__IS_DEV__: true,
+	}));
 	return config;
 };
