@@ -22,7 +22,10 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	to?: string;
 	icon?: ReactElement<any, any>;
 	size?: AppButtonSize;
+	disabled?: boolean;
 }
+
+// TODO: disabled style + stories
 
 export const AppButton: FC<AppButtonProps> = ({
 	className,
@@ -32,6 +35,7 @@ export const AppButton: FC<AppButtonProps> = ({
 	theme = AppButtonTheme.PRIMARY,
 	size = AppButtonSize.MD,
 	isFill = false,
+	disabled = false,
 	...otherProps
 }) => {
 	const isLink = typeof to === 'string';
@@ -71,6 +75,7 @@ export const AppButton: FC<AppButtonProps> = ({
 				)
 			}
 			type="button"
+			disabled={disabled}
 			{...otherProps}
 		>
 			{icon}
