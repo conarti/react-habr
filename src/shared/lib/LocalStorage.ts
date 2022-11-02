@@ -3,7 +3,7 @@ export class LocalStorage {
 		localStorage.setItem(key, JSON.stringify(value));
 	}
 
-	public static get(key: string, defaultValue?: any) {
+	public static get(key: string, defaultValue: any = null) {
 		return JSON.parse(localStorage.getItem(key)) ?? defaultValue;
 	}
 
