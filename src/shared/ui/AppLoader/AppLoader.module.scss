@@ -40,11 +40,11 @@
 		border-top: 4px var(--on-bg-secondary) solid;
 		border-radius: 50%;
 
-		animation: spin2 1s infinite ease-in-out;
+		animation: spin 1s infinite ease-in-out;
 	}
 }
 
-@keyframes spin2 {
+@keyframes spin {
 	from {
 		transform: rotate(0deg);
 	}
@@ -53,7 +53,7 @@
 		transform: rotate(359deg);
 	}
 }
-@keyframes spin2 {
+@keyframes spin {
 	from {
 		transform: rotate(0deg);
 	}
