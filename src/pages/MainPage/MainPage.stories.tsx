@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { withStore } from 'shared/lib/storybook/withStore';
 import MainPage from './MainPage';
 
 export default {
@@ -7,6 +8,7 @@ export default {
 	parameters: {
 		hasPageLayout: true,
 	},
+	decorators: [withStore({})],
 } as ComponentMeta<typeof MainPage>;
 
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;

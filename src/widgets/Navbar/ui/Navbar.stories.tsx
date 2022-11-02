@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { withStore } from 'shared/lib/storybook/withStore';
 import { Navbar } from 'widgets/Navbar';
 
 export default {
 	title: 'widgets/Navbar',
 	component: Navbar,
+	decorators: [withStore({})],
 	parameters: {
 		hasPageLayout: true,
 	},
