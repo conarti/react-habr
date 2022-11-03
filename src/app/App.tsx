@@ -4,7 +4,7 @@ import { userModel } from 'entities/user';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { TheHeader } from 'widgets/TheHeader';
-import { Sidebar } from 'widgets/Sidebar';
+import { TheSidebar } from 'widgets/TheSidebar';
 
 export function App() {
 	const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export function App() {
 	return (
 		<div className={classNames('app')}>
 			<Suspense fallback="">
-				<Sidebar />
+				<TheSidebar />
 				<div className="app-content">
 					<TheHeader />
 					<AppRouter />

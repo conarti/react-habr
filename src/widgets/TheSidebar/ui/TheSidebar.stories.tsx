@@ -1,15 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Sidebar } from 'widgets/Sidebar';
+import { TheSidebar } from 'widgets/TheSidebar';
 
 export default {
 	title: 'widgets/Sidebar',
-	component: Sidebar,
+	component: TheSidebar,
 	parameters: {
 		hasPageLayout: true,
 	},
-} as ComponentMeta<typeof Sidebar>;
+} as ComponentMeta<typeof TheSidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof TheSidebar> = (args) => <TheSidebar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

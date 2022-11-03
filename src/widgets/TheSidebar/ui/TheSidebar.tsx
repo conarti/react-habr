@@ -5,14 +5,14 @@ import { AppButton } from 'shared/ui/AppButton';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { links } from '../config';
-import cls from './Sidebar.module.scss';
-import './Sidebar.variables.scss';
+import cls from './TheSidebar.module.scss';
+import './TheSidebar.variables.scss';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = memo(({ className }: SidebarProps) => {
+export const TheSidebar = memo(({ className }: SidebarProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { t } = useTranslation();
 
@@ -26,10 +26,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
 	return (
 		<>
-			<div className={cls.sidebarPlaceholder} />
+			<div className={cls.theSidebarPlaceholder} />
 			<div
 				className={classNames(
-					cls.sidebar,
+					cls.theSidebar,
 					className,
 					{ [cls.expanded]: expanded },
 				)}
@@ -39,11 +39,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 				onFocus={expandedOn}
 				data-testid="sidebar"
 			>
-				<div className={cls.sidebarBtnGroup}>
+				<div className={cls.theSidebarBtnGroup}>
 					{
 						links.map(({ to, label, icon }) => (
 							<AppButton
-								className={cls.sidebarBtn}
+								className={cls.theSidebarBtn}
 								to={to}
 								icon={icon}
 								key={to}
@@ -53,9 +53,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 						))
 					}
 				</div>
-				<div className={classNames(cls.sidebarBtnGroup, cls.sidebarBtnGroupIsBottom)}>
-					<ThemeSwitcher className={cls.sidebarBtn} />
-					<LangSwitcher className={cls.sidebarBtn} />
+				<div className={classNames(cls.theSidebarBtnGroup, cls.theSidebarBtnGroupIsBottom)}>
+					<ThemeSwitcher className={cls.theSidebarBtn} />
+					<LangSwitcher className={cls.theSidebarBtn} />
 				</div>
 			</div>
 		</>
