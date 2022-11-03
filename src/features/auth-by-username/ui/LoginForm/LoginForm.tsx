@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { useAsyncReducer } from 'shared/lib/hooks';
+import { useSelector } from 'react-redux';
+import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppButton } from 'shared/ui/AppButton';
 import { AppInput } from 'shared/ui/AppInput';
 import { AppText } from 'shared/ui/AppText';
@@ -13,11 +13,12 @@ import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
+		onSuccess: () => void;
 }
 
-const LoginForm = ({ className }: LoginFormProps) => {
+const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
 	const { t } = useTranslation();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	useAsyncReducer({ loginForm: loginReducer }, { removeAfterUnmount: true });
 
@@ -33,9 +34,12 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		dispatch(loginActions.setPassword(value));
 	}, [dispatch]);
 
-	const login = useCallback(() => {
-		dispatch(loginByUserName({ username, password }));
-	}, [dispatch, password, username]);
+	const login = useCallback(async () => {
+		const result = await dispatch(loginByUserName({ username, password }));
+		if (result.meta.requestStatus === 'fulfilled') {
+			onSuccess();
+		}
+	}, [dispatch, onSuccess, password, username]);
 
 	return (
 		<div className={classNames(cls.loginForm, className)}>
