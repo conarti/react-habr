@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
+import {
+	ButtonHTMLAttributes, FC, memo, ReactElement,
+} from 'react';
 import { NavLink } from 'react-router-dom';
 import './AppButon.variables.scss';
 import cls from './AppButton.module.scss';
@@ -27,7 +29,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 // TODO: disabled style + stories
 
-export const AppButton: FC<AppButtonProps> = ({
+export const AppButton = memo(({
 	className,
 	children,
 	to,
@@ -37,7 +39,7 @@ export const AppButton: FC<AppButtonProps> = ({
 	isFill = false,
 	disabled = false,
 	...otherProps
-}) => {
+}: AppButtonProps) => {
 	const isLink = typeof to === 'string';
 
 	if (isLink) {
@@ -82,4 +84,4 @@ export const AppButton: FC<AppButtonProps> = ({
 			{children}
 		</button>
 	);
-};
+});
