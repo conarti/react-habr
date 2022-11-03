@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from 'shared/lib/hooks';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
-import cls from './Navbar.module.scss';
+import cls from './TheHeader.module.scss';
 
 interface NavbarProps {
 	className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const TheHeader = ({ className }: NavbarProps) => {
 	const { t } = useTranslation();
 
 	const { isModalOpened, openModal, closeModal } = useModal();
@@ -24,10 +24,10 @@ export const Navbar = ({ className }: NavbarProps) => {
 	}, [dispatch]);
 
 	return (
-		<div className={classNames(cls.navbar, className)}>
-			<h1 className={classNames(cls.navbarTitle)}>{t('React course')}</h1>
+		<div className={classNames(cls.theHeader, className)}>
+			<h1 className={classNames(cls.theHeaderTitle)}>{t('React course')}</h1>
 
-			<div className={classNames(cls.navbarToolbar)}>
+			<div className={classNames(cls.theHeaderToolbar)}>
 				{
 					authData ? (
 						<>

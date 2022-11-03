@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { userModel } from 'entities/user';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navbar } from 'widgets/Navbar';
+import { TheHeader } from 'widgets/TheHeader';
 import { Sidebar } from 'widgets/Sidebar';
 
 export function App() {
@@ -18,7 +18,7 @@ export function App() {
 			<Suspense fallback="">
 				<Sidebar />
 				<div className="app-content">
-					<Navbar />
+					<TheHeader />
 					<AppRouter />
 				</div>
 			</Suspense>
