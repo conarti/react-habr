@@ -77,7 +77,7 @@ export const AppModal = (props: AppModalProps) => {
 						data-testid="app-modal-content"
 					>
 						<div className={classNames(cls.appModalHeader)}>
-							<h2>{ title }</h2>
+							<h2>{title}</h2>
 
 							<AppButton
 								className={classNames(cls.appModalCloseBtn)}
