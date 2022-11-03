@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { userModel } from 'entities/user';
+import { ProfileMenu, userModel } from 'entities/user';
 import { LoginModal } from 'features/auth-by-username';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,12 +30,15 @@ export const Navbar = ({ className }: NavbarProps) => {
 			<div className={classNames(cls.navbarToolbar)}>
 				{
 					authData ? (
-						<AppButton
-							theme={AppButtonTheme.PRIMARY}
-							onClick={logout}
-						>
-							{t('Выйти')}
-						</AppButton>
+						<>
+							<ProfileMenu />
+							<AppButton
+								theme={AppButtonTheme.PRIMARY}
+								onClick={logout}
+							>
+								{t('Выйти')}
+							</AppButton>
+						</>
 					) : (
 						<AppButton
 							theme={AppButtonTheme.PRIMARY}
