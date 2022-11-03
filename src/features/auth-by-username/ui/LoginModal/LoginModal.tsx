@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Suspense } from 'react';
+import { AppLoader } from 'shared/ui/AppLoader';
 import { AppModal, AppModalProps } from 'shared/ui/AppModal';
 import { LoginFormAsync } from '../LoginForm';
 
@@ -17,7 +18,7 @@ export const LoginModal = (props: LoginModalProps) => {
 			isOpened={isOpened}
 			onRequestClose={onRequestClose}
 		>
-			<Suspense fallback="">
+			<Suspense fallback={<AppLoader isFill />}>
 				<LoginFormAsync />
 			</Suspense>
 		</AppModal>
