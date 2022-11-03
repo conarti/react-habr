@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from 'shared/ui/AppButton';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
@@ -12,7 +12,7 @@ interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { t } = useTranslation();
 
@@ -60,4 +60,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			</div>
 		</>
 	);
-};
+});
