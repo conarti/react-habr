@@ -51,6 +51,7 @@ export const AppModal = (props: AppModalProps) => {
 		};
 	}, [isOpened, onKeyDown]);
 
+	// FIXME: component is not unmount fully, saving the state
 	return (
 		<AppPortal to="body">
 			<CSSTransition
