@@ -12,6 +12,11 @@
 	}
 
 	&-toolbar {
+		display: inline-grid;
+		grid-auto-flow: column;
+		align-items: center;
 		margin-left: auto;
+
+		column-gap: var(--spacer-sm);
 	}
 }
