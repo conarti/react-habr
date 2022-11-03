@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ChangeEvent, InputHTMLAttributes } from 'react';
+import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
 import cls from './AppInput.module.scss';
 import './AppInput.variables.scss';
@@ -12,7 +12,7 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'val
 		onInput: (value: string) => void;
 }
 
-export const AppInput = (props: AppInputProps) => {
+export const AppInput = memo((props: AppInputProps) => {
 	const {
 		className,
 		label,
@@ -45,4 +45,4 @@ export const AppInput = (props: AppInputProps) => {
 			/>
 		</div>
 	);
-};
+});
