@@ -1,5 +1,6 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import classNames from 'classnames';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
@@ -9,7 +10,7 @@ interface ThemeSwitcherProps {
     className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 	const { theme, toggleTheme } = useTheme();
 	const { t } = useTranslation();
 
@@ -23,4 +24,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 			{theme === Theme.LIGHT ? t('Светлая') : t('Темная')}
 		</AppButton>
 	);
-};
+});
