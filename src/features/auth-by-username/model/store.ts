@@ -36,5 +36,4 @@ export const store = createSlice({
 	},
 });
 
-// FIXME: remove renames
 export const { actions: loginActions, reducer: loginReducer } = store;
