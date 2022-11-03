@@ -1,7 +1,5 @@
 import classNames from 'classnames';
-import {
-	ButtonHTMLAttributes, FC, memo, ReactElement,
-} from 'react';
+import { ButtonHTMLAttributes, memo, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import './AppButon.variables.scss';
 import cls from './AppButton.module.scss';
