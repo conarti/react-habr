@@ -14,7 +14,7 @@ interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+const LoginForm = ({ className }: LoginFormProps) => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 
@@ -62,3 +62,5 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 		</div>
 	);
 };
+
+export default LoginForm;
