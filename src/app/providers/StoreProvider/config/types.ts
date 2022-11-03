@@ -1,6 +1,7 @@
 import {
 	AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { createReduxStore } from 'app/providers/StoreProvider';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/user/config';
 import { LoginSchema } from 'features/auth-by-username';
@@ -24,3 +25,5 @@ export interface ReducerManager {
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 	reducerManager: ReducerManager;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
