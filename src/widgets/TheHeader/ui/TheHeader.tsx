@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ProfileMenu, userModel } from 'entities/user';
 import { LoginModal } from 'features/auth-by-username';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from 'shared/lib/hooks';
@@ -12,7 +12,7 @@ interface NavbarProps {
 	className?: string;
 }
 
-export const TheHeader = ({ className }: NavbarProps) => {
+export const TheHeader = memo(({ className }: NavbarProps) => {
 	const { t } = useTranslation();
 
 	const { isModalOpened, openModal, closeModal } = useModal();
@@ -56,4 +56,4 @@ export const TheHeader = ({ className }: NavbarProps) => {
 			/>
 		</div>
 	);
-};
+});
