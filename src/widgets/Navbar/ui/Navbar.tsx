@@ -47,12 +47,10 @@ export const Navbar = ({ className }: NavbarProps) => {
 				}
 			</div>
 
-			{!authData && (
-				<LoginModal
-					isOpened={isModalOpened}
-					onRequestClose={closeModal}
-				/>
-			)}
+			<LoginModal
+				isOpened={isModalOpened}
+				onRequestClose={closeModal}
+			/>
 		</div>
 	);
 };
