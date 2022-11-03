@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { memo } from 'react';
 import cls from './AppLoader.module.scss';
 
 interface AppLoaderProps {
@@ -7,7 +8,7 @@ interface AppLoaderProps {
 	isAbsolute?: boolean;
 }
 
-export const AppLoader = ({ className, isFill = false, isAbsolute = false }: AppLoaderProps) => (
+export const AppLoader = memo(({ className, isFill = false, isAbsolute = false }: AppLoaderProps) => (
 	<div className={classNames(
 		cls.appLoader,
 		className,
@@ -19,4 +20,4 @@ export const AppLoader = ({ className, isFill = false, isAbsolute = false }: App
 	>
 		<div className={cls.appLoaderSpinner} />
 	</div>
-);
+));
