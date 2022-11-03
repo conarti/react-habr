@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
@@ -16,7 +16,7 @@ interface LoginFormProps {
 		onSuccess: () => void;
 }
 
-const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
 
@@ -68,6 +68,6 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
 			</AppButton>
 		</div>
 	);
-};
+});
 
 export default LoginForm;
