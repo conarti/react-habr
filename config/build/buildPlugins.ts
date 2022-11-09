@@ -5,7 +5,14 @@ import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = ({ paths, isDev, needBundleAnalyzer }: BuildOptions) => {
+export const buildPlugins = (options: BuildOptions) => {
+	const {
+		paths,
+		isDev,
+		needBundleAnalyzer,
+		apiUrl,
+	} = options;
+
 	const plugins = [
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
@@ -17,6 +24,7 @@ export const buildPlugins = ({ paths, isDev, needBundleAnalyzer }: BuildOptions)
 		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
+			__API_URL__: JSON.stringify(apiUrl),
 		}),
 	];
 
