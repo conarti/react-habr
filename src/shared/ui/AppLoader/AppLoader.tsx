@@ -1,23 +1,47 @@
 import classNames from 'classnames';
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import cls from './AppLoader.module.scss';
 
 interface AppLoaderProps {
   className?: string;
 	isFill?: boolean;
 	isAbsolute?: boolean;
+	delay?: number;
 }
 
-export const AppLoader = memo(({ className, isFill = false, isAbsolute = false }: AppLoaderProps) => (
-	<div className={classNames(
-		cls.appLoader,
+export const AppLoader = memo((props: AppLoaderProps) => {
+	const {
 		className,
-		{
-			[cls.isFill]: isFill,
-			[cls.isAbsolute]: isAbsolute,
-		},
-	)}
-	>
-		<div className={cls.appLoaderSpinner} />
-	</div>
-));
+		isFill = false,
+		isAbsolute = false,
+		delay = 0,
+	} = props;
+
+	const [isDelayEnded, setIsDelayEnded] = useState(false);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setIsDelayEnded(true);
+		}, delay);
+
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, [delay]);
+
+	return (
+		isDelayEnded && (
+			<div className={classNames(
+				cls.appLoader,
+				className,
+				{
+					[cls.isFill]: isFill,
+					[cls.isAbsolute]: isAbsolute,
+				},
+			)}
+			>
+				<div className={cls.appLoaderSpinner} />
+			</div>
+		)
+	);
+});
