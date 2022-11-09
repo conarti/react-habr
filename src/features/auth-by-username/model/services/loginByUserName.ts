@@ -11,19 +11,21 @@ interface LoginByUserName {
 export const loginByUserName = createAsyncThunk<User, LoginByUserName, ThunkConfig<string>>(
 	'login/loginByUserName',
 	async (authData, thunkAPI) => {
+		const { rejectWithValue, dispatch, extra } = thunkAPI;
+
 		try {
-			const { data } = await thunkAPI.extra.api.post<User>('/login', authData);
+			const { data } = await extra.api.post<User>('/login', authData);
 
 			// FIXME: is it needed?
 			if (!data) {
 				throw new Error('User not found');
 			}
 
-			thunkAPI.dispatch(userModel.userActions.setAuthData(data));
+			dispatch(userModel.userActions.setAuthData(data));
 
 			return data;
 		} catch (e) {
-			return thunkAPI.rejectWithValue(e.response.data.message);
+			return rejectWithValue(e.response.data.message);
 		}
 	},
 );
