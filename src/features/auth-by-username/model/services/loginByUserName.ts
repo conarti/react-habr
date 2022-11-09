@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { userModel } from 'entities/user';
 import { User } from 'entities/user/config';
 
@@ -8,11 +8,11 @@ interface LoginByUserName {
 	password: string,
 }
 
-export const loginByUserName = createAsyncThunk<User, LoginByUserName, { rejectValue: string }>(
+export const loginByUserName = createAsyncThunk<User, LoginByUserName, ThunkConfig<string>>(
 	'login/loginByUserName',
 	async (authData, thunkAPI) => {
 		try {
-			const { data } = await axios.post<User>('http://localhost:3000/login', authData);
+			const { data } = await thunkAPI.extra.api.post<User>('/login', authData);
 
 			// FIXME: is it needed?
 			if (!data) {

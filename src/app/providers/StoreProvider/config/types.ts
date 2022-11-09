@@ -2,6 +2,7 @@ import {
 	AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { createReduxStore } from 'app/providers/StoreProvider';
+import { AxiosInstance } from 'axios';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/user/config';
 import { LoginSchema } from 'features/auth-by-username';
@@ -27,3 +28,12 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+
+export interface ThunkExtraArguments {
+	api: AxiosInstance;
+}
+
+export interface ThunkConfig<T> {
+	rejectValue: T;
+	extra: ThunkExtraArguments;
+}
