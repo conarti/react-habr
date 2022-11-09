@@ -8,7 +8,13 @@ const AppRouter = () => {
 
 	return (
 		<div className="app-page">
-			<Suspense fallback={<AppLoader isAbsolute />}>
+			<Suspense fallback={(
+				<AppLoader
+					isAbsolute
+					delay={400}
+				/>
+			)}
+			>
 				{routesElement}
 			</Suspense>
 		</div>
