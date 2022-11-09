@@ -14,12 +14,17 @@ export const AppLoader = memo((props: AppLoaderProps) => {
 		className,
 		isFill = false,
 		isAbsolute = false,
-		delay = 0,
+		delay = null,
 	} = props;
 
 	const [isDelayEnded, setIsDelayEnded] = useState(false);
 
 	useEffect(() => {
+		if (delay === null) {
+			setIsDelayEnded(true);
+			return () => {};
+		}
+
 		const timeout = setTimeout(() => {
 			setIsDelayEnded(true);
 		}, delay);
