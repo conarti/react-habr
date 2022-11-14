@@ -3,6 +3,20 @@ export interface User {
 	username: string;
 }
 
+export interface UserProfile {
+	firstname: string;
+	lastname: string;
+	age: number;
+	currency: string;
+	country: string;
+	city: string;
+	username: string;
+	avatar: string;
+}
+
 export interface UserSchema {
+	isLoading: boolean;
+	error?: string;
 	authData?: User;
+	profile?: UserProfile;
 }

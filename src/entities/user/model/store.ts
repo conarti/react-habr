@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LocalStorage } from 'shared/lib/LocalStorage/LocalStorage';
-import { User, USER_LOCAL_STORAGE_KEY, UserSchema } from '../config';
+import { fetchProfile } from './services';
+import {
+	User, USER_LOCAL_STORAGE_KEY, UserProfile, UserSchema,
+} from '../config';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+	isLoading: false,
+};
 
 export const userSlice = createSlice({
 	name: 'user',
@@ -19,6 +24,22 @@ export const userSlice = createSlice({
 			state.authData = undefined;
 			LocalStorage.remove(USER_LOCAL_STORAGE_KEY);
 		},
+	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(fetchProfile.pending, (state) => {
+				state.isLoading = true;
+				state.error = '';
+			})
+			.addCase(fetchProfile.fulfilled, (state, action: PayloadAction<UserProfile>) => {
+				state.isLoading = false;
+				state.error = '';
+				state.profile = action.payload;
+			})
+			.addCase(fetchProfile.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload;
+			});
 	},
 });
 
