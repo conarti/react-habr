@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import axios from 'axios';
 import { userModel } from 'entities/user';
 import { User } from 'entities/user/config';
 
@@ -16,16 +17,15 @@ export const loginByUserName = createAsyncThunk<User, LoginByUserName, ThunkConf
 		try {
 			const { data } = await extra.api.post<User>('/login', authData);
 
-			// FIXME: is it needed?
-			if (!data) {
-				throw new Error('User not found');
-			}
-
 			dispatch(userModel.userActions.setAuthData(data));
 
 			return data;
-		} catch (e) {
-			return rejectWithValue(e.response.data.message);
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				return rejectWithValue(error.response?.data.message);
+			}
+			console.error(error);
+			return rejectWithValue('loginByUsername error');
 		}
 	},
 );
