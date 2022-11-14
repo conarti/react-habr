@@ -12,4 +12,3 @@ export default {
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 export const Default = Template.bind({});
-Default.args = {};
