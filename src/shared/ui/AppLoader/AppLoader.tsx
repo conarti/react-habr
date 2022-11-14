@@ -35,7 +35,7 @@ export const AppLoader = memo((props: AppLoaderProps) => {
 	}, [delay]);
 
 	return (
-		isDelayEnded && (
+		isDelayEnded ? (
 			<div className={classNames(
 				cls.appLoader,
 				className,
@@ -47,6 +47,6 @@ export const AppLoader = memo((props: AppLoaderProps) => {
 			>
 				<div className={cls.appLoaderSpinner} />
 			</div>
-		)
+		) : null
 	);
 });
