@@ -1,3 +1,4 @@
+import Dotenv from 'dotenv-webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -26,6 +27,7 @@ export const buildPlugins = (options: BuildOptions) => {
 			__IS_DEV__: JSON.stringify(isDev),
 			__API_URL__: JSON.stringify(apiUrl),
 		}),
+		new Dotenv(),
 	];
 
 	if (isDev) {
