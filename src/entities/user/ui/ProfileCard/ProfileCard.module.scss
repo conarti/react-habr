@@ -1,0 +1,21 @@
+.profile-card {
+	display: inline-flex;
+	flex-direction: column;
+
+	&-header {
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: var(--spacer-lg);
+	}
+
+	&-title {
+		margin-right: var(--spacer-md);
+	}
+
+	&-body {
+		display: inline-grid;
+		grid-auto-flow: row;
+		row-gap: var(--spacer-md);
+	}
+}
