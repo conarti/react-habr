@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import axios from 'axios';
 import { UserProfile } from '../config';
 
 export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<string>>(
@@ -10,8 +11,12 @@ export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<stri
 		try {
 			const { data } = await extra.api.get<UserProfile>('/profile');
 			return data;
-		} catch (e) {
-			return rejectWithValue(e.response.data.message);
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				return rejectWithValue(error.response?.data.message);
+			}
+			console.error(error);
+			return rejectWithValue('fetchProfile error');
 		}
 	},
 );
