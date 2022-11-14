@@ -13,12 +13,10 @@ export interface BuildOptions {
     isDev: boolean;
     port: number;
     needBundleAnalyzer: boolean;
-    apiUrl: string;
 }
 
 export interface BuildEnv {
     mode: BuildMode;
     port: number;
     needBundleAnalyzer: boolean;
-    apiUrl: string;
 }
