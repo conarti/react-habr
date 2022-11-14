@@ -3,7 +3,7 @@ import { userConfig } from 'entities/user';
 import { LocalStorage } from 'shared/lib/LocalStorage/LocalStorage';
 
 export const $api = axios.create({
-	baseURL: __API_URL__,
+	baseURL: process.env.API_URL,
 	headers: {
 		authorization: LocalStorage.get(userConfig.USER_LOCAL_STORAGE_KEY),
 	},
