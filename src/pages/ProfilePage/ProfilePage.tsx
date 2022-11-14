@@ -1,14 +1,12 @@
+import classNames from 'classnames';
+import { ProfileCard } from 'entities/user';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import styles from './ProfilePage.module.scss';
 
-const ProfilePage = () => {
-	const { t } = useTranslation('profile');
-
-	return (
-		<div>
-			<h1>{t('Профиль')}</h1>
-		</div>
-	);
-};
+const ProfilePage = () => (
+	<div className={classNames(styles.profilePage)}>
+		<ProfileCard />
+	</div>
+);
 
 export default ProfilePage;
