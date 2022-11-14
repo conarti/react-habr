@@ -4,7 +4,8 @@ export class LocalStorage {
 	}
 
 	public static get(key: string, defaultValue: any = null) {
-		return JSON.parse(localStorage.getItem(key)) ?? defaultValue;
+		const value = localStorage.getItem(key);
+		return value !== null ? JSON.parse(value) : defaultValue;
 	}
 
 	public static remove(key: string) {
