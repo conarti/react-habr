@@ -13,9 +13,22 @@
 		margin-right: var(--spacer-md);
 	}
 
+	&-actions {
+		display: inline-grid;
+		grid-auto-flow: column;
+
+		column-gap: var(--spacer-sm);
+	}
+
 	&-body {
 		display: inline-grid;
 		grid-auto-flow: row;
 		row-gap: var(--spacer-md);
+	}
+
+	&-fields {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacer-md);
 	}
 }

@@ -1,6 +1,11 @@
 {
   "Профиль": "Profile",
   "Редактировать": "Edit",
-  "Имя": "Firstname",
-  "Фамилия": "Lastname"
+  "firstname": "Firstname",
+  "lastname": "Lastname",
+  "country": "Country",
+  "city": "City",
+  "username": "Username",
+  "Отменить": "Отменить",
+  "Сохранить": "Сохранить"
 }

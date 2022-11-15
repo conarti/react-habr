@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import { ProfileCard } from 'entities/user';
+import { EditViewerProfile } from 'features/edit-viewer-profile';
 import React from 'react';
 import styles from './ProfilePage.module.scss';
 
 const ProfilePage = () => (
 	<div className={classNames(styles.profilePage)}>
-		<ProfileCard />
+		<EditViewerProfile />
 	</div>
 );
 

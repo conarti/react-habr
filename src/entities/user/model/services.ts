@@ -20,3 +20,21 @@ export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<stri
 		}
 	},
 );
+
+export const updateProfile = createAsyncThunk<UserProfile, UserProfile, ThunkConfig<string>>(
+	'user/updateProfile',
+	async (profile, thunkAPI) => {
+		const { rejectWithValue, extra } = thunkAPI;
+
+		try {
+			const { data } = await extra.api.put<UserProfile>('/profile', profile);
+			return data;
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				return rejectWithValue(error.response?.data.message);
+			}
+			console.error(error);
+			return rejectWithValue('updateProfile error');
+		}
+	},
+);

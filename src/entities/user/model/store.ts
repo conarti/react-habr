@@ -24,6 +24,12 @@ export const userSlice = createSlice({
 			state.authData = undefined;
 			LocalStorage.remove(USER_LOCAL_STORAGE_KEY);
 		},
+		setProfile: (state, action: PayloadAction<UserProfile>) => {
+			state.profile = action.payload;
+		},
+		updateProfileField: (state, action: PayloadAction<{ [field: string]: any }>) => {
+			state.profile = { ...state.profile as UserProfile, ...action.payload };
+		},
 	},
 	extraReducers: (builder) => {
 		builder

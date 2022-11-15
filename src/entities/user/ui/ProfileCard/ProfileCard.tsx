@@ -1,51 +1,80 @@
 import classNames from 'classnames';
-import { useEffect } from 'react';
+import { UserProfile } from 'entities/user/config';
+import { ReactElement, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks';
-import { AppButton, AppButtonSize } from 'shared/ui/AppButton';
 import { AppCard } from 'shared/ui/AppCard';
 import { AppInput } from 'shared/ui/AppInput';
-import { fetchProfile } from '../../model';
-import { getError, getIsLoading, getProfile } from '../../model/selectors';
+import { AppLoader } from 'shared/ui/AppLoader';
+import { AppText } from 'shared/ui/AppText';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
-    className?: string;
+	title: string;
+	className?: string;
+	actions?: ReactElement;
+	isEditable: boolean;
+	profile: UserProfile | null;
+	isLoading: boolean;
+	error: string | null;
+	onProfileEdit: (ev: { [field: string]: any }) => void;
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
+	const {
+		className, title, actions, isEditable, profile, isLoading, error, onProfileEdit,
+	} = props;
 	const { t } = useTranslation('profile');
-	const profile = useSelector(getProfile);
-	// const isLoading = useSelector(getIsLoading);
-	// const error = useSelector(getError);
 
-	const dispatch = useAppDispatch();
+	const onUpdateField = useCallback((field: keyof UserProfile) => (value: string | number) => onProfileEdit({ [field]: value }), [onProfileEdit]);
 
-	useEffect(() => {
-		dispatch(fetchProfile());
-	}, [dispatch]);
+	const textFields = useMemo(() => {
+		if (profile === null) {
+			return [];
+		}
+
+		return Object.keys(profile)
+			.filter((field) => field !== 'age' && field !== 'currency' && field !== 'avatar');
+	}, [profile]);
 
 	return (
 		<AppCard className={classNames(cls.profileCard, className)}>
-			<>
-				<div className={classNames(cls.profileCardHeader)}>
-					<h2 className={classNames(cls.profileCardTitle)}>{t('Профиль')}</h2>
-					<AppButton size={AppButtonSize.SM}>{t('Редактировать')}</AppButton>
-				</div>
-				<div className={classNames(cls.profileCardBody)}>
-					<AppInput
-						label={t('Имя')}
-						value={profile?.firstname || ''}
-						onInput={() => {}}
-					/>
-					<AppInput
-						label={t('Фамилия')}
-						value={profile?.lastname || ''}
-						onInput={() => {}}
-					/>
-				</div>
-			</>
+			{
+				isLoading ? (
+					<AppLoader isFill />
+				) : (
+					<>
+						<div className={classNames(cls.profileCardHeader)}>
+							<h2 className={classNames(cls.profileCardTitle)}>
+								{title}
+							</h2>
+							{
+								actions && (
+									<div className={classNames(cls.profileCardActions)}>
+										{actions}
+									</div>
+								)
+							}
+						</div>
+						<div className={classNames(cls.profileCardBody)}>
+							{error && <AppText message={error} />}
+							<div className={classNames(cls.profileCardFields)}>
+								{
+									profile && textFields.map((field) => (
+										<AppInput
+											className={classNames(cls.profileCardFieldsItem)}
+											key={field}
+											label={t(field)}
+											isReadonly={!isEditable}
+											value={profile[field as keyof UserProfile] || ''}
+											onInput={onUpdateField(field as keyof UserProfile)}
+										/>
+									))
+								}
+							</div>
+						</div>
+					</>
+				)
+			}
 		</AppCard>
 	);
 };
