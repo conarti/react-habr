@@ -29,4 +29,14 @@
 			box-shadow: 0 0 0 1px var(--primary-color), 0 0 0 3px transparent, 0 0 0 1px var(--primary-color) inset;
 		}
 	}
+
+	&--is-readonly &-native {
+		box-shadow: 0 0 0 1px transparent;
+		cursor: default;
+
+		&:focus,
+		&:hover {
+			box-shadow: 0 0 0 1px transparent;
+		}
+	}
 }

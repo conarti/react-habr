@@ -4,12 +4,13 @@ import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
 import cls from './AppInput.module.scss';
 import './AppInput.variables.scss';
 
-interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput'>{
-    className?: string;
-		label?: string;
-		isFill?: boolean;
-		value: string;
-		onInput: (value: string) => void;
+interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput' | 'readonly'> {
+	className?: string;
+	label?: string;
+	isFill?: boolean;
+	value: string | number;
+	onInput: (value: string) => void;
+	isReadonly?: boolean;
 }
 
 export const AppInput = memo((props: AppInputProps) => {
@@ -18,6 +19,7 @@ export const AppInput = memo((props: AppInputProps) => {
 		label,
 		value,
 		onInput,
+		isReadonly = false,
 		id = uniqueId(),
 		isFill = false,
 		type = 'text',
@@ -29,7 +31,15 @@ export const AppInput = memo((props: AppInputProps) => {
 	};
 
 	return (
-		<div className={classNames(cls.appInput, className, { [cls.appInputIsFill]: isFill })}>
+		<div className={classNames(
+			cls.appInput,
+			className,
+			{
+				[cls.appInputIsFill]: isFill,
+				[cls.appInputIsReadonly]: isReadonly,
+			},
+		)}
+		>
 			{label && (
 				<label htmlFor={id}>
 					{label}
@@ -41,6 +51,7 @@ export const AppInput = memo((props: AppInputProps) => {
 				type={type}
 				value={value}
 				onInput={onInputHandler}
+				readOnly={isReadonly}
 				{...otherProps}
 			/>
 		</div>
