@@ -22,21 +22,27 @@
 		transition-property: background-color, box-shadow;
 
 		&:hover {
-			box-shadow: 0 0 0 1px var(--on-bg-secondary-hover), 0 0 0 3px var(--primary-color-bg);
+			box-shadow:
+				0 0 0 1px var(--on-bg-secondary-hover),
+				0 0 0 3px var(--primary-color-bg);
 		}
 
 		&:focus {
-			box-shadow: 0 0 0 1px var(--primary-color), 0 0 0 3px transparent, 0 0 0 1px var(--primary-color) inset;
+			box-shadow:
+				0 0 0 1px var(--primary-color),
+				0 0 0 3px transparent,
+				0 0 0 1px var(--primary-color) inset;
 		}
 	}
 
-	&--is-readonly &-native {
-		box-shadow: 0 0 0 1px transparent;
+	&--is-readonly &-native,
+	&--is-readonly &-native:focus,
+	&--is-readonly &-native:hover {
+		box-shadow:
+			0 0 0 1px transparent,
+			0 0 0 3px transparent,
+			-4px 4px 0 0 var(--primary-color-hover),
+			0 0 0 1px var(--primary-color-hover) inset;
 		cursor: default;
-
-		&:focus,
-		&:hover {
-			box-shadow: 0 0 0 1px transparent;
-		}
 	}
 }
