@@ -41,14 +41,12 @@ export const EditViewerProfile = () => {
 	}, [disableEditMode, dispatch, savedProfile]);
 
 	const saveChanges = useCallback(() => {
-		if (profile) {
-			dispatch(userModel.updateProfile(profile))
-				.then((action) => {
-					setSavedProfile(action.payload as UserProfile);
-				});
-		}
+		dispatch(userModel.updateProfile())
+			.then((action) => {
+				setSavedProfile(action.payload as UserProfile);
+			});
 		disableEditMode();
-	}, [disableEditMode, dispatch, profile]);
+	}, [disableEditMode, dispatch]);
 
 	const editProfile = useCallback((ev) => {
 		dispatch(userModel.userActions.updateProfileField(ev));

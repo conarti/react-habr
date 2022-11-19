@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import axios from 'axios';
+import { userModel } from 'entities/user';
 import { UserProfile } from '../config';
 
 export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<string>>(
@@ -21,10 +22,12 @@ export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<stri
 	},
 );
 
-export const updateProfile = createAsyncThunk<UserProfile, UserProfile, ThunkConfig<string>>(
+export const updateProfile = createAsyncThunk<UserProfile, void, ThunkConfig<string>>(
 	'user/updateProfile',
-	async (profile, thunkAPI) => {
-		const { rejectWithValue, extra } = thunkAPI;
+	async (_, thunkAPI) => {
+		const { rejectWithValue, extra, getState } = thunkAPI;
+
+		const profile = userModel.getProfile(getState());
 
 		try {
 			const { data } = await extra.api.put<UserProfile>('/profile', profile);
