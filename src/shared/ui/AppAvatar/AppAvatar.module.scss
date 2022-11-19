@@ -1,0 +1,16 @@
+.app-avatar {
+	width: var(--app-avatar-size-md);
+	height: var(--app-avatar-size-md);
+
+	border-radius: 50rem;
+
+	&-sm {
+		width: var(--app-avatar-size-sm);
+		height: var(--app-avatar-size-sm);
+	}
+
+	&-lg {
+		width: var(--app-avatar-size-lg);
+		height: var(--app-avatar-size-lg);
+	}
+}
