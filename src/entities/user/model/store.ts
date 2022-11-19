@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LocalStorage } from 'shared/lib/LocalStorage/LocalStorage';
-import { fetchProfile } from './services';
+import { fetchProfile, updateProfile } from './services';
 import {
 	User, USER_LOCAL_STORAGE_KEY, UserProfile, UserSchema,
 } from '../config';
@@ -43,6 +43,19 @@ export const userSlice = createSlice({
 				state.profile = action.payload;
 			})
 			.addCase(fetchProfile.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload;
+			})
+			.addCase(updateProfile.pending, (state) => {
+				state.isLoading = true;
+				state.error = '';
+			})
+			.addCase(updateProfile.fulfilled, (state, action: PayloadAction<UserProfile>) => {
+				state.isLoading = false;
+				state.error = '';
+				state.profile = action.payload;
+			})
+			.addCase(updateProfile.rejected, (state, action) => {
 				state.isLoading = false;
 				state.error = action.payload;
 			});
