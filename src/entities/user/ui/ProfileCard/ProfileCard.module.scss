@@ -26,6 +26,10 @@
 		row-gap: var(--spacer-md);
 	}
 
+	&-avatar {
+		justify-self: center;
+	}
+
 	&-fields {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);

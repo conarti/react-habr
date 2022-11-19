@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { UserProfile } from 'entities/user/config';
 import { ReactElement, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AppAvatar } from 'shared/ui/AppAvatar';
 import { AppCard } from 'shared/ui/AppCard';
 import { AppInput } from 'shared/ui/AppInput';
 import { AppLoader } from 'shared/ui/AppLoader';
@@ -57,6 +58,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 						</div>
 						<div className={classNames(cls.profileCardBody)}>
 							{error && <AppText message={error} />}
+							<AppAvatar
+								className={classNames(cls.profileCardAvatar)}
+								size="lg"
+								src={profile?.avatar || ''}
+							/>
 							<div className={classNames(cls.profileCardFields)}>
 								{
 									profile && textFields.map((field) => (
