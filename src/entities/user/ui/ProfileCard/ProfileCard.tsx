@@ -6,6 +6,7 @@ import { AppAvatar } from 'shared/ui/AppAvatar';
 import { AppCard } from 'shared/ui/AppCard';
 import { AppInput } from 'shared/ui/AppInput';
 import { AppLoader } from 'shared/ui/AppLoader';
+import { AppSelect } from 'shared/ui/AppSelect';
 import { AppText } from 'shared/ui/AppText';
 import cls from './ProfileCard.module.scss';
 
@@ -75,6 +76,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
 											onInput={onUpdateField(field as keyof UserProfile)}
 										/>
 									))
+								}
+								{
+									isEditable ? (
+										<AppSelect
+											label={t('currency')}
+											options={[{ label: 'rub', value: 'RUB' }, { label: 'eur', value: 'EUR' }]}
+											onSelect={onUpdateField('currency')}
+										/>
+									) : (
+										<AppInput
+											className={classNames(cls.profileCardFieldsItem)}
+											label={t('currency')}
+											isReadonly={!isEditable}
+											value={profile?.currency || ''}
+											onInput={onUpdateField('currency')}
+										/>
+									)
 								}
 							</div>
 						</div>
