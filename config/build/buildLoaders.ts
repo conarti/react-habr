@@ -1,24 +1,15 @@
 import { RuleSetRule } from 'webpack';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildSassLoader } from './loaders/buildSassLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
 
-export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
+export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
+	const { isDev } = options;
+
 	const svgLoader = buildSvgLoader();
 
-	const babelLoader = {
-		test: /\.(js|ts)x?$/,
-		exclude: /node_modules/,
-		use: {
-			loader: 'babel-loader',
-			options: {
-				presets: ['@babel/preset-env'],
-				plugins: [
-					isDev && require.resolve('react-refresh/babel'),
-				].filter(Boolean),
-			},
-		},
-	};
+	const babelLoader = buildBabelLoader(options);
 
 	const fileLoader = {
 		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
