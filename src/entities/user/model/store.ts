@@ -21,7 +21,7 @@ export const userSlice = createSlice({
 			state.authData = LocalStorage.get(USER_LOCAL_STORAGE_KEY);
 		},
 		logout: (state) => {
-			state.authData = undefined;
+			state.authData = null;
 			LocalStorage.remove(USER_LOCAL_STORAGE_KEY);
 		},
 		setProfile: (state, action: PayloadAction<UserProfile>) => {

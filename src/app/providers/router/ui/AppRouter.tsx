@@ -1,9 +1,16 @@
-import { routes } from 'pages';
-import { Suspense } from 'react';
+import { userModel } from 'entities/user';
+import { getRoutes } from 'pages';
+import { Suspense, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { useRoutes } from 'react-router-dom';
 import { AppLoader } from 'shared/ui/AppLoader';
 
 const AppRouter = () => {
+	const hasAuth = useSelector(userModel.hasAuth);
+	const isAuthDataLoaded = useSelector(userModel.isAuthDataLoaded);
+
+	const routes = useMemo(() => getRoutes(hasAuth), [hasAuth]);
+
 	const routesElement = useRoutes(routes);
 
 	return (
@@ -15,7 +22,11 @@ const AppRouter = () => {
 				/>
 			)}
 			>
-				{routesElement}
+				{
+					isAuthDataLoaded
+						? routesElement
+						: <AppLoader isAbsolute />
+				}
 			</Suspense>
 		</div>
 	);

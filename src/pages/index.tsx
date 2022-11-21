@@ -2,16 +2,25 @@ import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
-import { RouteObject } from 'react-router-dom';
+import { ReactElement } from 'react';
+import { Navigate, RouteObject } from 'react-router-dom';
 
 export const enum AppRoutes {
-	MAIN = '',
+	MAIN = '/',
 	ABOUT = 'about',
 	PROFILE = 'profile',
 	NOT_FOUND = '*'
 }
 
-export const routes: RouteObject[] = [
+const makeProtectedRoute = (route: ReactElement, hasAuth: boolean): ReactElement => {
+	if (hasAuth) {
+		return route;
+	}
+
+	return <Navigate to={AppRoutes.MAIN} />;
+};
+
+export const getRoutes = (hasAuth: boolean): RouteObject[] => [
 	{
 		path: AppRoutes.MAIN,
 		element: <MainPage />,
@@ -22,7 +31,7 @@ export const routes: RouteObject[] = [
 	},
 	{
 		path: AppRoutes.PROFILE,
-		element: <ProfilePage />,
+		element: makeProtectedRoute(<ProfilePage />, hasAuth),
 	},
 	{
 		path: AppRoutes.NOT_FOUND,

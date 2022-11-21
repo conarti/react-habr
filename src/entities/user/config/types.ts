@@ -17,6 +17,6 @@ export interface UserProfile {
 export interface UserSchema {
 	isLoading: boolean;
 	error?: string;
-	authData?: User;
+	authData?: User | null;
 	profile?: UserProfile;
 }
