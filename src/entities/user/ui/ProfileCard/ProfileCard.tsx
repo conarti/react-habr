@@ -22,6 +22,7 @@ interface ProfileCardProps {
 	onProfileEdit: (ev: { [field: string]: any }) => void;
 }
 
+// TODO: validation (42)
 export const ProfileCard = (props: ProfileCardProps) => {
 	const {
 		className, title, actions, isEditable, profile, isLoading, error, onProfileEdit,
