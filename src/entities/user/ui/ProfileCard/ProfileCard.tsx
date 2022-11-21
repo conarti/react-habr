@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { CountrySelect } from 'entities/country';
 import { CurrencySelect } from 'entities/currency';
 import { ReactElement, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -35,7 +36,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		}
 
 		return Object.keys(profile)
-			.filter((field) => field !== 'age' && field !== 'currency' && field !== 'avatar');
+			.filter((field) => field !== 'age' && field !== 'currency' && field !== 'avatar' && field !== 'country');
 	}, [profile]);
 
 	return (
@@ -76,6 +77,22 @@ export const ProfileCard = (props: ProfileCardProps) => {
 											onInput={onUpdateField(field as keyof UserProfile)}
 										/>
 									))
+								}
+								{
+									isEditable ? (
+										<CountrySelect
+											label={t('country')}
+											onSelect={onUpdateField('country')}
+										/>
+									) : (
+										<AppInput
+											className={classNames(cls.profileCardFieldsItem)}
+											label={t('country')}
+											isReadonly={!isEditable}
+											value={profile?.country || ''}
+											onInput={onUpdateField('country')}
+										/>
+									)
 								}
 								{
 									isEditable ? (
