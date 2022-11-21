@@ -1,14 +1,18 @@
+import { ReactElement } from 'react';
+import { Navigate, RouteObject } from 'react-router-dom';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
-import { ReactElement } from 'react';
-import { Navigate, RouteObject } from 'react-router-dom';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
 
 export const enum AppRoutes {
 	MAIN = '/',
 	ABOUT = 'about',
 	PROFILE = 'profile',
+	ARTICLES = 'articles',
+	ARTICLE_DETAILS = 'articles/:id',
 	NOT_FOUND = '*'
 }
 
@@ -32,6 +36,14 @@ export const getRoutes = (hasAuth: boolean): RouteObject[] => [
 	{
 		path: AppRoutes.PROFILE,
 		element: makeProtectedRoute(<ProfilePage />, hasAuth),
+	},
+	{
+		path: AppRoutes.ARTICLES,
+		element: makeProtectedRoute(<ArticlesPage />, hasAuth),
+	},
+	{
+		path: AppRoutes.ARTICLE_DETAILS,
+		element: makeProtectedRoute(<ArticleDetailsPage />, hasAuth),
 	},
 	{
 		path: AppRoutes.NOT_FOUND,
