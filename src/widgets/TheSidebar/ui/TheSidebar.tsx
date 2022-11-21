@@ -1,6 +1,8 @@
 import classNames from 'classnames';
-import { memo, useState } from 'react';
+import { userModel } from 'entities/user';
+import { memo, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { AppButton } from 'shared/ui/AppButton';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
@@ -24,6 +26,34 @@ export const TheSidebar = memo(({ className }: SidebarProps) => {
 		setExpanded(false);
 	};
 
+	const hasAuth = useSelector(userModel.hasAuth);
+
+	const linksElements = useMemo(
+		() => links
+			.map((link) => {
+				const {
+					to, label, icon, needAuth,
+				} = link;
+
+				if ((needAuth && hasAuth) || !needAuth) {
+					return (
+						<AppButton
+							className={cls.theSidebarBtn}
+							to={to}
+							icon={icon}
+							key={to}
+						>
+							{t(label)}
+						</AppButton>
+					);
+				}
+
+				return null;
+			})
+			.filter((linkElement) => linkElement !== null),
+		[hasAuth, t],
+	);
+
 	return (
 		<>
 			<div className={cls.theSidebarPlaceholder} />
@@ -40,18 +70,7 @@ export const TheSidebar = memo(({ className }: SidebarProps) => {
 				data-testid="sidebar"
 			>
 				<div className={cls.theSidebarBtnGroup}>
-					{
-						links.map(({ to, label, icon }) => (
-							<AppButton
-								className={cls.theSidebarBtn}
-								to={to}
-								icon={icon}
-								key={to}
-							>
-								{t(label)}
-							</AppButton>
-						))
-					}
+					{linksElements}
 				</div>
 				<div className={classNames(cls.theSidebarBtnGroup, cls.theSidebarBtnGroupIsBottom)}>
 					<ThemeSwitcher className={cls.theSidebarBtn} />
