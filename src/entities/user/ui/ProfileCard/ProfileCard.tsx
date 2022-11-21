@@ -1,13 +1,13 @@
 import classNames from 'classnames';
-import { UserProfile } from 'entities/user/config';
+import { CurrencySelect } from 'entities/currency';
 import { ReactElement, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppAvatar } from 'shared/ui/AppAvatar';
 import { AppCard } from 'shared/ui/AppCard';
 import { AppInput } from 'shared/ui/AppInput';
 import { AppLoader } from 'shared/ui/AppLoader';
-import { AppSelect } from 'shared/ui/AppSelect';
 import { AppText } from 'shared/ui/AppText';
+import { UserProfile } from '../../config';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -79,9 +79,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 								}
 								{
 									isEditable ? (
-										<AppSelect
+										<CurrencySelect
 											label={t('currency')}
-											options={[{ label: 'rub', value: 'RUB' }, { label: 'eur', value: 'EUR' }]}
 											onSelect={onUpdateField('currency')}
 										/>
 									) : (
