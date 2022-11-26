@@ -21,7 +21,7 @@
 	transition: width 0.35s, border-radius 0.35s, box-shadow 0.35s;
 
 	&-placeholder {
-		width: var(--sidebar-width);
+		min-width: var(--sidebar-width);
 	}
 
 	&-btn-group {
