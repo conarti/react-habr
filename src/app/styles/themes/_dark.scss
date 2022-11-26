@@ -1,4 +1,4 @@
-body[data-theme="dark"] {
+@mixin dark-variables {
 	--bg-color: rgb(16 16 16);
 	--bg-light-color: rgb(22 22 22);
 	--primary-color: rgb(100 140 255);
@@ -9,4 +9,14 @@ body[data-theme="dark"] {
 	--on-bg-secondary: rgb(216 216 216);
 	--on-bg-secondary-hover: rgb(216 216 216 / 8%);
 	--overlay-color: rgb(0 0 0 / 70%);
+}
+
+body[data-theme="auto"] {
+	@media (prefers-color-scheme: dark) {
+		@include dark-variables;
+	}
+}
+
+body[data-theme="dark"] {
+	@include dark-variables;
 }

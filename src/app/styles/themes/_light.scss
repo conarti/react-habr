@@ -1,4 +1,4 @@
-body[data-theme="light"] {
+@mixin light-variables {
 	--bg-color: rgb(232 232 234);
 	--bg-light-color: rgb(255 255 255);
 	--primary-color: rgb(27 89 248);
@@ -9,4 +9,14 @@ body[data-theme="light"] {
 	--on-bg-secondary: rgb(0 0 0 / 70%);
 	--on-bg-secondary-hover: rgb(0 0 0 / 7%);
 	--overlay-color: rgb(0 0 0 / 30%);
+}
+
+body[data-theme="auto"] {
+	@media (prefers-color-scheme: light) {
+		@include light-variables;
+	}
+}
+
+body[data-theme="light"] {
+	@include light-variables;
 }

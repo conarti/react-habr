@@ -8,15 +8,28 @@ interface UseThemeResult {
     theme: Theme;
 }
 
+const getNewTheme = (theme: Theme) => {
+	switch (theme) {
+	case Theme.LIGHT:
+		return Theme.DARK;
+	case Theme.DARK:
+		return Theme.AUTO;
+	case Theme.AUTO:
+		return Theme.LIGHT;
+	default:
+		throw new Error(`getNewTheme - unknown theme: ${theme}`);
+	}
+};
+
 export function useTheme(): UseThemeResult {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	const toggleTheme = () => {
-		const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
+		const newTheme = getNewTheme(theme as Theme);
 		setTheme?.(newTheme);
 		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
 		setStylesForTheme(newTheme);
 	};
 
-	return { theme: theme ?? Theme.LIGHT, toggleTheme };
+	return { theme: theme ?? Theme.AUTO, toggleTheme };
 }
