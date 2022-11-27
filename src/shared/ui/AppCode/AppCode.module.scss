@@ -1,0 +1,26 @@
+.app-code {
+	max-width: 100%;
+	padding: 0 var(--spacer-md) var(--spacer-md);
+	overflow-x: auto;
+
+	background-color: var(--primary-color-bg);
+	border: 2px solid var(--primary-color-hover);
+	border-radius: var(--border-radius-base);
+
+	&-header {
+		position: sticky;
+		left: 0;
+
+		display: grid;
+		grid-auto-flow: column;
+		align-items: center;
+		margin-bottom: var(--spacer-sm);
+		padding-top: var(--spacer-sm);
+
+		column-gap: var(--spacer-md);
+	}
+
+	&-copy-btn {
+		justify-self: end;
+	}
+}
