@@ -5,7 +5,7 @@ module.exports = (sliceName) => {
 
 	return (
 		`import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ${typeName} } from '../types/${sliceName}Schema';
+import { ${typeName} } from '../types';
 
 const initialState: ${typeName} = {
     
