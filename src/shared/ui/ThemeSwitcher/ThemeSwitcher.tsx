@@ -4,6 +4,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
+import AutoIcon from 'shared/assets/icons/lightbulb-auto.svg';
 import { AppButton, AppButtonTheme } from '../AppButton';
 
 interface ThemeSwitcherProps {
@@ -21,8 +22,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 		case Theme.DARK:
 			return <DarkIcon />;
 		case Theme.AUTO:
-		// FIXME: add 'auto' icon
-			return <LightIcon />;
+			return <AutoIcon />;
 		default:
 			throw new Error(`icon for theme "${theme}" is not set`);
 		}
