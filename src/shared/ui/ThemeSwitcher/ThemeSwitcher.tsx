@@ -4,7 +4,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
-import AutoIcon from 'shared/assets/icons/lightbulb-auto.svg';
+import AutoIcon from 'shared/assets/icons/theme-auto.svg';
 import { AppButton, AppButtonTheme } from '../AppButton';
 
 interface ThemeSwitcherProps {
