@@ -32,6 +32,10 @@ server.post('/login', (req, res) => {
 	}
 });
 
+server.use((_req, _res, next) => {
+	setTimeout(next, 1000);
+});
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
