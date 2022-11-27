@@ -61,3 +61,8 @@ stories-build:
 
 fake-api:
 	npm run json-server
+
+L=entities
+
+slice-gen:
+	node ./scripts/createSlice/index.js $(L) $(S)
