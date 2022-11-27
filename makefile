@@ -66,3 +66,4 @@ L=entities
 
 slice-gen:
 	node ./scripts/createSlice/index.js $(L) $(S)
+	npx eslint --fix $$(git diff --name-only HEAD | xargs)
