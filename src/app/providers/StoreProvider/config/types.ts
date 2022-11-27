@@ -3,6 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import { createReduxStore } from 'app/providers/StoreProvider';
 import { AxiosInstance } from 'axios';
+import { articleConfig } from 'entities/article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/user/config';
 import { LoginSchema } from 'features/auth-by-username';
@@ -12,6 +13,7 @@ export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
 	loginForm?: LoginSchema;
+	articleDetails?: articleConfig.ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

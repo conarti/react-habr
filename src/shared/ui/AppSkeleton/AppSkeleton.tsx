@@ -3,8 +3,8 @@ import styles from './AppSkeleton.module.scss';
 
 interface AppSkeletonProps {
 	className?: string;
-	width?: number;
-	height?: number;
+	width?: number | string;
+	height?: number | string;
 	borderRadius?: 'base' | 'circle';
 	color?: 'base' | 'primary';
 }
