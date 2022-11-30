@@ -1,1 +1,3 @@
-export { ViewerProfilePageAsync as ViewerProfilePage } from './ViewerProfilePage.async';
+import { lazy } from 'react';
+
+export const ViewerProfilePage = lazy(() => import('./ViewerProfilePage'));
