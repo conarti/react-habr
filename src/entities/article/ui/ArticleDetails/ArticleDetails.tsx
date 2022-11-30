@@ -95,7 +95,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 					{
 						articleDetails.blocks.map((block) => (
 							<div
-								className={classNames(styles.articleDetailsContentBlock)}
+								className="mb-sm"
 								key={block.id}
 							>
 								{makeArticleContentBlock(block)}
