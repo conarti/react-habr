@@ -100,20 +100,32 @@
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "Cardify",
       "password": "123",
       "role": "USER",
       "avatar": null
     }
   ],
-  "profile": {
-    "firstname": "Александр",
-    "lastname": "Белоус",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Saint-Petersburg",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "firstname": "Александр",
+      "lastname": "Белоус",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Saint-Petersburg",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "firstname": "Sammy",
+      "lastname": "Gibson",
+      "age": 30,
+      "currency": "EUR",
+      "country": "USA",
+      "city": "California",
+      "username": "Cardify",
+      "avatar": null
+    }
+  ]
 }
