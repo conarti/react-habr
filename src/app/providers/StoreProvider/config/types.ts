@@ -7,6 +7,7 @@ import { articleConfig } from 'entities/article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/user/config';
 import { LoginSchema } from 'features/auth-by-username';
+import { ArticleCommentsSchema } from 'features/get-article-comments';
 import { CombinedState } from 'redux';
 
 export interface StateSchema {
@@ -14,6 +15,7 @@ export interface StateSchema {
 	user: UserSchema;
 	loginForm?: LoginSchema;
 	articleDetails?: articleConfig.ArticleDetailsSchema;
+	articleComments?: ArticleCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

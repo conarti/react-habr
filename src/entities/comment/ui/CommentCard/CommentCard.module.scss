@@ -1,0 +1,10 @@
+.comment-card {
+	&-header {
+		display: inline-grid;
+		grid-auto-flow: column;
+		align-items: center;
+		margin-bottom: var(--spacer-sm);
+
+		column-gap: var(--spacer-sm);
+	}
+}
