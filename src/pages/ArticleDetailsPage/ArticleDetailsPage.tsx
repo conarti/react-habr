@@ -1,10 +1,8 @@
-import classNames from 'classnames';
 import { ArticleDetails } from 'entities/article';
 import { ArticleComments } from 'features/get-article-comments';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import styles from './ArticleDetailsPage.module.scss';
 
 const ArticleDetailsPage = memo(() => {
 	const { id } = useParams<{ id: string }>();
@@ -17,7 +15,7 @@ const ArticleDetailsPage = memo(() => {
 	return (
 		<>
 			<ArticleDetails
-				className={classNames(styles.articleDetailsPageArticle)}
+				className="mb-lg"
 				id={id}
 			/>
 			<ArticleComments articleId={id} />
