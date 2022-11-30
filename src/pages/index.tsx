@@ -10,7 +10,7 @@ import { ArticlesPage } from 'pages/ArticlesPage';
 export const enum AppRoutes {
 	MAIN = '/',
 	ABOUT = 'about',
-	USER_PROFILE = 'profile/:id',
+	PROFILE = 'profile',
 	ARTICLES = 'articles',
 	ARTICLE_DETAILS = 'articles/:id',
 	NOT_FOUND = '*'
@@ -34,7 +34,7 @@ export const getRoutes = (hasAuth: boolean): RouteObject[] => [
 		element: <AboutPage />,
 	},
 	{
-		path: AppRoutes.USER_PROFILE,
+		path: AppRoutes.PROFILE,
 		element: makeProtectedRoute(<ProfilePage />, hasAuth),
 	},
 	{
