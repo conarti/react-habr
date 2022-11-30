@@ -5,7 +5,7 @@ import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
-import { ProfilePage } from 'pages/ProfilePage';
+import { ViewerProfilePage } from 'pages/ViewerProfilePage';
 import { UserProfilePage } from 'pages/UserProfilePage';
 
 export const enum AppRoutes {
@@ -36,7 +36,7 @@ export const getRoutes = (hasAuth: boolean): RouteObject[] => [
 	},
 	{
 		path: AppRoutes.PROFILE,
-		element: makeProtectedRoute(<ProfilePage />, hasAuth),
+		element: makeProtectedRoute(<ViewerProfilePage />, hasAuth),
 	},
 	{
 		path: `${AppRoutes.PROFILE}/:id`,
