@@ -67,65 +67,62 @@ export const ProfileCard = (props: ProfileCardProps) => {
 							}
 						</div>
 						<div className={classNames(cls.profileCardBody)}>
-							{
-								error ? (
-									<AppText message={error} />
-								) : (
-									<>
-										<AppAvatar
-											className={classNames(cls.profileCardAvatar)}
-											size="lg"
-											src={profile?.avatar || ''}
-										/>
-										<div className={classNames(cls.profileCardFields)}>
-											{
-												profile && textFields.map((field) => (
-													<AppInput
-														className={classNames(cls.profileCardFieldsItem)}
-														key={field}
-														label={t(field)}
-														isReadonly={!isEditable}
-														value={profile[field as keyof UserProfile] || ''}
-														onInput={onUpdateField(field as keyof UserProfile)}
-													/>
-												))
-											}
-											{
-												isEditable ? (
-													<CountrySelect
-														label={t('country')}
-														onSelect={onUpdateField('country')}
-													/>
-												) : (
-													<AppInput
-														className={classNames(cls.profileCardFieldsItem)}
-														label={t('country')}
-														isReadonly={!isEditable}
-														value={profile?.country || ''}
-														onInput={onUpdateField('country')}
-													/>
-												)
-											}
-											{
-												isEditable ? (
-													<CurrencySelect
-														label={t('currency')}
-														onSelect={onUpdateField('currency')}
-													/>
-												) : (
-													<AppInput
-														className={classNames(cls.profileCardFieldsItem)}
-														label={t('currency')}
-														isReadonly={!isEditable}
-														value={profile?.currency || ''}
-														onInput={onUpdateField('currency')}
-													/>
-												)
-											}
-										</div>
-									</>
-								)
-							}
+							{error && <AppText message={error} />}
+							{profile && (
+								<>
+									<AppAvatar
+										className={classNames(cls.profileCardAvatar)}
+										size="lg"
+										src={profile.avatar}
+									/>
+									<div className={classNames(cls.profileCardFields)}>
+										{
+											profile && textFields.map((field) => (
+												<AppInput
+													className={classNames(cls.profileCardFieldsItem)}
+													key={field}
+													label={t(field)}
+													isReadonly={!isEditable}
+													value={profile[field as keyof UserProfile]}
+													onInput={onUpdateField(field as keyof UserProfile)}
+												/>
+											))
+										}
+										{
+											isEditable ? (
+												<CountrySelect
+													label={t('country')}
+													onSelect={onUpdateField('country')}
+												/>
+											) : (
+												<AppInput
+													className={classNames(cls.profileCardFieldsItem)}
+													label={t('country')}
+													isReadonly={!isEditable}
+													value={profile.country}
+													onInput={onUpdateField('country')}
+												/>
+											)
+										}
+										{
+											isEditable ? (
+												<CurrencySelect
+													label={t('currency')}
+													onSelect={onUpdateField('currency')}
+												/>
+											) : (
+												<AppInput
+													className={classNames(cls.profileCardFieldsItem)}
+													label={t('currency')}
+													isReadonly={!isEditable}
+													value={profile.currency}
+													onInput={onUpdateField('currency')}
+												/>
+											)
+										}
+									</div>
+								</>
+							)}
 						</div>
 					</>
 				)
