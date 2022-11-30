@@ -10,10 +10,10 @@ import { UserProfilePage } from 'pages/UserProfilePage';
 
 export const enum AppRoutes {
 	MAIN = '/',
-	ABOUT = 'about',
-	PROFILE = 'profile',
-	ARTICLES = 'articles',
-	ARTICLE_DETAILS = 'articles/:id',
+	ABOUT = '/about',
+	PROFILE = '/profile',
+	ARTICLES = '/articles',
+	ARTICLE_DETAILS = '/articles/:id',
 	NOT_FOUND = '*'
 }
 
