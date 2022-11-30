@@ -7,4 +7,8 @@
 
 		column-gap: var(--spacer-sm);
 	}
+
+	&-username {
+		color: var(--on-bg-primary);
+	}
 }

@@ -24,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 						size="sm"
 						src={comment.user.avatar}
 					/>
-					<h4 className={classNames('h3')}>{comment.user.username}</h4>
+					<span className={classNames(styles.commentCardUsername)}>{comment.user.username}</span>
 				</div>
 				<p>{comment.message}</p>
 			</>
