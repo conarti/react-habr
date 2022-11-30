@@ -6,18 +6,6 @@
 		margin: 0 auto var(--spacer-md);
 	}
 
-	&-title {
-		margin-bottom: var(--spacer-sm);
-
-		font-weight: 500;
-	}
-
-	&-subtitle {
-		margin-bottom: var(--spacer-sm);
-
-		font-weight: 300;
-	}
-
 	&-info-block {
 		display: grid;
 		grid-auto-flow: column;

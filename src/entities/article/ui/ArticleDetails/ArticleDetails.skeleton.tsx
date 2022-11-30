@@ -8,14 +8,14 @@ export const ArticleDetailsSkeleton = memo(() => (
 		<AppSkeleton className={classNames(styles.articleDetailsImage)} />
 
 		<AppSkeleton
-			className={classNames(styles.articleDetailsTitle)}
-			height={32}
+			className={classNames('h1')}
+			height={40}
 			width="60%"
 		/>
 
 		<AppSkeleton
-			className={classNames(styles.articleDetailsSubtitle)}
-			height={24}
+			className={classNames('h2')}
+			height={32}
 			width="30%"
 		/>
 

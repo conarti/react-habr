@@ -72,8 +72,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 						src={articleDetails.img}
 						alt="article"
 					/>
-					<h1 className={classNames(styles.articleDetailsTitle)}>{articleDetails.title}</h1>
-					<h2 className={classNames(styles.articleDetailsSubtitle)}>{articleDetails.subtitle}</h2>
+					<h1>{articleDetails.title}</h1>
+					<h2>{articleDetails.subtitle}</h2>
 					<div className={classNames(styles.articleDetailsInfoBlock)}>
 						<div
 							className={classNames(styles.articleDetailsInfoBlockColumn)}
