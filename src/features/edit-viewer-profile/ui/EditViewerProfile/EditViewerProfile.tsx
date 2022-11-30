@@ -4,14 +4,14 @@ import { fetchProfile } from 'entities/user/model';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { AppButton, AppButtonSize, AppButtonTheme } from 'shared/ui/AppButton';
 
 export const EditViewerProfile = () => {
 	const { t } = useTranslation('profile');
 	const dispatch = useAppDispatch();
-	const { id } = useParams<{ id: string }>();
+
+	const authData = useSelector(userModel.getAuthData);
 
 	const profile = useSelector(userModel.getProfile);
 	const isLoading = useSelector(userModel.getIsLoading);
@@ -21,15 +21,15 @@ export const EditViewerProfile = () => {
 	const [savedProfile, setSavedProfile] = useState<UserProfile | null>(null);
 
 	useEffect(() => {
-		if (!id) {
+		if (!authData) {
 			return;
 		}
 
-		dispatch(fetchProfile(id))
+		dispatch(fetchProfile(authData.id))
 			.then((action) => {
 				setSavedProfile(action.payload as UserProfile);
 			});
-	}, [dispatch, id]);
+	}, [authData, dispatch]);
 
 	const enableEditMode = useCallback(() => {
 		setIsEditable(true);
@@ -47,16 +47,16 @@ export const EditViewerProfile = () => {
 	}, [disableEditMode, dispatch, savedProfile]);
 
 	const saveChanges = useCallback(() => {
-		if (!id) {
+		if (!authData) {
 			return;
 		}
 
-		dispatch(userModel.updateProfile(id))
+		dispatch(userModel.updateProfile(authData.id))
 			.then((action) => {
 				setSavedProfile(action.payload as UserProfile);
 			});
 		disableEditMode();
-	}, [disableEditMode, dispatch, id]);
+	}, [authData, disableEditMode, dispatch]);
 
 	const editProfile = useCallback((ev) => {
 		dispatch(userModel.userActions.updateProfileField(ev));

@@ -1,11 +1,12 @@
 import { ReactElement } from 'react';
 import { Navigate, RouteObject } from 'react-router-dom';
 import { AboutPage } from 'pages/AboutPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { ArticlesPage } from 'pages/ArticlesPage';
+import { UserProfilePage } from 'pages/UserProfilePage';
 
 export const enum AppRoutes {
 	MAIN = '/',
@@ -36,6 +37,10 @@ export const getRoutes = (hasAuth: boolean): RouteObject[] => [
 	{
 		path: AppRoutes.PROFILE,
 		element: makeProtectedRoute(<ProfilePage />, hasAuth),
+	},
+	{
+		path: `${AppRoutes.PROFILE}/:id`,
+		element: makeProtectedRoute(<UserProfilePage />, hasAuth),
 	},
 	{
 		path: AppRoutes.ARTICLES,

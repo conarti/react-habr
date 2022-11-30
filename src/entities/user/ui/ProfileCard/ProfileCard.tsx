@@ -15,17 +15,24 @@ interface ProfileCardProps {
 	title: string;
 	className?: string;
 	actions?: ReactElement;
-	isEditable: boolean;
+	isEditable?: boolean;
 	profile: UserProfile | null;
 	isLoading: boolean;
 	error: string | null;
-	onProfileEdit: (ev: { [field: string]: any }) => void;
+	onProfileEdit?: (ev: { [field: string]: any }) => void;
 }
 
 // TODO: validation (42)
 export const ProfileCard = (props: ProfileCardProps) => {
 	const {
-		className, title, actions, isEditable, profile, isLoading, error, onProfileEdit,
+		className,
+		title,
+		actions,
+		profile,
+		isLoading,
+		error,
+		isEditable = false,
+		onProfileEdit = () => {},
 	} = props;
 	const { t } = useTranslation('profile');
 
