@@ -44,7 +44,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		}
 
 		return Object.keys(profile)
-			.filter((field) => field !== 'age' && field !== 'currency' && field !== 'avatar' && field !== 'country');
+			.filter((field) => field !== 'age'
+				&& field !== 'currency'
+				&& field !== 'avatar'
+				&& field !== 'id'
+				&& field !== 'country');
 	}, [profile]);
 
 	return (
