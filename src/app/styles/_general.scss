@@ -43,3 +43,39 @@ h6 {
 	font-family: var(--font-family-main);
 	line-height: 1;
 }
+
+p {
+	margin: 0;
+}
+
+h1,
+.h1 {
+	margin-bottom: var(--spacer-md);
+
+	font: var(--font-xl);
+	font-weight: 500;
+}
+
+h2,
+.h2 {
+	margin-bottom: var(--spacer-md);
+
+	font: var(--font-l);
+	font-weight: 500;
+}
+
+h3,
+.h3 {
+	margin-bottom: var(--spacer-sm);
+
+	font: var(--font-m);
+	font-weight: 500;
+}
+
+h4,
+.h4 {
+	margin-bottom: var(--spacer-sm);
+
+	font: var(--font-s);
+	font-weight: 500;
+}
