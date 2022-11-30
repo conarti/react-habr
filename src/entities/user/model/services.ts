@@ -4,13 +4,13 @@ import axios from 'axios';
 import { userModel } from 'entities/user';
 import { UserProfile } from '../config';
 
-export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<string>>(
+export const fetchProfile = createAsyncThunk<UserProfile, string, ThunkConfig<string>>(
 	'user/fetchProfile',
-	async (_, thunkAPI) => {
+	async (id, thunkAPI) => {
 		const { rejectWithValue, extra } = thunkAPI;
 
 		try {
-			const { data } = await extra.api.get<UserProfile>('/profile');
+			const { data } = await extra.api.get<UserProfile>(`/profile/${id}`);
 			return data;
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
@@ -22,15 +22,15 @@ export const fetchProfile = createAsyncThunk<UserProfile, void, ThunkConfig<stri
 	},
 );
 
-export const updateProfile = createAsyncThunk<UserProfile, void, ThunkConfig<string>>(
+export const updateProfile = createAsyncThunk<UserProfile, string, ThunkConfig<string>>(
 	'user/updateProfile',
-	async (_, thunkAPI) => {
+	async (id, thunkAPI) => {
 		const { rejectWithValue, extra, getState } = thunkAPI;
 
 		const profile = userModel.getProfile(getState());
 
 		try {
-			const { data } = await extra.api.put<UserProfile>('/profile', profile);
+			const { data } = await extra.api.put<UserProfile>(`/profile/${id}`, profile);
 			return data;
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
