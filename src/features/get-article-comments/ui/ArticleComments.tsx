@@ -1,10 +1,12 @@
 import classNames from 'classnames';
-import { CommentsList } from 'entities/comment';
-import { fetchCommentsByArticleId } from 'features/get-article-comments/model/services';
-import { useEffect } from 'react';
+import { AddCommentForm, CommentsList } from 'entities/comment';
+import { Suspense, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
+import { articleModel } from 'entities/article';
+import { AppLoader } from 'shared/ui/AppLoader';
+import { fetchCommentsByArticleId } from '../model/services';
 import {
 	articleCommentsReducer,
 	getArticleComments,
@@ -35,15 +37,28 @@ export const ArticleComments = (props: ArticleCommentsProps) => {
 	const isCommentsLoading = useSelector(isArticleCommentsLoading);
 	const commentsErrorMessage = useSelector(getArticleCommentsErrorMessage);
 
+	const addComment = useCallback(async (message) => {
+		await dispatch(articleModel.addCommentForArticle(message));
+		await dispatch(fetchCommentsByArticleId(articleId));
+	}, [articleId, dispatch]);
+
 	return (
 		<div className={classNames(className)}>
 			<h3 className={classNames('h1')}>{t('Комментарии')}</h3>
 			{commentsErrorMessage && <h2>{commentsErrorMessage}</h2>}
 			{!commentsErrorMessage && (
-				<CommentsList
-					isLoading={isCommentsLoading}
-					comments={comments}
-				/>
+				<>
+					<Suspense fallback={<AppLoader isFill />}>
+						<AddCommentForm
+							className="mb-md"
+							onSendComment={addComment}
+						/>
+					</Suspense>
+					<CommentsList
+						isLoading={isCommentsLoading}
+						comments={comments}
+					/>
+				</>
 			)}
 		</div>
 	);

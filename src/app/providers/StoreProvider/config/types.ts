@@ -4,6 +4,7 @@ import {
 import { createReduxStore } from 'app/providers/StoreProvider';
 import { AxiosInstance } from 'axios';
 import { articleConfig } from 'entities/article';
+import { commentConfig } from 'entities/comment';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/user/config';
 import { LoginSchema } from 'features/auth-by-username';
@@ -16,6 +17,7 @@ export interface StateSchema {
 	loginForm?: LoginSchema;
 	articleDetails?: articleConfig.ArticleDetailsSchema;
 	articleComments?: ArticleCommentsSchema;
+	addComment?: commentConfig.AddCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

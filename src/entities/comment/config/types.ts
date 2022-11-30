@@ -6,4 +6,8 @@ export interface Comment {
 	message: string;
 }
 
-export interface CommentSchema {}
+export interface AddCommentSchema {
+	text?: string;
+	error?: string;
+	isLoading: boolean;
+}
