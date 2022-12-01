@@ -1,8 +1,23 @@
 .article-info-row {
-	display: inline-grid;
+	display: grid;
 	grid-auto-flow: column;
 	align-items: center;
-	justify-content: start;
 
 	column-gap: var(--spacer-lg);
+
+	&.is-justify-start {
+		justify-content: start;
+	}
+
+	&.is-justify-center {
+		justify-content: center;
+	}
+
+	&.is-justify-end {
+		justify-content: end;
+	}
+
+	&.is-justify-between {
+		justify-content: space-between;
+	}
 }
