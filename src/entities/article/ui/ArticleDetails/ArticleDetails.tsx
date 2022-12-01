@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
+import { AppInfo } from 'shared/ui/AppInfo';
 import { AppText } from 'shared/ui/AppText';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarDayIcon from 'shared/assets/icons/calendar-day.svg';
@@ -14,7 +15,6 @@ import { fetchArticleByID } from '../../model/services';
 import { articleDetailsReducer } from '../../model/store';
 import { ArticleDetailsSkeleton } from './ArticleDetails.skeleton';
 import styles from './ArticleDetails.module.scss';
-import { ArticleInfo } from '../ArticleInfo';
 
 interface ArticleDetailsProps {
 	id: string;
@@ -76,13 +76,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 					<h1>{articleDetails.title}</h1>
 					<h2>{articleDetails.subtitle}</h2>
 					<div className={classNames(styles.articleDetailsInfoBlock)}>
-						<ArticleInfo
+						<AppInfo
 							title="Дата публикации"
 							label={articleDetails.createdAt}
 							icon={<CalendarDayIcon />}
 						/>
 
-						<ArticleInfo
+						<AppInfo
 							title="Количество просмотров"
 							label={articleDetails.views}
 							icon={<EyeIcon />}

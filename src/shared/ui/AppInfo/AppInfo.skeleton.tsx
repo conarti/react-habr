@@ -1,11 +1,11 @@
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
 
-interface ArticleInfoProps {
-    className?: string;
-		width?: number
+interface AppInfoProps {
+	className?: string;
+	width?: number
 }
 
-export const ArticleInfoSkeleton = (props: ArticleInfoProps) => {
+export const AppInfoSkeleton = (props: AppInfoProps) => {
 	const {
 		className,
 		width = 80,
