@@ -9,6 +9,10 @@
 		object-fit: cover;
 	}
 
+	&-head {
+		padding: var(--spacer-md) var(--spacer-md) 0;
+	}
+
 	&-body {
 		padding: var(--spacer-md);
 	}

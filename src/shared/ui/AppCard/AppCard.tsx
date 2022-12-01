@@ -4,6 +4,7 @@ import cls from './AppCard.module.scss';
 
 interface AppCardProps {
     className?: string;
+		head?: ReactNode;
 		children: ReactNode;
 		cover?: string;
 }
@@ -13,6 +14,7 @@ export const AppCard = (props: AppCardProps) => {
 		className,
 		children,
 		cover,
+		head,
 	} = props;
 
 	return (
@@ -23,6 +25,11 @@ export const AppCard = (props: AppCardProps) => {
 					src={cover}
 					alt="card cover"
 				/>
+			)}
+			{head && (
+				<div className={classNames(cls.appCardHead)}>
+					{head}
+				</div>
 			)}
 			<div className={classNames(cls.appCardBody)}>
 				{children}
