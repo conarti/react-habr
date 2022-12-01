@@ -32,7 +32,10 @@ export const ArticleGridItem = (props: ArticleGridItemProps) => {
 			className={classNames(styles.articleGridItem, className)}
 			cover={article.img}
 		>
-			<ArticleInfo.Row className="mb-md">
+			<ArticleInfo.Row
+				className="mb-md"
+				justify="between"
+			>
 				<ArticleInfo.Created value={article.createdAt} />
 				<ArticleInfo.Views value={article.views} />
 			</ArticleInfo.Row>
