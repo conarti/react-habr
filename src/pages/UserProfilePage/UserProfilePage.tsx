@@ -1,20 +1,29 @@
 import classNames from 'classnames';
 import { ProfileCard, userModel } from 'entities/user';
+import { AppRoutes } from 'pages';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks';
 import styles from './UserProfilePage.module.scss';
 
 const UserProfilePage = () => {
 	const dispatch = useAppDispatch();
 	const { id } = useParams<{ id: string }>();
+	const navigate = useNavigate();
+	const authData = useSelector(userModel.getAuthData);
 
 	useEffect(() => {
-		if (id) {
-			dispatch(userModel.fetchProfile(id));
+		if (!id) {
+			return;
 		}
-	}, [dispatch, id]);
+
+		if (id === authData?.id) {
+			navigate(AppRoutes.PROFILE, { replace: true });
+		}
+
+		dispatch(userModel.fetchProfile(id));
+	}, [authData, dispatch, id, navigate]);
 
 	const profile = useSelector(userModel.getProfile);
 	const error = useSelector(userModel.getError);
