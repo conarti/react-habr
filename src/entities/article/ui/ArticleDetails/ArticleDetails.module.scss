@@ -15,13 +15,4 @@
 
 		column-gap: var(--spacer-lg);
 	}
-
-	&-info-block-column {
-		display: grid;
-		grid-auto-flow: column;
-		align-items: center;
-		justify-content: start;
-
-		column-gap: var(--spacer-sm);
-	}
 }

@@ -14,6 +14,7 @@ import { fetchArticleByID } from '../../model/services';
 import { articleDetailsReducer } from '../../model/store';
 import { ArticleDetailsSkeleton } from './ArticleDetails.skeleton';
 import styles from './ArticleDetails.module.scss';
+import { ArticleInfo } from '../ArticleInfo';
 
 interface ArticleDetailsProps {
 	id: string;
@@ -75,21 +76,17 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 					<h1>{articleDetails.title}</h1>
 					<h2>{articleDetails.subtitle}</h2>
 					<div className={classNames(styles.articleDetailsInfoBlock)}>
-						<div
-							className={classNames(styles.articleDetailsInfoBlockColumn)}
+						<ArticleInfo
 							title="Дата публикации"
-						>
-							<CalendarDayIcon />
-							<span>{articleDetails.createdAt}</span>
-						</div>
+							label={articleDetails.createdAt}
+							icon={<CalendarDayIcon />}
+						/>
 
-						<div
-							className={classNames(styles.articleDetailsInfoBlockColumn)}
+						<ArticleInfo
 							title="Количество просмотров"
-						>
-							<EyeIcon />
-							<span>{articleDetails.views}</span>
-						</div>
+							label={articleDetails.views}
+							icon={<EyeIcon />}
+						/>
 					</div>
 
 					{
