@@ -1,0 +1,34 @@
+.article-grid-item {
+	position: relative;
+
+	overflow: hidden;
+
+	&-link {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		background-color: var(--bg-light-color-transparent);
+		opacity: 0;
+
+		transition: opacity 0.25s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&-info {
+		display: inline-grid;
+		grid-auto-flow: column;
+
+		column-gap: var(--spacer-md);
+	}
+}
