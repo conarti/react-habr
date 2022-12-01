@@ -13,7 +13,6 @@ export const enum AppRoutes {
 	ABOUT = '/about',
 	PROFILE = '/profile',
 	ARTICLES = '/articles',
-	ARTICLE_DETAILS = '/articles/:id',
 	NOT_FOUND = '*'
 }
 
@@ -47,7 +46,7 @@ export const getRoutes = (hasAuth: boolean): RouteObject[] => [
 		element: makeProtectedRoute(<ArticlesPage />, hasAuth),
 	},
 	{
-		path: AppRoutes.ARTICLE_DETAILS,
+		path: `${AppRoutes.ARTICLES}/:id`,
 		element: makeProtectedRoute(<ArticleDetailsPage />, hasAuth),
 	},
 	{
