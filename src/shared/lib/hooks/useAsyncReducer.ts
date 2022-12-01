@@ -12,7 +12,7 @@ interface AsyncReducerHookOptions {
 }
 
 export const useAsyncReducer = (reducers: ReducersList, options: AsyncReducerHookOptions = {}) => {
-	const { removeAfterUnmount = false } = options;
+	const { removeAfterUnmount = true } = options;
 	const store = useStore() as ReduxStoreWithManager;
 
 	useEffect(() => {
