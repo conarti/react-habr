@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import cls from './AppCard.module.scss';
 
 interface AppCardProps {
     className?: string;
-		children: ReactElement;
+		children: ReactNode;
 }
 
 export const AppCard = ({ className, children }: AppCardProps) => (
