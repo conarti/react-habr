@@ -1,5 +1,6 @@
 export { ArticleDetails } from './ui/ArticleDetails';
-export { ArticlesView } from './ui/ArticlesView';
+export { ArticleGridItem } from './ui/ArticleGridItem';
+export { ArticleListItem } from './ui/ArticleListItem';
 export * as articleConfig from './config';
 export * as articleModel from './model';
 

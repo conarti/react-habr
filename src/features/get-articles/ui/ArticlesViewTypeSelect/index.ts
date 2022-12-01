@@ -1,0 +1,1 @@
+export { ArticlesViewTypeSelect } from './ArticlesViewTypeSelect';

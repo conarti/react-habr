@@ -1,0 +1,6 @@
+.articles-view-type-select {
+	display: inline-grid;
+	grid-auto-flow: column;
+
+	column-gap: var(--spacer-sm);
+}

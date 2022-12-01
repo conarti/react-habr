@@ -36,5 +36,3 @@ export interface Article {
 	type: ArticleType[];
 	blocks: ArticleBlock[];
 }
-
-export type ArticleListView = 'grid' | 'list';
