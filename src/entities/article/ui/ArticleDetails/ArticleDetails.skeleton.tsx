@@ -37,19 +37,15 @@ export const ArticleDetailsSkeleton = memo(() => {
 			/>
 
 			<div className={classNames(styles.articleDetailsInfoBlock)}>
-				<div className={classNames(styles.articleDetailsInfoBlockColumn)}>
-					<AppSkeleton
-						width={120}
-						height={24}
-					/>
-				</div>
+				<AppSkeleton
+					width={120}
+					height={24}
+				/>
 
-				<div className={classNames(styles.articleDetailsInfoBlockColumn)}>
-					<AppSkeleton
-						width={80}
-						height={24}
-					/>
-				</div>
+				<AppSkeleton
+					width={80}
+					height={24}
+				/>
 			</div>
 
 			{
