@@ -1,0 +1,1 @@
+export { ArticleInfoRow } from './ArticleInfoRow';

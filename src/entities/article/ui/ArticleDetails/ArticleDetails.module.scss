@@ -5,14 +5,4 @@
 		height: 200px;
 		margin: 0 auto var(--spacer-md);
 	}
-
-	&-info-block {
-		display: grid;
-		grid-auto-flow: column;
-		align-items: center;
-		justify-content: start;
-		margin: 0 0 var(--spacer-md);
-
-		column-gap: var(--spacer-lg);
-	}
 }

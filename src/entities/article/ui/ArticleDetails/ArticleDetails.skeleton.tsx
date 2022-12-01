@@ -1,7 +1,7 @@
-import { memo } from 'react';
 import classNames from 'classnames';
-import { AppInfoSkeleton } from 'shared/ui/AppInfo/AppInfo.skeleton';
+import { memo } from 'react';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
+import { ArticleInfo } from '../ArticleInfo';
 import styles from './ArticleDetails.module.scss';
 
 export const ArticleDetailsSkeleton = memo(() => {
@@ -37,10 +37,10 @@ export const ArticleDetailsSkeleton = memo(() => {
 				width="30%"
 			/>
 
-			<div className={classNames(styles.articleDetailsInfoBlock)}>
-				<AppInfoSkeleton width={120} />
-				<AppInfoSkeleton width={80} />
-			</div>
+			<ArticleInfo.Row className="mb-md">
+				<ArticleInfo.CreatedSkeleton />
+				<ArticleInfo.ViewsSkeleton />
+			</ArticleInfo.Row>
 
 			{
 				contentBlocks.map((props) => (

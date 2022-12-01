@@ -1,18 +1,16 @@
 import classNames from 'classnames';
 import { memo, useCallback, useEffect } from 'react';
-import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
-import { AppInfo } from 'shared/ui/AppInfo';
-import { AppText } from 'shared/ui/AppText';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarDayIcon from 'shared/assets/icons/calendar-day.svg';
-import { ArticleBlock } from 'entities/article/config/types/article';
+import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppCode } from 'shared/ui/AppCode';
-import { ArticleBlockText } from '../ArticleBlockText';
-import { ArticleBlockImage } from '../ArticleBlockImage';
+import { AppText } from 'shared/ui/AppText';
+import { ArticleInfo } from '../ArticleInfo';
+import { ArticleBlock } from '../../config/types/article';
 import { getArticleDetails, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
 import { fetchArticleByID } from '../../model/services';
 import { articleDetailsReducer } from '../../model/store';
+import { ArticleBlockImage } from '../ArticleBlockImage';
+import { ArticleBlockText } from '../ArticleBlockText';
 import { ArticleDetailsSkeleton } from './ArticleDetails.skeleton';
 import styles from './ArticleDetails.module.scss';
 
@@ -75,20 +73,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 					/>
 					<h1>{articleDetails.title}</h1>
 					<h2>{articleDetails.subtitle}</h2>
-					<div className={classNames(styles.articleDetailsInfoBlock)}>
-						<AppInfo
-							title="Дата публикации"
-							label={articleDetails.createdAt}
-							icon={<CalendarDayIcon />}
-						/>
-
-						<AppInfo
-							title="Количество просмотров"
-							label={articleDetails.views}
-							icon={<EyeIcon />}
-						/>
-					</div>
-
+					<ArticleInfo.Row className="mb-md">
+						<ArticleInfo.Created value={articleDetails.createdAt} />
+						<ArticleInfo.Views value={articleDetails.views} />
+					</ArticleInfo.Row>
 					{
 						articleDetails.blocks.map((block) => (
 							<div
