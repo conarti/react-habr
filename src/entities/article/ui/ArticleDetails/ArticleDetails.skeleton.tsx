@@ -2,6 +2,7 @@ import { memo } from 'react';
 import classNames from 'classnames';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import styles from './ArticleDetails.module.scss';
+import { ArticleInfoSkeleton } from '../ArticleInfo';
 
 export const ArticleDetailsSkeleton = memo(() => {
 	const contentBlocks: { key: number, height: number | string, color?: 'primary' }[] = [
@@ -37,15 +38,8 @@ export const ArticleDetailsSkeleton = memo(() => {
 			/>
 
 			<div className={classNames(styles.articleDetailsInfoBlock)}>
-				<AppSkeleton
-					width={120}
-					height={24}
-				/>
-
-				<AppSkeleton
-					width={80}
-					height={24}
-				/>
+				<ArticleInfoSkeleton width={120} />
+				<ArticleInfoSkeleton width={80} />
 			</div>
 
 			{
