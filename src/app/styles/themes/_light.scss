@@ -1,6 +1,7 @@
 @mixin light-variables {
 	--bg-color: rgb(232 232 234);
 	--bg-light-color: rgb(255 255 255);
+	--bg-light-color-transparent: rgb(255 255 255 / 70%);
 	--primary-color: rgb(27 89 248);
 	--primary-color-bg: rgb(27 89 248 / 10%);
 	--primary-color-hover: rgb(27 89 248 / 20%);
