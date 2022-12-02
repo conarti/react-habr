@@ -1,9 +1,6 @@
 .profile-card {
-	display: inline-flex;
-	flex-direction: column;
-
 	&-header {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: var(--spacer-lg);
@@ -21,7 +18,7 @@
 	}
 
 	&-body {
-		display: inline-grid;
+		display: grid;
 		grid-auto-flow: row;
 		row-gap: var(--spacer-md);
 	}
