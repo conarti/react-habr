@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { ArticleGridItem, ArticleListItem, articleConfig } from 'entities/article';
 import { memo } from 'react';
 import { AppLoader } from 'shared/ui/AppLoader';
+import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import { AppText } from 'shared/ui/AppText';
 import { ArticleViewType } from '../../config';
 import styles from './ArticlesView.module.scss';
@@ -44,8 +45,6 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 		}
 	};
 
-	if (isLoading) return <AppLoader isAbsolute />;
-
 	if (error) return <AppText message={error} />;
 
 	return (
@@ -58,6 +57,12 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 		)}
 		>
 			{articles.map(renderArticle)}
+			{isLoading && viewType === 'grid' && (
+				Array.from({ length: 10 }, () => <AppSkeleton height={333} />)
+			)}
+			{isLoading && viewType === 'list' && (
+				Array.from({ length: 3 }, () => <AppSkeleton height={708} />)
+			)}
 		</div>
 	);
 });
