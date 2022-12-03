@@ -16,6 +16,7 @@ export const AppSkeleton = (props: AppSkeletonProps) => {
 		height,
 		borderRadius = 'base',
 		color = 'base',
+		...otherProps
 	} = props;
 
 	return (
@@ -32,6 +33,7 @@ export const AppSkeleton = (props: AppSkeletonProps) => {
 				width,
 				height,
 			}}
+			{...otherProps}
 		/>
 	);
 };
