@@ -1,5 +1,5 @@
 :root {
 	--sidebar-width: 76px;
 	--sidebar-width-expanded: 300px;
-	--sidebar-z-index: 1;
+	--sidebar-z-index: var(--z-index-sidebar);
 }
