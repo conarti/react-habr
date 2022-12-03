@@ -4,21 +4,24 @@ import { memo } from 'react';
 import { AppLoader } from 'shared/ui/AppLoader';
 import { AppText } from 'shared/ui/AppText';
 import { ArticleViewType } from '../../config';
-import { useArticles } from '../../model';
 import styles from './ArticlesView.module.scss';
 
 interface ArticlesViewProps {
 	className?: string;
 	viewType: ArticleViewType;
+	articles: articleConfig.Article[];
+	isLoading: boolean;
+	error?: string;
 }
 
 export const ArticlesView = memo((props: ArticlesViewProps) => {
 	const {
 		className,
 		viewType,
+		articles,
+		isLoading,
+		error,
 	} = props;
-
-	const { articles, error, isLoading } = useArticles();
 
 	const renderArticle = (article: articleConfig.Article) => {
 		switch (viewType) {
