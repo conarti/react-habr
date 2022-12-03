@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import avatarPlaceholder from 'shared/assets/images/avatar-placeholder.png';
 import styles from './AppAvatar.module.scss';
 
-type AppAvatarSize = 'sm' | 'md' | 'lg';
+export type AppAvatarSize = 'sm' | 'md' | 'lg';
 
 interface AppAvatarProps {
     className?: string;
