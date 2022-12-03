@@ -6,9 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { AppAvatar } from 'shared/ui/AppAvatar';
 import { AppCard } from 'shared/ui/AppCard';
 import { AppInput } from 'shared/ui/AppInput';
-import { AppLoader } from 'shared/ui/AppLoader';
+import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import { AppText } from 'shared/ui/AppText';
 import { UserProfile } from '../../config';
+import { ProfileCardSkeleton } from './ProfileCard.skeleton';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -62,7 +63,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					{
 						actions && !error && (
 							<div className={classNames(cls.profileCardActions)}>
-								{actions}
+								{isLoading ? (
+									<AppSkeleton
+										height={38}
+										width={140}
+									/>
+								) : actions}
 							</div>
 						)
 					}
@@ -70,9 +76,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
 			)}
 		>
 			<div className={classNames(cls.profileCardBody)}>
-				{isLoading && <AppLoader isFill />}
-				{error && <AppText message={error} />}
-				{profile && (
+				{isLoading && <ProfileCardSkeleton />}
+				{!isLoading && error && <AppText message={error} />}
+				{!isLoading && profile && (
 					<>
 						<AppAvatar
 							className={classNames(cls.profileCardAvatar)}
