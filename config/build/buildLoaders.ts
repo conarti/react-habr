@@ -1,3 +1,4 @@
+import { use } from 'i18next';
 import { RuleSetRule } from 'webpack';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildSassLoader } from './loaders/buildSassLoader';
@@ -13,11 +14,7 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
 
 	const fileLoader = {
 		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-		use: [
-			{
-				loader: 'file-loader',
-			},
-		],
+		type: 'asset/resource',
 	};
 
 	const typescriptLoader = {
