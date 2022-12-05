@@ -2,11 +2,26 @@
 	background: var(--bg-light-color);
 	border-radius: var(--border-radius-base);
 
-	&-cover {
-		width: 100%;
-		max-width: 100%;
+	&-cover-section {
 		height: 200px;
+	}
+
+	&-cover {
+		width: 0;
+		max-width: 100%;
+		height: 0;
 		object-fit: cover;
+
+		opacity: 0;
+
+		transition: opacity 0.25s ease-in-out;
+
+		&--is-loaded {
+			width: 100%;
+			height: 200px;
+
+			opacity: 1;
+		}
 	}
 
 	&-head {
