@@ -1,9 +1,8 @@
 import classNames from 'classnames';
-import { ArticleGridItem, ArticleListItem, articleConfig } from 'entities/article';
+import { articleConfig, ArticleGridItem, ArticleListItem } from 'entities/article';
 import { memo } from 'react';
-import { AppLoader } from 'shared/ui/AppLoader';
-import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import { AppText } from 'shared/ui/AppText';
+import { makeSkeletons } from '../../lib';
 import { ArticleViewType } from '../../config';
 import styles from './ArticlesView.module.scss';
 
@@ -11,6 +10,7 @@ interface ArticlesViewProps {
 	className?: string;
 	viewType: ArticleViewType;
 	articles: articleConfig.Article[];
+	pageLimit: number;
 	isLoading: boolean;
 	error?: string;
 }
@@ -22,6 +22,7 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 		articles,
 		isLoading,
 		error,
+		pageLimit,
 	} = props;
 
 	const renderArticle = (article: articleConfig.Article) => {
@@ -57,12 +58,7 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 		)}
 		>
 			{articles.map(renderArticle)}
-			{isLoading && viewType === 'grid' && (
-				Array.from({ length: 10 }, () => <AppSkeleton height={333} />)
-			)}
-			{isLoading && viewType === 'list' && (
-				Array.from({ length: 3 }, () => <AppSkeleton height={708} />)
-			)}
+			{isLoading && makeSkeletons(pageLimit, viewType)}
 		</div>
 	);
 });

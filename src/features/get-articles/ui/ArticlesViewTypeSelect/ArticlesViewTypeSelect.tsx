@@ -23,6 +23,7 @@ export const ArticlesViewTypeSelect = memo((props: ArticlesViewTypeSelectProps) 
 		<div className={classNames(styles.articlesViewTypeSelect, className)}>
 			{selectViewButtons.map(({ icon, type }) => (
 				<AppButton
+					key={type}
 					theme={viewType === type ? AppButtonTheme.PRIMARY : AppButtonTheme.CLEAR}
 					icon={icon}
 					onClick={onSelect(type)}

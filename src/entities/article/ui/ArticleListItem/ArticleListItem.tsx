@@ -91,7 +91,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 			{contentPreview && (
 				<div className={classNames(styles.articleListItemContentPreview)}>
 					{contentPreview.map((paragraph) => (
-						<p className="mb-sm">
+						<p
+							className="mb-sm"
+							key={paragraph}
+						>
 							{paragraph}
 						</p>
 					))}

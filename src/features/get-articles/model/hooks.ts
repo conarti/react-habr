@@ -4,10 +4,13 @@ import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { LocalStorage } from 'shared/lib/LocalStorage/LocalStorage';
 import { ArticleViewType, VIEW_TYPE_LOCAL_STORAGE_KEY } from '../config';
 import {
-	getArticles, getArticlesErrorMessage, isArticlesLoaded, isArticlesLoading,
+	getArticlesErrorMessage,
+	getArticlesHasMore, getArticlesPageLimit,
+	isArticlesLoaded,
+	isArticlesLoading,
 } from './selectors';
-import { fetchArticles } from './services';
-import { articlesReducer } from './store';
+import { fetchArticles, fetchNextArticlesPage } from './services';
+import { articlesReducer, getArticles } from './store';
 
 export const useArticles = () => {
 	const dispatch = useAppDispatch();
@@ -15,19 +18,28 @@ export const useArticles = () => {
 	const isLoading = useSelector(isArticlesLoading);
 	const isLoaded = useSelector(isArticlesLoaded);
 	const error = useSelector(getArticlesErrorMessage);
+	const hasMore = useSelector(getArticlesHasMore);
+	const limit = useSelector(getArticlesPageLimit);
 
 	useAsyncReducer({ articles: articlesReducer }, { removeAfterUnmount: false });
 
 	useEffect(() => {
 		if (!isLoaded) {
-			dispatch(fetchArticles());
+			dispatch(fetchArticles({ page: 1 }));
 		}
 	}, [dispatch, isLoaded]);
 
+	const fetchNextPage = useCallback(() => {
+		dispatch(fetchNextArticlesPage());
+	}, [dispatch]);
+
 	return {
 		articles,
+		fetchNextPage,
 		isLoading,
 		error,
+		hasMore,
+		limit,
 	};
 };
 

@@ -1,9 +1,14 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { articleConfig } from 'entities/article';
-import { fetchArticles } from './services';
 import { ArticlesSchema } from '../config';
+import { fetchArticles } from './services';
 
 export const articlesAdapter = createEntityAdapter<articleConfig.Article>();
+
+export const getArticles = articlesAdapter.getSelectors<StateSchema>(
+	(state) => state.articles || articlesAdapter.getInitialState(),
+);
 
 const store = createSlice({
 	name: 'articles',
@@ -12,8 +17,15 @@ const store = createSlice({
 		ids: [],
 		entities: {},
 		isLoaded: false,
+		page: 1,
+		limit: 8,
+		hasMore: true,
 	}),
-	reducers: {},
+	reducers: {
+		setPage(state, action: PayloadAction<number>) {
+			state.page = action.payload;
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchArticles.pending, (state) => {
@@ -24,7 +36,8 @@ const store = createSlice({
 				state.isLoading = false;
 				state.error = '';
 				state.isLoaded = true;
-				articlesAdapter.setAll(state, action.payload);
+				articlesAdapter.addMany(state, action.payload);
+				state.hasMore = action.payload.length === state.limit;
 			})
 			.addCase(fetchArticles.rejected, (state, action) => {
 				state.isLoading = false;

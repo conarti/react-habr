@@ -1,0 +1,1 @@
+export { makeSkeletons } from './makeSkeletons';

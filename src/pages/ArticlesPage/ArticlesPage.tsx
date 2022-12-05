@@ -1,18 +1,30 @@
 import {
-	ArticlesView,
-	ArticlesViewTypeSelect,
-	useArticles,
-	useArticlesView,
+	ArticlesView, ArticlesViewTypeSelect, useArticles, useArticlesView,
 } from 'features/get-articles';
 import { memo } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 
 const ArticlesPage = memo(() => {
-	const { viewType, setViewType } = useArticlesView();
+	const {
+		viewType,
+		setViewType,
+	} = useArticlesView();
 
-	const { articles, error, isLoading } = useArticles();
+	const {
+		articles,
+		error,
+		isLoading,
+		fetchNextPage,
+		hasMore,
+		limit,
+	} = useArticles();
 
 	return (
-		<>
+		<InfiniteScroll
+			pageStart={1}
+			loadMore={fetchNextPage}
+			hasMore={hasMore}
+		>
 			<div className="mb-md">
 				<ArticlesViewTypeSelect
 					viewType={viewType}
@@ -24,8 +36,9 @@ const ArticlesPage = memo(() => {
 				articles={articles}
 				isLoading={isLoading}
 				error={error}
+				pageLimit={limit}
 			/>
-		</>
+		</InfiniteScroll>
 	);
 });
 
