@@ -18,7 +18,13 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+	plugins: [
+		'react',
+		'@typescript-eslint',
+		'i18next',
+		'react-hooks',
+		'conarti-fsd',
+	],
 	rules: {
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
@@ -47,6 +53,10 @@ module.exports = {
 		'jsx-a11y/click-events-have-key-events': 'off',
 		'jsx-a11y/no-static-element-interactions': 'off',
 		'no-param-reassign': 'off',
+		'no-undef': 'off',
+		'conarti-fsd/layer-imports': 'error',
+		'conarti-fsd/path-checker': 'error',
+		'conarti-fsd/public-api-imports': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
