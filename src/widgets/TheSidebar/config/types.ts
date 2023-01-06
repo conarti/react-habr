@@ -1,4 +1,3 @@
-import { AppRoutes } from 'pages';
 import { ReactElement } from 'react';
 
 export interface TheSidebarLink {

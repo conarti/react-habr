@@ -8,14 +8,6 @@ import { NotFound } from 'pages/NotFound';
 import { ViewerProfilePage } from 'pages/ViewerProfilePage';
 import { UserProfilePage } from 'pages/UserProfilePage';
 
-export const enum AppRoutes {
-	MAIN = '/',
-	ABOUT = '/about',
-	PROFILE = '/profile',
-	ARTICLES = '/articles',
-	NOT_FOUND = '*'
-}
-
 const makeProtectedRoute = (route: ReactElement, hasAuth: boolean): ReactElement => {
 	if (hasAuth) {
 		return route;

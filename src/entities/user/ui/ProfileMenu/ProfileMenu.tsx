@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { AppRoutes } from 'pages';
 import { AppLink } from 'shared/ui/AppLink';
 import styles from './ProfileMenu.module.scss';
 

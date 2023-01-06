@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { AppRoutes } from 'pages';
 import { memo } from 'react';
 import { AppAvatar } from 'shared/ui/AppAvatar';
 import { AppCard } from 'shared/ui/AppCard';

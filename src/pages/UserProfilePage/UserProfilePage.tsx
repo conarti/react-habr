@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { ProfileCard, userModel } from 'entities/user';
-import { AppRoutes } from 'pages';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
