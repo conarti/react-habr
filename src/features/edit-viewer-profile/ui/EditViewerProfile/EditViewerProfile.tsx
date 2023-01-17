@@ -1,9 +1,7 @@
-import { ProfileCard, userModel } from 'entities/user';
-import { UserProfile } from 'entities/user/config';
-import { fetchProfile } from 'entities/user/model';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ProfileCard, userModel, userConfig } from 'entities/user';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { AppButton, AppButtonSize, AppButtonTheme } from 'shared/ui/AppButton';
 
@@ -18,16 +16,16 @@ export const EditViewerProfile = () => {
 	const error = useSelector(userModel.getError);
 
 	const [isEditable, setIsEditable] = useState(false);
-	const [savedProfile, setSavedProfile] = useState<UserProfile | null>(null);
+	const [savedProfile, setSavedProfile] = useState<userConfig.UserProfile | null>(null);
 
 	useEffect(() => {
 		if (!authData) {
 			return;
 		}
 
-		dispatch(fetchProfile(authData.id))
+		dispatch(userModel.fetchProfile(authData.id))
 			.then((action) => {
-				setSavedProfile(action.payload as UserProfile);
+				setSavedProfile(action.payload as userConfig.UserProfile);
 			});
 	}, [authData, dispatch]);
 
@@ -53,7 +51,7 @@ export const EditViewerProfile = () => {
 
 		dispatch(userModel.updateProfile(authData.id))
 			.then((action) => {
-				setSavedProfile(action.payload as UserProfile);
+				setSavedProfile(action.payload as userConfig.UserProfile);
 			});
 		disableEditMode();
 	}, [authData, disableEditMode, dispatch]);

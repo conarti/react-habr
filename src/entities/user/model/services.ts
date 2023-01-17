@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
 import axios from 'axios';
-import { userModel } from 'entities/user';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { UserProfile } from '../config';
+import { getProfile } from './selectors';
 
 export const fetchProfile = createAsyncThunk<UserProfile, string, ThunkConfig<string>>(
 	'user/fetchProfile',
@@ -27,7 +27,7 @@ export const updateProfile = createAsyncThunk<UserProfile, string, ThunkConfig<s
 	async (id, thunkAPI) => {
 		const { rejectWithValue, extra, getState } = thunkAPI;
 
-		const profile = userModel.getProfile(getState());
+		const profile = getProfile(getState());
 
 		try {
 			const { data } = await extra.api.put<UserProfile>(`/profile/${id}`, profile);

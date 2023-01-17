@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import { articleConfig, ArticleGridItem, ArticleListItem } from 'entities/article';
 import { memo } from 'react';
+import { articleConfig, ArticleGridItem, ArticleListItem } from 'entities/article';
 import { AppText } from 'shared/ui/AppText';
-import { makeSkeletons } from '../../lib';
 import { ArticleViewType } from '../../config';
+import { makeSkeletons } from '../../lib';
 import styles from './ArticlesView.module.scss';
 
 interface ArticlesViewProps {

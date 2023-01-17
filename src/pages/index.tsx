@@ -5,8 +5,8 @@ import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
-import { ViewerProfilePage } from 'pages/ViewerProfilePage';
 import { UserProfilePage } from 'pages/UserProfilePage';
+import { ViewerProfilePage } from 'pages/ViewerProfilePage';
 
 const makeProtectedRoute = (route: ReactElement, hasAuth: boolean): ReactElement => {
 	if (hasAuth) {

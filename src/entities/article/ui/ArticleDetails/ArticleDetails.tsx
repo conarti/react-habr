@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppCode } from 'shared/ui/AppCode';
 import { AppText } from 'shared/ui/AppText';
-import { ArticleInfo } from '../ArticleInfo';
 import { ArticleBlock } from '../../config/types/article';
 import { getArticleDetails, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
 import { fetchArticleByID } from '../../model/services';
 import { articleDetailsReducer } from '../../model/store';
 import { ArticleBlockImage } from '../ArticleBlockImage';
 import { ArticleBlockText } from '../ArticleBlockText';
-import { ArticleDetailsSkeleton } from './ArticleDetails.skeleton';
+import { ArticleInfo } from '../ArticleInfo';
 import styles from './ArticleDetails.module.scss';
+import { ArticleDetailsSkeleton } from './ArticleDetails.skeleton';
 
 interface ArticleDetailsProps {
 	id: string;

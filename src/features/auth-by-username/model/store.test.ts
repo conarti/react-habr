@@ -1,5 +1,5 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { LoginSchema } from 'features/auth-by-username';
+import { LoginSchema } from '../config/types';
 import { loginActions, loginReducer } from './store';
 
 const PAYLOAD = '123123';

@@ -1,6 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getLoginState } from 'features/auth-by-username/model/selectors';
+import { getLoginState } from './selectors';
 import { initialState } from './store';
 
 describe('auth-by-username model selectors', () => {

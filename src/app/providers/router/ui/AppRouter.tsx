@@ -1,8 +1,8 @@
-import { userModel } from 'entities/user';
-import { getRoutes } from 'pages';
 import { Suspense, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useRoutes } from 'react-router-dom';
+import { getRoutes } from 'pages';
+import { userModel } from 'entities/user';
 import { AppLoader } from 'shared/ui/AppLoader';
 
 const AppRouter = () => {

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LocalStorage } from 'shared/lib/LocalStorage/LocalStorage';
-import { fetchProfile, updateProfile } from './services';
 import {
 	User, USER_LOCAL_STORAGE_KEY, UserProfile, UserSchema,
 } from '../config';
+import { fetchProfile, updateProfile } from './services';
 
 const initialState: UserSchema = {
 	isLoading: false,

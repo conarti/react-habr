@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { CommentCard, CommentCardSkeleton } from '../CommentCard';
+import { useTranslation } from 'react-i18next';
 import { Comment } from '../../config';
+import { CommentCard, CommentCardSkeleton } from '../CommentCard';
 import styles from './CommentsList.module.scss';
 
 interface CommentsListProps {

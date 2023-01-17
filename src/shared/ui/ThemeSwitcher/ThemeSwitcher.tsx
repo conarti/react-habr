@@ -1,7 +1,7 @@
-import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import classNames from 'classnames';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
 import AutoIcon from 'shared/assets/icons/theme-auto.svg';

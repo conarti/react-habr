@@ -1,18 +1,18 @@
 import classNames from 'classnames';
-import { AddCommentForm, CommentsList } from 'entities/comment';
 import { Suspense, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { articleModel } from 'entities/article';
+import { AddCommentForm, CommentsList } from 'entities/comment';
+import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppLoader } from 'shared/ui/AppLoader';
-import { fetchCommentsByArticleId } from '../model/services';
 import {
 	articleCommentsReducer,
 	getArticleComments,
 	getArticleCommentsErrorMessage,
 	isArticleCommentsLoading,
 } from '../model';
+import { fetchCommentsByArticleId } from '../model/services';
 
 interface ArticleCommentsProps {
     className?: string;

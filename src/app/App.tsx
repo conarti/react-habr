@@ -1,10 +1,10 @@
-import { AppRouter } from 'app/providers/router';
 import classNames from 'classnames';
-import { userModel } from 'entities/user';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { AppRouter } from 'app/providers/router';
 import { TheHeader } from 'widgets/TheHeader';
 import { TheSidebar } from 'widgets/TheSidebar';
+import { userModel } from 'entities/user';
 
 export function App() {
 	const dispatch = useDispatch();

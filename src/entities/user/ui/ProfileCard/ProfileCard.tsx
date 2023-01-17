@@ -1,16 +1,16 @@
 import classNames from 'classnames';
-import { CountrySelect } from 'entities/country';
-import { CurrencySelect } from 'entities/currency';
 import { ReactElement, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { CountrySelect } from 'entities/country';
+import { CurrencySelect } from 'entities/currency';
 import { AppAvatar } from 'shared/ui/AppAvatar';
 import { AppCard } from 'shared/ui/AppCard';
 import { AppInput } from 'shared/ui/AppInput';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import { AppText } from 'shared/ui/AppText';
 import { UserProfile } from '../../config';
-import { ProfileCardSkeleton } from './ProfileCard.skeleton';
 import cls from './ProfileCard.module.scss';
+import { ProfileCardSkeleton } from './ProfileCard.skeleton';
 
 interface ProfileCardProps {
 	title: string;

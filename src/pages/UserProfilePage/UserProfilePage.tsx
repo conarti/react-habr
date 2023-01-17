@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { ProfileCard, userModel } from 'entities/user';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { ProfileCard, userModel } from 'entities/user';
 import { useAppDispatch } from 'shared/lib/hooks';
 import styles from './UserProfilePage.module.scss';
 

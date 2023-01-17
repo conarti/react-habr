@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import FileCopyIcon from 'shared/assets/icons/file-copy.svg';
-import CodeIcon from 'shared/assets/icons/code.svg';
 import { useCallback } from 'react';
+import CodeIcon from 'shared/assets/icons/code.svg';
+import FileCopyIcon from 'shared/assets/icons/file-copy.svg';
 import { AppButton, AppButtonSize } from '../AppButton';
 import styles from './AppCode.module.scss';
 

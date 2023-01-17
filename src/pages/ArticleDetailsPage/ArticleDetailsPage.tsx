@@ -1,8 +1,8 @@
-import { ArticleDetails } from 'entities/article';
-import { ArticleComments } from 'features/get-article-comments';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { ArticleComments } from 'features/get-article-comments';
+import { ArticleDetails } from 'entities/article';
 
 const ArticleDetailsPage = memo(() => {
 	const { id } = useParams<{ id: string }>();

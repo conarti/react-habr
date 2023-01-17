@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
 import { AppInput } from 'shared/ui/AppInput';
-import { addCommentActions, addCommentReducer } from '../../model/store';
 import { getAddCommentError, getAddCommentText } from '../../model/selectors';
+import { addCommentActions, addCommentReducer } from '../../model/store';
 import styles from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {

@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import { Article, ArticleTextBlock } from 'entities/article/config/types/article';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { AppButton } from 'shared/ui/AppButton';
 import { AppCard } from 'shared/ui/AppCard';
+import { Article, ArticleTextBlock } from '../../config/types/article';
 import { ArticleInfo } from '../ArticleInfo';
 import styles from './ArticleListItem.module.scss';
 

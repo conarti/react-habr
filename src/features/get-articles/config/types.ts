@@ -1,6 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { articleConfig } from 'entities/article';
 import { ReactElement } from 'react';
+import { articleConfig } from 'entities/article';
 
 export interface ArticlesSchema extends EntityState<articleConfig.Article> {
 	isLoading: boolean;

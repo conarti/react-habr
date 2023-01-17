@@ -1,8 +1,8 @@
+import { memo } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 import {
 	ArticlesView, ArticlesViewTypeSelect, useArticles, useArticlesView,
 } from 'features/get-articles';
-import { memo } from 'react';
-import InfiniteScroll from 'react-infinite-scroller';
 
 const ArticlesPage = memo(() => {
 	const {

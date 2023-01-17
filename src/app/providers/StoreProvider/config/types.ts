@@ -1,20 +1,20 @@
 import {
 	AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { createReduxStore } from 'app/providers/StoreProvider';
 import { AxiosInstance } from 'axios';
-import { articleConfig } from 'entities/article';
-import { commentConfig } from 'entities/comment';
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/user/config';
+import { CombinedState } from 'redux';
 import { LoginSchema } from 'features/auth-by-username';
 import { ArticleCommentsSchema } from 'features/get-article-comments';
 import { ArticlesSchema } from 'features/get-articles';
-import { CombinedState } from 'redux';
+import { articleConfig } from 'entities/article';
+import { commentConfig } from 'entities/comment';
+import { CounterSchema } from 'entities/Counter';
+import { userConfig } from 'entities/user';
+import { createReduxStore } from './store';
 
 export interface StateSchema {
 	counter: CounterSchema;
-	user: UserSchema;
+	user: userConfig.UserSchema;
 	loginForm?: LoginSchema;
 	articleDetails?: articleConfig.ArticleDetailsSchema;
 	articleComments?: ArticleCommentsSchema;

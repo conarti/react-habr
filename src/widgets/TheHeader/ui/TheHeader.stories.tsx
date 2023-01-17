@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { withStore } from 'shared/lib/storybook/withStore';
-import { TheHeader } from 'widgets/TheHeader';
+import { TheHeader } from './TheHeader';
 
 export default {
 	title: 'widgets/TheHeader',

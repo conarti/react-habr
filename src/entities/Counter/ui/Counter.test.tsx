@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { Counter } from 'entities/Counter';
 import { componentRender } from 'shared/lib/tests/componentRender';
+import { Counter } from './Counter';
 
 const VALUE_TITLE_TEST_ID = 'value-title';
 const INCREMENT_BTN_TEST_ID = 'increment-btn';
