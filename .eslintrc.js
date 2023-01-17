@@ -56,6 +56,15 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
 		'no-console': 'error',
+		'no-restricted-imports': 'off',
+		'@typescript-eslint/no-restricted-imports': [
+			'error',
+			{
+				name: 'react-redux',
+				importNames: ['useDispatch'], // TODO: 'useSelector'
+				message: 'Use typed hook `useAppDispatch` instead.',
+			},
+		],
 	},
 	globals: {
 		__IS_DEV__: true,
