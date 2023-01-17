@@ -1,3 +1,4 @@
+// FIXME: global declaration + put in app/types
 import {
 	AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -10,7 +11,7 @@ import { articleConfig } from 'entities/article';
 import { commentConfig } from 'entities/comment';
 import { CounterSchema } from 'entities/Counter';
 import { userConfig } from 'entities/user';
-import { createReduxStore } from './store';
+import { createReduxStore } from 'shared/lib/helpers';
 
 export interface StateSchema {
 	counter: CounterSchema;

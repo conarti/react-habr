@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from 'shared/config/types';
 
 export const getArticleDetails = (state: StateSchema) => state.articleDetails?.data ?? null;
 

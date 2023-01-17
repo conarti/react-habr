@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
 import { articleConfig } from 'entities/article';
+import { StateSchema } from 'shared/config/types';
 import { ArticlesSchema } from '../config';
 import { fetchArticles } from './services';
 

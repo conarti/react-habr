@@ -3,8 +3,8 @@ import { CombinedState } from 'redux';
 import { counterReducer } from 'entities/Counter';
 import { userModel } from 'entities/user';
 import { $api } from 'shared/api';
-import { createReducerManager } from './reducerManager';
-import { StateSchema } from './types';
+import { createReducerManager } from 'shared/lib/helpers/index';
+import { StateSchema } from '../../config/types/store';
 
 export const createReduxStore = (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
 	const rootReducer: ReducersMapObject<StateSchema> = {

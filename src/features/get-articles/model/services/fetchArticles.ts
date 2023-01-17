@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { ThunkConfig } from 'app/providers/StoreProvider';
 import { articleConfig } from 'entities/article';
+import { ThunkConfig } from 'shared/config/types';
 import { getArticlesPageLimit } from '../selectors';
 
 interface FetchArticlesPayload {

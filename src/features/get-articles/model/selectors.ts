@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from 'shared/config/types';
 
 export const isArticlesLoading = (state: StateSchema) => state.articles?.isLoading ?? false;
 

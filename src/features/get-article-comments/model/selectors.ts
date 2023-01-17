@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from 'shared/config/types';
 import { commentsAdapter } from './store';
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(

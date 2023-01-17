@@ -1,5 +1,5 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from 'shared/config/types';
 import { getLoginState } from './selectors';
 import { initialState } from './store';
 
