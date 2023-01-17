@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { LoginModal } from 'features/auth-by-username';
 import { ProfileMenu, userModel } from 'entities/user';
-import { useModal } from 'shared/lib/hooks';
+import { useAppDispatch, useModal } from 'shared/lib/hooks';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
 import cls from './TheHeader.module.scss';
 
@@ -17,7 +17,7 @@ export const TheHeader = memo(({ className }: NavbarProps) => {
 
 	const { isModalOpened, openModal, closeModal } = useModal();
 	const authData = useSelector(userModel.getAuthData);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const logout = useCallback(() => {
 		dispatch(userModel.userActions.logout());

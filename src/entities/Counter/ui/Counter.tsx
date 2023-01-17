@@ -1,6 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks';
 import { AppButton } from 'shared/ui/AppButton';
 import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
 import { counterActions } from '../model';
@@ -12,7 +13,7 @@ interface CounterProps {
 }
 
 export const Counter = ({ className }: CounterProps) => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const value = useSelector(getCounterValue);
 
 	const increment = () => {
