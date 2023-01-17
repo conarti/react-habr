@@ -55,6 +55,7 @@ module.exports = {
 		'jsx-a11y/no-static-element-interactions': 'off',
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
+		'no-console': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
