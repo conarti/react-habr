@@ -45,7 +45,7 @@ module.exports = {
 		'import/extensions': 'off',
 		'import/no-extraneous-dependencies': 'off',
 		'no-underscore-dangle': 'off',
-		'@typescript-eslint/no-unused-vars': 'warn',
+		'@typescript-eslint/no-unused-vars': 'error',
 		'no-tabs': 'off',
 		'react/jsx-max-props-per-line': [2, { maximum: 1 }],
 		'max-len': 'off',
