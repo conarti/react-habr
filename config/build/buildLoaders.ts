@@ -1,4 +1,3 @@
-import { use } from 'i18next';
 import { RuleSetRule } from 'webpack';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildSassLoader } from './loaders/buildSassLoader';
