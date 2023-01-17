@@ -9,6 +9,7 @@ module.exports = {
 		'airbnb',
 		'plugin:i18next/recommended',
 		'plugin:storybook/recommended',
+		'plugin:conarti-fsd/all',
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
@@ -54,9 +55,6 @@ module.exports = {
 		'jsx-a11y/no-static-element-interactions': 'off',
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
-		'conarti-fsd/layer-imports': 'error',
-		'conarti-fsd/path-checker': 'error',
-		'conarti-fsd/public-api-imports': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
