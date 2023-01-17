@@ -16,7 +16,6 @@ export const fetchProfile = createAsyncThunk<UserProfile, string, ThunkConfig<st
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message);
 			}
-			console.error(error);
 			return rejectWithValue('fetchProfile error');
 		}
 	},
@@ -36,7 +35,6 @@ export const updateProfile = createAsyncThunk<UserProfile, string, ThunkConfig<s
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message);
 			}
-			console.error(error);
 			return rejectWithValue('updateProfile error');
 		}
 	},

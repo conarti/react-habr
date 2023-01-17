@@ -17,7 +17,6 @@ export const fetchArticleByID = createAsyncThunk<Article, string, ThunkConfig<st
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message ?? `Произошла ошибка при загрузке статьи. Код ответа - ${error.response?.status}.`);
 			}
-			console.error(error);
 			return rejectWithValue('article/fetchArticleByID error');
 		}
 	},
