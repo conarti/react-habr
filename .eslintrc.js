@@ -65,6 +65,7 @@ module.exports = {
 				message: 'Use typed hook `useAppDispatch` instead.',
 			},
 		],
+		'react/jsx-key': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
