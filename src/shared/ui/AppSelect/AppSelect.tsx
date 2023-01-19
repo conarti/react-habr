@@ -45,7 +45,10 @@ export const AppSelect = (props: AppSelectProps) => {
 			>
 				{
 					options.map((option) => (
-						<option value={option[optionValue]}>
+						<option
+							key={option[optionValue]}
+							value={option[optionValue]}
+						>
 							{option[optionLabel]}
 						</option>
 					))
