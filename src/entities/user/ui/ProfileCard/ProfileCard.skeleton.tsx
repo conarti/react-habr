@@ -12,7 +12,12 @@ export const ProfileCardSkeleton = () => (
 			size="lg"
 		/>
 		<div className={classNames(styles.profileCardFields)}>
-			{Array.from({ length: FIELDS_COUNT }, () => (<AppInputSkeleton hasLabel />))}
+			{Array.from({ length: FIELDS_COUNT }, (_, index) => (
+				<AppInputSkeleton
+					key={index}
+					hasLabel
+				/>
+			))}
 		</div>
 	</div>
 );
