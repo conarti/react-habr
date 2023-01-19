@@ -43,11 +43,13 @@ export const ArticleDetailsSkeleton = memo(() => {
 			</ArticleInfo.Row>
 
 			{
-				contentBlocks.map((props) => (
+				contentBlocks.map(({ key, height, color }) => (
 					<AppSkeleton
 						className="mb-sm"
 						width="100%"
-						{...props}
+						key={key}
+						height={height}
+						color={color}
 					/>
 				))
 			}
