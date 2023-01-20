@@ -66,6 +66,13 @@ module.exports = {
 			},
 		],
 		'react/jsx-key': 'error',
+		'no-restricted-syntax': [
+			'error',
+			{
+				selector: 'ImportDeclaration[source.value=/.*\\.module\\.s?(a|c)ss$/] ImportDefaultSpecifier[local.name!="styles"]',
+				message: 'Use "styles" to name css imports',
+			},
+		],
 	},
 	globals: {
 		__IS_DEV__: true,
