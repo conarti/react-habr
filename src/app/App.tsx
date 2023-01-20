@@ -6,7 +6,7 @@ import { TheSidebar } from 'widgets/TheSidebar';
 import { userModel } from 'entities/user';
 import { useAppDispatch } from 'shared/lib/hooks';
 
-export function App() {
+export const App = () => {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -24,4 +24,4 @@ export function App() {
 			</Suspense>
 		</div>
 	);
-}
+};

@@ -21,7 +21,7 @@ const getNewTheme = (theme: Theme) => {
 	}
 };
 
-export function useTheme(): UseThemeResult {
+export const useTheme = (): UseThemeResult => {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	const toggleTheme = () => {
@@ -32,4 +32,4 @@ export function useTheme(): UseThemeResult {
 	};
 
 	return { theme: theme ?? Theme.AUTO, toggleTheme };
-}
+};
