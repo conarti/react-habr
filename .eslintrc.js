@@ -72,6 +72,14 @@ module.exports = {
 				selector: 'ImportDeclaration[source.value=/.*\\.module\\.s?(a|c)ss$/] ImportDefaultSpecifier[local.name!="styles"]',
 				message: 'Use "styles" to name css imports',
 			},
+			{
+				selector: '*[value=FunctionExpression][key!=Identifier],VariableDeclarator > FunctionExpression',
+				message: 'Using "FunctionExpression" is not allowed',
+			},
+			{
+				selector: 'FunctionDeclaration',
+				message: 'Using "FunctionDeclaration" is not allowed',
+			},
 		],
 	},
 	globals: {
