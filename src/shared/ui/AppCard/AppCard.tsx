@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ReactNode, useCallback, useState } from 'react';
 import { AppLoader } from 'shared/ui/AppLoader';
-import cls from './AppCard.module.scss';
+import styles from './AppCard.module.scss';
 
 interface AppCardProps {
     className?: string;
@@ -25,14 +25,14 @@ export const AppCard = (props: AppCardProps) => {
 	}, []);
 
 	return (
-		<div className={classNames(cls.appCard, className)}>
+		<div className={classNames(styles.appCard, className)}>
 			{cover && (
-				<div className={classNames(cls.appCardCoverSection)}>
+				<div className={classNames(styles.appCardCoverSection)}>
 					<img
 						className={classNames(
-							cls.appCardCover,
+							styles.appCardCover,
 							{
-								[cls.appCardCoverIsLoaded]: isImageLoaded,
+								[styles.appCardCoverIsLoaded]: isImageLoaded,
 							},
 						)}
 						src={cover}
@@ -43,11 +43,11 @@ export const AppCard = (props: AppCardProps) => {
 				</div>
 			)}
 			{head && (
-				<div className={classNames(cls.appCardHead)}>
+				<div className={classNames(styles.appCardHead)}>
 					{head}
 				</div>
 			)}
-			<div className={classNames(cls.appCardBody)}>
+			<div className={classNames(styles.appCardBody)}>
 				{children}
 			</div>
 		</div>

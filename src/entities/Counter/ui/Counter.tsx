@@ -6,7 +6,7 @@ import { AppButton } from 'shared/ui/AppButton';
 import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
 import { counterActions } from '../model';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import cls from './Counter.module.scss';
+import styles from './Counter.module.scss';
 
 interface CounterProps {
 	className?: string;
@@ -24,12 +24,12 @@ export const Counter = ({ className }: CounterProps) => {
 		dispatch(counterActions.decrement());
 	};
 	return (
-		<div className={classNames(cls.counter, className)}>
+		<div className={classNames(styles.counter, className)}>
 			<h2 data-testid="value-title">
 				Counter value -&nbsp;
 				{value}
 			</h2>
-			<div className={classNames(cls.counterBtnGroup)}>
+			<div className={classNames(styles.counterBtnGroup)}>
 				<AppButton
 					size={AppButtonSize.SM}
 					onClick={increment}

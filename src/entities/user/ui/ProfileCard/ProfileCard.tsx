@@ -9,7 +9,7 @@ import { AppInput } from 'shared/ui/AppInput';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import { AppText } from 'shared/ui/AppText';
 import { UserProfile } from '../../config';
-import cls from './ProfileCard.module.scss';
+import styles from './ProfileCard.module.scss';
 import { ProfileCardSkeleton } from './ProfileCard.skeleton';
 
 interface ProfileCardProps {
@@ -54,15 +54,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
 	return (
 		<AppCard
-			className={classNames(cls.profileCard, className)}
+			className={classNames(styles.profileCard, className)}
 			head={(
-				<div className={classNames(cls.profileCardHeader)}>
-					<h2 className={classNames(cls.profileCardTitle)}>
+				<div className={classNames(styles.profileCardHeader)}>
+					<h2 className={classNames(styles.profileCardTitle)}>
 						{title}
 					</h2>
 					{
 						actions && !error && (
-							<div className={classNames(cls.profileCardActions)}>
+							<div className={classNames(styles.profileCardActions)}>
 								{isLoading ? (
 									<AppSkeleton
 										height={38}
@@ -75,21 +75,21 @@ export const ProfileCard = (props: ProfileCardProps) => {
 				</div>
 			)}
 		>
-			<div className={classNames(cls.profileCardBody)}>
+			<div className={classNames(styles.profileCardBody)}>
 				{isLoading && <ProfileCardSkeleton />}
 				{!isLoading && error && <AppText message={error} />}
 				{!isLoading && profile && (
 					<>
 						<AppAvatar
-							className={classNames(cls.profileCardAvatar)}
+							className={classNames(styles.profileCardAvatar)}
 							size="lg"
 							src={profile.avatar}
 						/>
-						<div className={classNames(cls.profileCardFields)}>
+						<div className={classNames(styles.profileCardFields)}>
 							{
 								profile && textFields.map((field) => (
 									<AppInput
-										className={classNames(cls.profileCardFieldsItem)}
+										className={classNames(styles.profileCardFieldsItem)}
 										key={field}
 										label={t(field)}
 										isReadonly={!isEditable}
@@ -106,7 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 									/>
 								) : (
 									<AppInput
-										className={classNames(cls.profileCardFieldsItem)}
+										className={classNames(styles.profileCardFieldsItem)}
 										label={t('country')}
 										isReadonly={!isEditable}
 										value={profile.country}
@@ -122,7 +122,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 									/>
 								) : (
 									<AppInput
-										className={classNames(cls.profileCardFieldsItem)}
+										className={classNames(styles.profileCardFieldsItem)}
 										label={t('currency')}
 										isReadonly={!isEditable}
 										value={profile.currency}

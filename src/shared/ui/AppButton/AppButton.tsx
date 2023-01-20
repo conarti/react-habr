@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { ButtonHTMLAttributes, memo, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import './AppButon.variables.scss';
-import cls from './AppButton.module.scss';
+import styles from './AppButton.module.scss';
 
 export const enum AppButtonTheme {
 	CLEAR = 'clear',
@@ -44,13 +44,13 @@ export const AppButton = memo(({
 		return (
 			<NavLink
 				className={({ isActive }) => classNames(
-					cls.appButton,
-					cls.appButtonIsLink,
+					styles.appButton,
+					styles.appButtonIsLink,
 					className,
 					{
-						[cls.appButtonIsFill]: isFill,
-						[cls.appButtonPrimary]: isActive,
-						[cls.appButtonClear]: !isActive,
+						[styles.appButtonIsFill]: isFill,
+						[styles.appButtonPrimary]: isActive,
+						[styles.appButtonClear]: !isActive,
 					},
 				)}
 				to={to}
@@ -65,13 +65,13 @@ export const AppButton = memo(({
 		<button
 			className={
 				classNames(
-					cls.appButton,
+					styles.appButton,
 					{
-						[cls.appButtonIsFill]: isFill,
+						[styles.appButtonIsFill]: isFill,
 					},
 					className,
-					cls[`app-button-${theme}`],
-					cls[`app-button-${size}`],
+					styles[`app-button-${theme}`],
+					styles[`app-button-${size}`],
 				)
 			}
 			type="button"

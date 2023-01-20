@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
-import cls from './AppInput.module.scss';
+import styles from './AppInput.module.scss';
 import './AppInput.variables.scss';
 
 interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput' | 'readonly'> {
@@ -32,11 +32,11 @@ export const AppInput = memo((props: AppInputProps) => {
 
 	return (
 		<div className={classNames(
-			cls.appInput,
+			styles.appInput,
 			className,
 			{
-				[cls.appInputIsFill]: isFill,
-				[cls.appInputIsReadonly]: isReadonly,
+				[styles.appInputIsFill]: isFill,
+				[styles.appInputIsReadonly]: isReadonly,
 			},
 		)}
 		>
@@ -47,7 +47,7 @@ export const AppInput = memo((props: AppInputProps) => {
 			)}
 			<input
 				id={id}
-				className={classNames(cls.appInputNative)}
+				className={classNames(styles.appInputNative)}
 				type={type}
 				value={value}
 				onInput={onInputHandler}

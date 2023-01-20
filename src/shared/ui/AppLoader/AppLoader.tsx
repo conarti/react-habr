@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { memo, useEffect, useState } from 'react';
-import cls from './AppLoader.module.scss';
+import styles from './AppLoader.module.scss';
 
 interface AppLoaderProps {
   className?: string;
@@ -37,15 +37,15 @@ export const AppLoader = memo((props: AppLoaderProps) => {
 	return (
 		isDelayEnded ? (
 			<div className={classNames(
-				cls.appLoader,
+				styles.appLoader,
 				className,
 				{
-					[cls.isFill]: isFill,
-					[cls.isAbsolute]: isAbsolute,
+					[styles.isFill]: isFill,
+					[styles.isAbsolute]: isAbsolute,
 				},
 			)}
 			>
-				<div className={cls.appLoaderSpinner} />
+				<div className={styles.appLoaderSpinner} />
 			</div>
 		) : null
 	);

@@ -7,7 +7,7 @@ import { AppButton } from 'shared/ui/AppButton';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { links } from '../config';
-import cls from './TheSidebar.module.scss';
+import styles from './TheSidebar.module.scss';
 import './TheSidebar.variables.scss';
 
 interface SidebarProps {
@@ -38,7 +38,7 @@ export const TheSidebar = memo(({ className }: SidebarProps) => {
 				if ((needAuth && hasAuth) || !needAuth) {
 					return (
 						<AppButton
-							className={cls.theSidebarBtn}
+							className={styles.theSidebarBtn}
 							to={to}
 							icon={icon}
 							key={to}
@@ -56,12 +56,12 @@ export const TheSidebar = memo(({ className }: SidebarProps) => {
 
 	return (
 		<>
-			<div className={cls.theSidebarPlaceholder} />
+			<div className={styles.theSidebarPlaceholder} />
 			<div
 				className={classNames(
-					cls.theSidebar,
+					styles.theSidebar,
 					className,
-					{ [cls.expanded]: expanded },
+					{ [styles.expanded]: expanded },
 				)}
 				onMouseOver={expandedOn}
 				onMouseOut={expandedOff}
@@ -69,12 +69,12 @@ export const TheSidebar = memo(({ className }: SidebarProps) => {
 				onFocus={expandedOn}
 				data-testid="sidebar"
 			>
-				<div className={cls.theSidebarBtnGroup}>
+				<div className={styles.theSidebarBtnGroup}>
 					{linksElements}
 				</div>
-				<div className={classNames(cls.theSidebarBtnGroup, cls.theSidebarBtnGroupIsBottom)}>
-					<ThemeSwitcher className={cls.theSidebarBtn} />
-					<LangSwitcher className={cls.theSidebarBtn} />
+				<div className={classNames(styles.theSidebarBtnGroup, styles.theSidebarBtnGroupIsBottom)}>
+					<ThemeSwitcher className={styles.theSidebarBtn} />
+					<LangSwitcher className={styles.theSidebarBtn} />
 				</div>
 			</div>
 		</>

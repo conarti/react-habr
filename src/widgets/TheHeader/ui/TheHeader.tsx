@@ -6,7 +6,7 @@ import { LoginModal } from 'features/auth-by-username';
 import { ProfileMenu, userModel } from 'entities/user';
 import { useAppDispatch, useModal } from 'shared/lib/hooks';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
-import cls from './TheHeader.module.scss';
+import styles from './TheHeader.module.scss';
 
 interface NavbarProps {
 	className?: string;
@@ -24,10 +24,10 @@ export const TheHeader = memo(({ className }: NavbarProps) => {
 	}, [dispatch]);
 
 	return (
-		<div className={classNames(cls.theHeader, className)}>
-			<h1 className={classNames(cls.theHeaderTitle)}>{t('React course')}</h1>
+		<div className={classNames(styles.theHeader, className)}>
+			<h1 className={classNames(styles.theHeaderTitle)}>{t('React course')}</h1>
 
-			<div className={classNames(cls.theHeaderToolbar)}>
+			<div className={classNames(styles.theHeaderToolbar)}>
 				{
 					authData ? (
 						<>

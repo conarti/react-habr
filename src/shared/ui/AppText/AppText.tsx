@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { memo } from 'react';
-import cls from './AppText.module.scss';
+import styles from './AppText.module.scss';
 
 interface AppTextProps {
     className?: string;
@@ -11,5 +11,5 @@ interface AppTextProps {
 // TODO: stories
 
 export const AppText = memo(({ className, message }: AppTextProps) => (
-	<div className={classNames(cls.appText, className)}>{message}</div>
+	<div className={classNames(styles.appText, className)}>{message}</div>
 ));

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { memo } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
-import cls from './AppLink.module.scss';
+import styles from './AppLink.module.scss';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
@@ -25,10 +25,10 @@ export const AppLink = memo((props: AppLinkProps) => {
 	return (
 		<NavLink
 			className={({ isActive }) => classNames(
-				cls.appLink,
+				styles.appLink,
 				className,
-				cls[theme],
-				{ [cls.active]: isActive },
+				styles[theme],
+				{ [styles.active]: isActive },
 			)}
 			to={to}
 			{...otherProps}

@@ -9,7 +9,7 @@ import { AppText } from 'shared/ui/AppText';
 import { getLoginState } from '../../model/selectors';
 import { loginByUserName } from '../../model/services/loginByUserName';
 import { loginActions, loginReducer } from '../../model/store';
-import cls from './LoginForm.module.scss';
+import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
@@ -42,8 +42,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	}, [dispatch, onSuccess, password, username]);
 
 	return (
-		<div className={classNames(cls.loginForm, className)}>
-			<div className={classNames(cls.loginFormForms)}>
+		<div className={classNames(styles.loginForm, className)}>
+			<div className={classNames(styles.loginFormForms)}>
 				<AppInput
 					label="Логин"
 					isFill
