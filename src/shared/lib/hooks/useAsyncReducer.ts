@@ -22,8 +22,10 @@ export const useAsyncReducer = (reducers: ReducersList, options: AsyncReducerHoo
 
 	useEffect(() => {
 		Object.entries(reducers).forEach(([name, reducer]) => {
-			store.reducerManager.add(name as StateSchemaKey, reducer);
-			dispatch(initReducerAction(name));
+			if (!store.reducerManager.isReducerMounted(name as StateSchemaKey)) {
+				store.reducerManager.add(name as StateSchemaKey, reducer);
+				dispatch(initReducerAction(name));
+			}
 		});
 
 		return () => {
