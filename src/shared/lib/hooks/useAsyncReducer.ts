@@ -13,6 +13,7 @@ interface AsyncReducerHookOptions {
 }
 
 const initReducerAction = (name: string) => ({ type: `@INIT ${name} reducer` });
+const destroyReducerAction = (name: string) => ({ type: `@DESTROY ${name} reducer` });
 
 export const useAsyncReducer = (reducers: ReducersList, options: AsyncReducerHookOptions = {}) => {
 	const { removeAfterUnmount = true } = options;
@@ -29,6 +30,7 @@ export const useAsyncReducer = (reducers: ReducersList, options: AsyncReducerHoo
 			if (removeAfterUnmount) {
 				Object.entries(reducers).forEach(([name]) => {
 					store.reducerManager.remove(name as StateSchemaKey);
+					dispatch(destroyReducerAction(name));
 				});
 			}
 		};
