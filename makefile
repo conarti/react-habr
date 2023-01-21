@@ -62,8 +62,10 @@ stories-build:
 fake-api:
 	npm run json-server
 
-L=entities
+# Code generation
 
-slice-gen:
-	node ./scripts/createSlice/index.js $(L) $(S)
-	npx eslint --fix $$(git diff --name-only HEAD | xargs)
+slice-new:
+	npx hygen slice new
+
+slice-ui:
+	npx hygen slice ui
