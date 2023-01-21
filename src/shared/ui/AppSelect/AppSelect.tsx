@@ -1,9 +1,9 @@
+import { flip, offset, useFloating } from '@floating-ui/react-dom';
 import { Listbox, Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import React, { Fragment } from 'react';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
 import styles from './AppSelect.module.scss';
-import './AppSelect.variables.scss';
 
 interface Option {
  [key: string]: any
@@ -18,7 +18,6 @@ interface AppSelectProps {
 	optionValue?: string;
 	label?: string;
 	disabled?: boolean;
-	optionsPlacement?: 'top' | 'bottom'; // TODO: auto
 }
 
 export const AppSelect = (props: AppSelectProps) => {
@@ -29,10 +28,13 @@ export const AppSelect = (props: AppSelectProps) => {
 		onChange,
 		label,
 		disabled = false,
-		optionsPlacement = 'bottom',
 		optionValue = 'value',
 		optionLabel = 'label',
 	} = props;
+
+	const { y, reference, floating } = useFloating({
+		middleware: [flip(), offset(5)],
+	});
 
 	return (
 		<div className={classNames(styles.appSelect, className)}>
@@ -53,6 +55,7 @@ export const AppSelect = (props: AppSelectProps) => {
 							theme={AppButtonTheme.CLEAR}
 							disabled={disabled}
 							isFill
+							ref={reference}
 						>
 							{value}
 						</AppButton>
@@ -67,13 +70,13 @@ export const AppSelect = (props: AppSelectProps) => {
 						enterFrom={styles.optionsTransitionEnterFrom}
 						enterTo={styles.optionsTransitionEnterTo}
 					>
-						<Listbox.Options className={classNames(
-							styles.appSelectOptions,
-							{
-								[styles.appSelectOptionsIsPlacementTop]: optionsPlacement === 'top',
-								[styles.appSelectOptionsIsPlacementBottom]: optionsPlacement === 'bottom',
-							},
-						)}
+						<Listbox.Options
+							className={classNames(styles.appSelectOptions)}
+							ref={floating}
+							style={{
+								top: y ?? 0,
+								left: 0,
+							}}
 						>
 							{
 								options.map((option) => (

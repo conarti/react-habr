@@ -37,7 +37,6 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 			label={label}
 			options={currencyOptions}
 			disabled={disabled}
-			optionsPlacement="top"
 			value={value}
 			onChange={onSelect}
 		/>

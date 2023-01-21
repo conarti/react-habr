@@ -36,7 +36,6 @@ export const CountrySelect = (props: CountrySelectProps) => {
 			label={label}
 			options={countryOptions}
 			disabled={disabled}
-			optionsPlacement="top"
 			value={value}
 			onChange={onSelect}
 		/>
