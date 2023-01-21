@@ -10,6 +10,7 @@
 	--on-bg-secondary: rgb(216 216 216);
 	--on-bg-secondary-hover: rgb(216 216 216 / 8%);
 	--overlay-color: rgb(0 0 0 / 70%);
+	--shadow-color: var(--on-bg-secondary-hover);
 }
 
 body[data-theme="auto"] {
