@@ -5,6 +5,8 @@ import { Countries } from '../config';
 interface CountrySelectProps {
 	className?: string;
 	label?: string;
+	disabled?: boolean;
+	value: string;
 	onSelect: (newValue: string) => void;
 }
 
@@ -20,14 +22,23 @@ const countryOptions = [
 ];
 
 export const CountrySelect = (props: CountrySelectProps) => {
-	const { className, label, onSelect } = props;
+	const {
+		className,
+		label,
+		disabled,
+		value,
+		onSelect,
+	} = props;
 
 	return (
 		<AppSelect
 			className={classNames(className)}
 			label={label}
 			options={countryOptions}
-			onSelect={onSelect}
+			disabled={disabled}
+			optionsPlacement="top"
+			value={value}
+			onChange={onSelect}
 		/>
 	);
 };

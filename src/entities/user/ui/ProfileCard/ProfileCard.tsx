@@ -98,38 +98,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
 									/>
 								))
 							}
-							{
-								isEditable ? (
-									<CountrySelect
-										label={t('country')}
-										onSelect={onUpdateField('country')}
-									/>
-								) : (
-									<AppInput
-										className={classNames(styles.profileCardFieldsItem)}
-										label={t('country')}
-										isReadonly={!isEditable}
-										value={profile.country}
-										onInput={onUpdateField('country')}
-									/>
-								)
-							}
-							{
-								isEditable ? (
-									<CurrencySelect
-										label={t('currency')}
-										onSelect={onUpdateField('currency')}
-									/>
-								) : (
-									<AppInput
-										className={classNames(styles.profileCardFieldsItem)}
-										label={t('currency')}
-										isReadonly={!isEditable}
-										value={profile.currency}
-										onInput={onUpdateField('currency')}
-									/>
-								)
-							}
+							<CountrySelect
+								label={t('country')}
+								value={profile.country}
+								disabled={!isEditable}
+								onSelect={onUpdateField('country')}
+							/>
+							<CurrencySelect
+								label={t('currency')}
+								value={profile.currency}
+								disabled={!isEditable}
+								onSelect={onUpdateField('currency')}
+							/>
 						</div>
 					</>
 				)}
