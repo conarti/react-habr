@@ -2,7 +2,49 @@
 	display: inline-grid;
 	row-gap: var(--spacer-sm);
 
-	&-native {
-		// styles
+	&-options-container {
+		position: relative;
+	}
+
+	&-options {
+		position: absolute;
+		left: 0;
+
+		display: grid;
+		min-width: 100%;
+		margin: var(--app-select-options-offset) 0;
+		padding: var(--spacer-md);
+
+		list-style-type: none;
+
+		background-color: var(--bg-light-color);
+		border-radius: var(--border-radius-base);
+		box-shadow: 0 5px 20px var(--shadow-color);
+		row-gap: var(--spacer-sm);
+
+		&--is-placement-top {
+			bottom: 100%;
+		}
+
+		&--is-placement-bottom {
+			top: 100%;
+		}
+	}
+}
+
+.options-transition {
+	&-leave,
+	&-enter {
+		transition: opacity 0.25s;
+	}
+
+	&-enter-to,
+	&-leave-from {
+		opacity: 1;
+	}
+
+	&-enter-from,
+	&-leave-to {
+		opacity: 0;
 	}
 }

@@ -1,7 +1,9 @@
+import { Listbox, Transition } from '@headlessui/react';
 import classNames from 'classnames';
-import React, { ChangeEvent, useCallback } from 'react';
-import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
+import React, { Fragment } from 'react';
+import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
 import styles from './AppSelect.module.scss';
+import './AppSelect.variables.scss';
 
 interface Option {
  [key: string]: any
@@ -10,50 +12,86 @@ interface Option {
 interface AppSelectProps {
 	className?: string;
 	options: Option[];
+	value: string;
+	onChange: (newValue: string) => void;
 	optionLabel?: string;
 	optionValue?: string;
 	label?: string;
-	onSelect: (newValue: string) => void;
+	disabled?: boolean;
+	optionsPlacement?: 'top' | 'bottom'; // TODO: auto
 }
 
-// TODO: implement with design
 export const AppSelect = (props: AppSelectProps) => {
 	const {
 		className,
 		options,
-		onSelect,
+		value,
+		onChange,
 		label,
+		disabled = false,
+		optionsPlacement = 'bottom',
 		optionValue = 'value',
 		optionLabel = 'label',
 	} = props;
 
-	const onChange = useCallback((ev: ChangeEvent<HTMLSelectElement>) => {
-		onSelect(ev.target.value);
-	}, [onSelect]);
-
-	const id = uniqueId();
-
 	return (
 		<div className={classNames(styles.appSelect, className)}>
-			{label && (
-				<label htmlFor={id}>{label}</label>
-			)}
-			<select
-				className={classNames(styles.appSelectNative)}
+			<Listbox
+				value={value}
 				onChange={onChange}
-				id={id}
+				disabled={disabled}
 			>
-				{
-					options.map((option) => (
-						<option
-							key={option[optionValue]}
-							value={option[optionValue]}
+				{label && (
+					<Listbox.Label>
+						{label}
+					</Listbox.Label>
+				)}
+
+				<div className={classNames(styles.appSelectOptionsContainer)}>
+					<Listbox.Button as={Fragment}>
+						<AppButton
+							theme={AppButtonTheme.CLEAR}
+							disabled={disabled}
+							isFill
 						>
-							{option[optionLabel]}
-						</option>
-					))
-				}
-			</select>
+							{value}
+						</AppButton>
+					</Listbox.Button>
+
+					<Transition
+						as={Fragment}
+						leave={styles.optionsTransitionLeave}
+						leaveFrom={styles.optionsTransitionLeaveFrom}
+						leaveTo={styles.optionsTransitionLeaveTo}
+						enter={styles.optionsTransitionEnter}
+						enterFrom={styles.optionsTransitionEnterFrom}
+						enterTo={styles.optionsTransitionEnterTo}
+					>
+						<Listbox.Options className={classNames(
+							styles.appSelectOptions,
+							{
+								[styles.appSelectOptionsIsPlacementTop]: optionsPlacement === 'top',
+								[styles.appSelectOptionsIsPlacementBottom]: optionsPlacement === 'bottom',
+							},
+						)}
+						>
+							{
+								options.map((option) => (
+									<Listbox.Option
+										key={option[optionValue]}
+										value={option[optionValue]}
+										as={Fragment}
+									>
+										<AppButton theme={AppButtonTheme.CLEAR}>
+											{option[optionLabel]}
+										</AppButton>
+									</Listbox.Option>
+								))
+							}
+						</Listbox.Options>
+					</Transition>
+				</div>
+			</Listbox>
 		</div>
 	);
 };
