@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import { ButtonHTMLAttributes, memo, ReactElement } from 'react';
+import {
+	ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactElement,
+} from 'react';
 import { NavLink } from 'react-router-dom';
 import './AppButon.variables.scss';
 import styles from './AppButton.module.scss';
@@ -27,17 +29,20 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 // TODO: disabled style + stories
 
-export const AppButton = memo(({
-	className,
-	children,
-	to,
-	icon,
-	theme = AppButtonTheme.PRIMARY,
-	size = AppButtonSize.MD,
-	isFill = false,
-	disabled = false,
-	...otherProps
-}: AppButtonProps) => {
+export const AppButton = forwardRef((
+	{
+		className,
+		children,
+		to,
+		icon,
+		theme = AppButtonTheme.PRIMARY,
+		size = AppButtonSize.MD,
+		isFill = false,
+		disabled = false,
+		...otherProps
+	}: AppButtonProps,
+	ref,
+) => {
 	const isLink = typeof to === 'string';
 
 	if (isLink) {
@@ -54,6 +59,7 @@ export const AppButton = memo(({
 					},
 				)}
 				to={to}
+				ref={ref as ForwardedRef<HTMLAnchorElement>}
 			>
 				{icon}
 				{children}
@@ -76,6 +82,7 @@ export const AppButton = memo(({
 			}
 			type="button"
 			disabled={disabled}
+			ref={ref as ForwardedRef<HTMLButtonElement>}
 			{...otherProps}
 		>
 			{icon}
