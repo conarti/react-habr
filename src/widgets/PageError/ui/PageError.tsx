@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { AppButton, AppButtonSize } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 import styles from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -18,7 +18,7 @@ export const PageError = ({ className }: PageErrorProps) => {
 		<div className={classNames(styles.pageError, className)}>
 			<h1 className={classNames(styles.pageErrorTitle)}>{t('Произошла ошибка')}</h1>
 			<AppButton
-				size={AppButtonSize.SM}
+				size="sm"
 				onClick={reloadPage}
 			>
 				{t('Обновить страницу')}

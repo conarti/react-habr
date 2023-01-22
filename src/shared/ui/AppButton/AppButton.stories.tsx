@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AppButton, AppButtonSize } from './AppButton';
+import { AppButton } from './AppButton';
 
 export default {
 	title: 'shared/Button',
@@ -24,21 +24,21 @@ export const Small = Template.bind({});
 Small.args = {
 	children: 'Text',
 	theme: 'primary',
-	size: AppButtonSize.SM,
+	size: 'sm',
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
 	children: 'Text',
 	theme: 'primary',
-	size: AppButtonSize.MD,
+	size: 'md',
 };
 
 export const Large = Template.bind({});
 Large.args = {
 	children: 'Text',
 	theme: 'primary',
-	size: AppButtonSize.LG,
+	size: 'lg',
 };
 
 export const Link = Template.bind({});

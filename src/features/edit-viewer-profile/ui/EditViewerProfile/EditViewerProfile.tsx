@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ProfileCard, userModel, userConfig } from 'entities/user';
+import { ProfileCard, userConfig, userModel } from 'entities/user';
 import { useAppDispatch } from 'shared/lib/hooks';
-import { AppButton, AppButtonSize } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 
 export const EditViewerProfile = () => {
 	const { t } = useTranslation('profile');
@@ -67,14 +67,14 @@ export const EditViewerProfile = () => {
 				isEditable ? (
 					<>
 						<AppButton
-							size={AppButtonSize.SM}
+							size="sm"
 							theme="clear"
 							onClick={discardChanges}
 						>
 							{t('Отменить')}
 						</AppButton>
 						<AppButton
-							size={AppButtonSize.SM}
+							size="sm"
 							onClick={saveChanges}
 						>
 							{t('Сохранить')}
@@ -82,7 +82,7 @@ export const EditViewerProfile = () => {
 					</>
 				) : (
 					<AppButton
-						size={AppButtonSize.SM}
+						size="sm"
 						theme="clear"
 						onClick={enableEditMode}
 					>

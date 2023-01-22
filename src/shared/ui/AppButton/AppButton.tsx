@@ -6,13 +6,8 @@ import { NavLink } from 'react-router-dom';
 import './AppButon.variables.scss';
 import styles from './AppButton.module.scss';
 
-export const enum AppButtonSize {
-	SM = 'sm',
-	MD = 'md',
-	LG = 'lg',
-}
-
-type AppButtonTheme = 'primary' | 'clear'
+type AppButtonSize = 'sm' | 'md' | 'lg';
+type AppButtonTheme = 'primary' | 'clear';
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
@@ -33,7 +28,7 @@ export const AppButton = forwardRef((
 		to,
 		icon,
 		theme = 'primary',
-		size = AppButtonSize.MD,
+		size = 'md',
 		isFill = false,
 		disabled = false,
 		...otherProps

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useCallback } from 'react';
 import CodeIcon from 'shared/assets/icons/code.svg';
 import FileCopyIcon from 'shared/assets/icons/file-copy.svg';
-import { AppButton, AppButtonSize } from '../AppButton';
+import { AppButton } from '../AppButton';
 import styles from './AppCode.module.scss';
 
 interface AppCodeProps {
@@ -26,7 +26,7 @@ export const AppCode = (props: AppCodeProps) => {
 				<CodeIcon />
 				<AppButton
 					className={classNames(styles.appCodeCopyBtn)}
-					size={AppButtonSize.SM}
+					size="sm"
 					icon={<FileCopyIcon />}
 					onClick={copy}
 				/>

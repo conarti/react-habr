@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import CloseIcon from 'shared/assets/icons/close.svg';
-import { AppButton, AppButtonSize } from '../AppButton';
+import { AppButton } from '../AppButton';
 import { AppPortal } from '../AppPortal';
 import styles from './AppModal.module.scss';
 
@@ -83,7 +83,7 @@ export const AppModal = (props: AppModalProps) => {
 							<AppButton
 								className={classNames(styles.appModalCloseBtn)}
 								theme="clear"
-								size={AppButtonSize.SM}
+								size="sm"
 								onClick={onRequestClose}
 								data-testid="app-modal-close"
 							>

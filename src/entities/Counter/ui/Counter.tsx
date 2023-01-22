@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { AppButton } from 'shared/ui/AppButton';
-import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
 import { counterActions } from '../model';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import styles from './Counter.module.scss';
@@ -31,14 +30,14 @@ export const Counter = ({ className }: CounterProps) => {
 			</h2>
 			<div className={classNames(styles.counterBtnGroup)}>
 				<AppButton
-					size={AppButtonSize.SM}
+					size="sm"
 					onClick={increment}
 					data-testid="increment-btn"
 				>
 					Increment
 				</AppButton>
 				<AppButton
-					size={AppButtonSize.SM}
+					size="sm"
 					onClick={decrement}
 					data-testid="decrement-btn"
 				>
