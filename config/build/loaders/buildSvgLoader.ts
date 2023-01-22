@@ -19,6 +19,7 @@ export const buildSvgLoader = () => ({
 								className: 'app-icon',
 							},
 						},
+						'removeDimensions',
 					],
 				},
 			},
