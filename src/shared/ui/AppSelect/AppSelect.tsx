@@ -60,6 +60,7 @@ export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 					<Listbox.Button as={Fragment}>
 						<AppButton
 							theme="primary-outline"
+							size="sm"
 							disabled={disabled}
 							iconPosition="end"
 							icon={<ChevronSelectorVerticalIcon />}
@@ -97,6 +98,7 @@ export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 											({ active, selected }) => (
 												<AppButton
 													theme={active ? 'primary' : 'primary-outline'}
+													size="sm"
 													iconPosition="end"
 													contentPosition="start"
 													icon={selected ? <CheckIcon /> : undefined}
