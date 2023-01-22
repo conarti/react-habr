@@ -8,6 +8,7 @@
 
 	&-options {
 		position: absolute;
+		z-index: var(--z-index-popover);
 
 		display: grid;
 		width: max-content;
