@@ -69,3 +69,6 @@ slice-new:
 
 slice-ui:
 	npx hygen slice ui
+
+shared-ui:
+	npx hygen shared ui
