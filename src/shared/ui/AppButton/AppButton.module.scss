@@ -52,6 +52,18 @@
 		text-decoration: none;
 	}
 
+	&--is-content-start {
+		justify-content: start;
+	}
+
+	&--is-content-center {
+		justify-content: center;
+	}
+
+	&--is-content-end {
+		justify-content: end;
+	}
+
 	&-sm {
 		padding: var(--app-button-padding-sm);
 	}

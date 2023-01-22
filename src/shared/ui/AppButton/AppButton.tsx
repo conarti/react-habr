@@ -17,6 +17,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	icon?: ReactElement<any, any>;
 	size?: AppButtonSize;
 	iconPosition?: 'start' | 'end';
+	contentPosition?: 'start' | 'center' | 'end';
 	disabled?: boolean;
 }
 
@@ -33,6 +34,7 @@ export const AppButton = forwardRef((
 		isFill = false,
 		disabled = false,
 		iconPosition = 'start',
+		contentPosition = 'center',
 		...otherProps
 	}: AppButtonProps,
 	ref,
@@ -83,6 +85,7 @@ export const AppButton = forwardRef((
 					className,
 					styles[`app-button-${theme}`],
 					styles[`app-button-${size}`],
+					styles[`app-button--is-content-${contentPosition}`],
 				)
 			}
 			type="button"
