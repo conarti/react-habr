@@ -11,18 +11,18 @@ interface Option {
  [key: string]: any
 }
 
-interface AppSelectProps {
+interface AppSelectProps<T> {
 	className?: string;
 	options: Option[];
-	value: string;
-	onChange: (newValue: string) => void;
+	value: T;
+	onChange: (newValue: T) => void;
 	optionLabel?: string;
 	optionValue?: string;
 	label?: string;
 	disabled?: boolean;
 }
 
-export const AppSelect = (props: AppSelectProps) => {
+export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 	const {
 		className,
 		options,
