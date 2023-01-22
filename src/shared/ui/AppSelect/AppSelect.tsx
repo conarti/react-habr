@@ -34,9 +34,12 @@ export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 		optionLabel = 'label',
 	} = props;
 
-	const { y, reference, floating } = useFloating({
-		middleware: [flip(), offset(5)],
-	});
+	const {
+		y,
+		x,
+		reference,
+		floating,
+	} = useFloating({ middleware: [flip(), offset(5)] });
 
 	const selectedValueLabel = useMemo(() => options.find((option) => option[optionValue] === value)?.[optionLabel], [optionLabel, optionValue, options, value]);
 
@@ -80,7 +83,7 @@ export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 							ref={floating}
 							style={{
 								top: y ?? 0,
-								left: 0,
+								left: x ?? 0,
 							}}
 						>
 							{
