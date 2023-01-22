@@ -17,6 +17,7 @@ export const fetchArticleByID = createAsyncThunk<Article, string, ThunkConfig<st
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message ?? `Произошла ошибка при загрузке статьи. Код ответа - ${error.response?.status}.`);
 			}
+
 			return rejectWithValue('article/fetchArticleByID error');
 		}
 	},
@@ -46,6 +47,7 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message ?? `Произошла ошибка при создании комментария. Код ответа - ${error.response?.status}.`);
 			}
+
 			return rejectWithValue('article/addCommentForArticle error');
 		}
 	},

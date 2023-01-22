@@ -27,6 +27,7 @@ export const fetchArticles = createAsyncThunk<articleConfig.Article[], FetchArti
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message ?? `Произошла ошибка при загрузке статей. Код ответа - ${error.response?.status}.`);
 			}
+
 			return rejectWithValue('fetchArticles error');
 		}
 	},

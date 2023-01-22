@@ -61,6 +61,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 			if (!firstTextBlock) {
 				return null;
 			}
+
 			return firstTextBlock.paragraphs;
 		},
 		[firstTextBlock],

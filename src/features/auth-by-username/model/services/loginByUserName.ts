@@ -23,6 +23,7 @@ export const loginByUserName = createAsyncThunk<userConfig.User, LoginByUserName
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message);
 			}
+
 			return rejectWithValue('loginByUsername error');
 		}
 	},

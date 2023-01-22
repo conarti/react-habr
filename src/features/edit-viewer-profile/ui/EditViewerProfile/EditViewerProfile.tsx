@@ -41,6 +41,7 @@ export const EditViewerProfile = () => {
 		if (savedProfile !== null) {
 			dispatch(userModel.userActions.setProfile(savedProfile));
 		}
+
 		disableEditMode();
 	}, [disableEditMode, dispatch, savedProfile]);
 

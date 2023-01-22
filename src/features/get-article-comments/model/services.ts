@@ -20,6 +20,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<commentConfig.Comment[]
 			if (axios.isAxiosError(error)) {
 				return rejectWithValue(error.response?.data.message ?? `Произошла ошибка при загрузке комментариев статьи. Код ответа - ${error.response?.status}.`);
 			}
+
 			return rejectWithValue('fetchCommentsByArticleId error');
 		}
 	},
