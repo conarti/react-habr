@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { LoginModal } from 'features/auth-by-username';
 import { ProfileMenu, userModel } from 'entities/user';
 import { useAppDispatch, useModal } from 'shared/lib/hooks';
-import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 import styles from './TheHeader.module.scss';
 
 interface NavbarProps {
@@ -33,7 +33,7 @@ export const TheHeader = memo(({ className }: NavbarProps) => {
 						<>
 							<ProfileMenu />
 							<AppButton
-								theme={AppButtonTheme.PRIMARY}
+								theme="primary"
 								onClick={logout}
 							>
 								{t('Выйти')}
@@ -41,7 +41,7 @@ export const TheHeader = memo(({ className }: NavbarProps) => {
 						</>
 					) : (
 						<AppButton
-							theme={AppButtonTheme.PRIMARY}
+							theme="primary"
 							onClick={openModal}
 						>
 							{t('Войти')}

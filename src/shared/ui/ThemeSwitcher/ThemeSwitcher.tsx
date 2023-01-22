@@ -5,7 +5,7 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/moon.svg';
 import LightIcon from 'shared/assets/icons/sun.svg';
 import AutoIcon from 'shared/assets/icons/theme-auto.svg';
-import { AppButton, AppButtonTheme } from '../AppButton';
+import { AppButton } from '../AppButton';
 
 interface ThemeSwitcherProps {
     className?: string;
@@ -44,7 +44,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 	return (
 		<AppButton
 			className={classNames(className)}
-			theme={AppButtonTheme.CLEAR}
+			theme="clear"
 			icon={icon}
 			onClick={toggleTheme}
 		>

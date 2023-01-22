@@ -2,7 +2,7 @@ import { flip, offset, useFloating } from '@floating-ui/react-dom';
 import { Listbox, Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import React, { Fragment, useMemo } from 'react';
-import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 import styles from './AppSelect.module.scss';
 
 interface Option {
@@ -54,7 +54,7 @@ export const AppSelect = (props: AppSelectProps) => {
 				<div className={classNames(styles.appSelectOptionsContainer)}>
 					<Listbox.Button as={Fragment}>
 						<AppButton
-							theme={AppButtonTheme.CLEAR}
+							theme="clear"
 							disabled={disabled}
 							isFill
 							ref={reference}
@@ -87,7 +87,7 @@ export const AppSelect = (props: AppSelectProps) => {
 										value={option[optionValue]}
 										as={Fragment}
 									>
-										<AppButton theme={AppButtonTheme.CLEAR}>
+										<AppButton theme="clear">
 											{option[optionLabel]}
 										</AppButton>
 									</Listbox.Option>

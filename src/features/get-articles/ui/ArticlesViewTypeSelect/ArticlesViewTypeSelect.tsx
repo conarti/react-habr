@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { memo, useCallback } from 'react';
-import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 import { selectViewButtons, ArticleViewType } from '../../config';
 import styles from './ArticlesViewTypeSelect.module.scss';
 
@@ -24,7 +24,7 @@ export const ArticlesViewTypeSelect = memo((props: ArticlesViewTypeSelectProps) 
 			{selectViewButtons.map(({ icon, type }) => (
 				<AppButton
 					key={type}
-					theme={viewType === type ? AppButtonTheme.PRIMARY : AppButtonTheme.CLEAR}
+					theme={viewType === type ? 'primary' : 'clear'}
 					icon={icon}
 					onClick={onSelect(type)}
 				/>

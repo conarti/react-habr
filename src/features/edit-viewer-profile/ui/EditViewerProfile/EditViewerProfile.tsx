@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { ProfileCard, userModel, userConfig } from 'entities/user';
 import { useAppDispatch } from 'shared/lib/hooks';
-import { AppButton, AppButtonSize, AppButtonTheme } from 'shared/ui/AppButton';
+import { AppButton, AppButtonSize } from 'shared/ui/AppButton';
 
 export const EditViewerProfile = () => {
 	const { t } = useTranslation('profile');
@@ -68,7 +68,7 @@ export const EditViewerProfile = () => {
 					<>
 						<AppButton
 							size={AppButtonSize.SM}
-							theme={AppButtonTheme.CLEAR}
+							theme="clear"
 							onClick={discardChanges}
 						>
 							{t('Отменить')}
@@ -83,7 +83,7 @@ export const EditViewerProfile = () => {
 				) : (
 					<AppButton
 						size={AppButtonSize.SM}
-						theme={AppButtonTheme.CLEAR}
+						theme="clear"
 						onClick={enableEditMode}
 					>
 						{t('Редактировать')}

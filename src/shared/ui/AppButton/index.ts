@@ -1,1 +1,1 @@
-export { AppButtonTheme, AppButton, AppButtonSize } from './AppButton';
+export { AppButton, AppButtonSize } from './AppButton';

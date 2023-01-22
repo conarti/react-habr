@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import LangIcon from 'shared/assets/icons/globe-alt.svg';
-import { AppButton, AppButtonTheme } from '../AppButton';
+import { AppButton } from '../AppButton';
 
 interface LangSwitcherProps {
     className?: string;
@@ -18,7 +18,7 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
 	return (
 		<AppButton
 			className={classNames(className)}
-			theme={AppButtonTheme.CLEAR}
+			theme="clear"
 			icon={<LangIcon />}
 			onClick={toggle}
 		>

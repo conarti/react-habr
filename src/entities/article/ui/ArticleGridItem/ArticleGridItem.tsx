@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 import { AppCard } from 'shared/ui/AppCard';
 import { Article } from '../../config/types/article';
 import { ArticleInfo } from '../ArticleInfo';
@@ -42,7 +42,7 @@ export const ArticleGridItem = (props: ArticleGridItemProps) => {
 			<div className={classNames(styles.articleGridItemLink)}>
 				<AppButton
 					className="stretched-link"
-					theme={AppButtonTheme.CLEAR}
+					theme="clear"
 					onClick={openArticle}
 				>
 					{t('Читать')}

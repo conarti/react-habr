@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
-import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
+import { AppButton } from 'shared/ui/AppButton';
 import { AppInput } from 'shared/ui/AppInput';
 import { getAddCommentError, getAddCommentText } from '../../model/selectors';
 import { addCommentActions, addCommentReducer } from '../../model/store';
@@ -47,7 +47,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 				onInput={setCommentText}
 			/>
 			<AppButton
-				theme={AppButtonTheme.PRIMARY}
+				theme="primary"
 				onClick={onSendHandler}
 				type="submit"
 			>
