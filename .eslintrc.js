@@ -87,6 +87,7 @@ module.exports = {
 			{ blankLine: 'always', prev: 'if', next: '*' },
 			{ blankLine: 'always', prev: '*', next: 'if' },
 		],
+		'comma-spacing': ['error', { before: false, after: true }],
 	},
 	globals: {
 		__IS_DEV__: true,
