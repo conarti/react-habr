@@ -19,6 +19,7 @@ interface AppSelectProps<T> {
 	optionLabel?: string;
 	optionValue?: string;
 	label?: string;
+	labelPosition?: 'top' | 'start';
 	disabled?: boolean;
 }
 
@@ -29,6 +30,7 @@ export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 		value,
 		onChange,
 		label,
+		labelPosition = 'top',
 		disabled = false,
 		optionValue = 'value',
 		optionLabel = 'label',
@@ -44,7 +46,7 @@ export const AppSelect = <T extends string>(props: AppSelectProps<T>) => {
 	const selectedValueLabel = useMemo(() => options.find((option) => option[optionValue] === value)?.[optionLabel], [optionLabel, optionValue, options, value]);
 
 	return (
-		<div className={classNames(styles.appSelect, className)}>
+		<div className={classNames(styles.appSelect, className, styles[`app-select--is-label-${labelPosition}`])}>
 			<Listbox
 				value={value}
 				onChange={onChange}

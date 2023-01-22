@@ -1,6 +1,11 @@
 .app-select {
 	display: inline-grid;
-	row-gap: var(--spacer-sm);
+	gap: var(--spacer-sm);
+
+	&--is-label-start {
+		grid-auto-flow: column;
+		align-items: center;
+	}
 
 	&-options-container {
 		position: relative;
