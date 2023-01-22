@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { ReactNode, useCallback, useState } from 'react';
-import { AppLoader } from 'shared/ui/AppLoader';
+import { ReactNode } from 'react';
+import { AppImage } from '../AppImage';
 import styles from './AppCard.module.scss';
 
 interface AppCardProps {
@@ -18,29 +18,15 @@ export const AppCard = (props: AppCardProps) => {
 		head,
 	} = props;
 
-	const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-	const onImageLoad = useCallback(() => {
-		setIsImageLoaded(true);
-	}, []);
-
 	return (
 		<div className={classNames(styles.appCard, className)}>
 			{cover && (
-				<div className={classNames(styles.appCardCoverSection)}>
-					<img
-						className={classNames(
-							styles.appCardCover,
-							{
-								[styles.appCardCoverIsLoaded]: isImageLoaded,
-							},
-						)}
-						src={cover}
-						alt="card cover"
-						onLoad={onImageLoad}
-					/>
-					{!isImageLoaded && <AppLoader isFill />}
-				</div>
+				<AppImage
+					height={200}
+					errorImageSize={58}
+					src={cover}
+					alt="card cover"
+				/>
 			)}
 			{head && (
 				<div className={classNames(styles.appCardHead)}>

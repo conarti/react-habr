@@ -9,5 +9,8 @@
   "Главная": "Main",
   "О сайте": "About",
   "Войти": "Login",
-  "Выйти": "Logout"
+  "Выйти": "Logout",
+  "appImage": {
+    "loadError": "An error occurred while loading the image"
+  }
 }
