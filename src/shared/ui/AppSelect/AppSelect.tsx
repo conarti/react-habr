@@ -2,6 +2,8 @@ import { flip, offset, useFloating } from '@floating-ui/react-dom';
 import { Listbox, Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import React, { Fragment, useMemo } from 'react';
+import CheckIcon from 'shared/assets/icons/check.svg';
+import ChevronSelectorVerticalIcon from 'shared/assets/icons/chevron-selector-vertical.svg';
 import { AppButton } from 'shared/ui/AppButton';
 import styles from './AppSelect.module.scss';
 
@@ -54,9 +56,10 @@ export const AppSelect = (props: AppSelectProps) => {
 				<div className={classNames(styles.appSelectOptionsContainer)}>
 					<Listbox.Button as={Fragment}>
 						<AppButton
-							theme="clear"
+							theme="primary-outline"
 							disabled={disabled}
-							isFill
+							iconPosition="end"
+							icon={<ChevronSelectorVerticalIcon />}
 							ref={reference}
 						>
 							{selectedValueLabel}
@@ -87,9 +90,18 @@ export const AppSelect = (props: AppSelectProps) => {
 										value={option[optionValue]}
 										as={Fragment}
 									>
-										<AppButton theme="clear">
-											{option[optionLabel]}
-										</AppButton>
+										{
+											({ active, selected }) => (
+												<AppButton
+													theme={active ? 'primary' : 'primary-outline'}
+													iconPosition="end"
+													contentPosition="start"
+													icon={selected ? <CheckIcon /> : undefined}
+												>
+													{option[optionLabel]}
+												</AppButton>
+											)
+										}
 									</Listbox.Option>
 								))
 							}
