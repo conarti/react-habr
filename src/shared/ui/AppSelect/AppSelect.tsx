@@ -1,7 +1,7 @@
 import { flip, offset, useFloating } from '@floating-ui/react-dom';
 import { Listbox, Transition } from '@headlessui/react';
 import classNames from 'classnames';
-import React, { Fragment } from 'react';
+import React, { Fragment, useMemo } from 'react';
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton';
 import styles from './AppSelect.module.scss';
 
@@ -36,6 +36,8 @@ export const AppSelect = (props: AppSelectProps) => {
 		middleware: [flip(), offset(5)],
 	});
 
+	const selectedValueLabel = useMemo(() => options.find((option) => option[optionValue] === value)?.[optionLabel], [optionLabel, optionValue, options, value]);
+
 	return (
 		<div className={classNames(styles.appSelect, className)}>
 			<Listbox
@@ -57,7 +59,7 @@ export const AppSelect = (props: AppSelectProps) => {
 							isFill
 							ref={reference}
 						>
-							{value}
+							{selectedValueLabel}
 						</AppButton>
 					</Listbox.Button>
 
