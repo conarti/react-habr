@@ -1,10 +1,19 @@
-@mixin button-theme($color, $bg-color, $bg-color-hover) {
+@mixin button-theme(
+	$color,
+	$bg-color,
+	$bg-color-hover,
+	$border-color: transparent,
+	$border-color-hover: transparent,
+	$outline-color-hover: transparent,
+) {
 	color: $color;
 
 	background-color: $bg-color;
+	box-shadow: 0 0 0 1px $border-color, 0 0 0 3px transparent;
 
-	&:hover {
+	&:hover:not(&:disabled) {
 		background-color: $bg-color-hover;
+		box-shadow: 0 0 0 1px $border-color-hover, 0 0 0 3px $outline-color-hover;
 	}
 }
 
@@ -27,7 +36,13 @@
 	outline: none;
 	cursor: pointer;
 
-	transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+	transition-duration: 0.25s;
+	transition-property: background-color, color, box-shadow;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.8;
+	}
 
 	&--is-fill {
 		width: 100%;
@@ -51,5 +66,20 @@
 
 	&-primary {
 		@include button-theme(var(--primary-color), var(--primary-color-bg), var(--primary-color-hover));
+	}
+
+	&-primary-outline {
+		@include button-theme(
+			var(--on-bg-secondary),
+			transparent,
+			transparent,
+			var(--on-bg-secondary-hover),
+			var(--primary-color-hover),
+			var(--primary-color-bg),
+		);
+	}
+
+	&-content {
+		display: inline-flex;
 	}
 }

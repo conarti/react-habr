@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import {
-	ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactElement,
+	ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactElement, useMemo,
 } from 'react';
 import { NavLink } from 'react-router-dom';
 import './AppButon.variables.scss';
 import styles from './AppButton.module.scss';
 
 type AppButtonSize = 'sm' | 'md' | 'lg';
-type AppButtonTheme = 'primary' | 'clear';
+type AppButtonTheme = 'primary' | 'clear' | 'primary-outline';
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
@@ -16,6 +16,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	to?: string;
 	icon?: ReactElement<any, any>;
 	size?: AppButtonSize;
+	iconPosition?: 'start' | 'end';
 	disabled?: boolean;
 }
 
@@ -31,11 +32,24 @@ export const AppButton = forwardRef((
 		size = 'md',
 		isFill = false,
 		disabled = false,
+		iconPosition = 'start',
 		...otherProps
 	}: AppButtonProps,
 	ref,
 ) => {
 	const isLink = typeof to === 'string';
+
+	const buttonContent = useMemo(() => (iconPosition === 'start' ? (
+		<>
+			{icon}
+			{children}
+		</>
+	) : (
+		<>
+			{children}
+			{icon}
+		</>
+	)), [children, icon, iconPosition]);
 
 	if (isLink) {
 		return (
@@ -53,8 +67,7 @@ export const AppButton = forwardRef((
 				to={to}
 				ref={ref as ForwardedRef<HTMLAnchorElement>}
 			>
-				{icon}
-				{children}
+				{buttonContent}
 			</NavLink>
 		);
 	}
@@ -77,8 +90,7 @@ export const AppButton = forwardRef((
 			ref={ref as ForwardedRef<HTMLButtonElement>}
 			{...otherProps}
 		>
-			{icon}
-			{children}
+			{buttonContent}
 		</button>
 	);
 });
