@@ -12,11 +12,11 @@ interface CountrySelectProps {
 
 const countryOptions = [
 	{
-		label: Countries.RU,
+		label: 'Russia',
 		value: Countries.RU,
 	},
 	{
-		label: Countries.US,
+		label: 'USA',
 		value: Countries.US,
 	},
 ];
