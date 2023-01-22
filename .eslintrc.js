@@ -82,6 +82,11 @@ module.exports = {
 				message: 'Using "FunctionDeclaration" is not allowed',
 			},
 		],
+		'padding-line-between-statements': [
+			'error',
+			{ blankLine: 'always', prev: 'if', next: '*' },
+			{ blankLine: 'always', prev: '*', next: 'if' },
+		],
 	},
 	globals: {
 		__IS_DEV__: true,
