@@ -11,6 +11,7 @@
 	background-color: $bg-color;
 	box-shadow: 0 0 0 1px $border-color, 0 0 0 3px transparent;
 
+	&:focus-visible,
 	&:hover:not(&:disabled) {
 		background-color: $bg-color-hover;
 		box-shadow: 0 0 0 1px $border-color-hover, 0 0 0 3px $outline-color-hover;
@@ -89,9 +90,5 @@
 			var(--primary-color-hover),
 			var(--primary-color-bg),
 		);
-	}
-
-	&-content {
-		display: inline-flex;
 	}
 }
