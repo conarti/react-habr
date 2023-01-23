@@ -20,6 +20,7 @@ export const ArticlesViewSearch = memo((props: ArticlesViewSearchProps) => {
 		<AppInput
 			className={classNames(className)}
 			icon={<SearchIcon />}
+			iconPlacement="end"
 			placeholder="Введите для поиска..."
 			value={value}
 			onInput={onInput}
