@@ -36,10 +36,9 @@ export const ArticlesCategoryFilter = memo((props: ArticlesCategoryFilterProps) 
 	} = props;
 
 	return (
-		<div className={classNames(className, 'd-flex')}>
+		<div className={classNames(className, 'd-inline-grid row gap-sm')}>
 			{articleCategories.map((category) => (
 				<AppButton
-					className="mr-sm"
 					size="sm"
 					key={category.label}
 					theme={category.value === value ? 'primary' : 'primary-outline'}
