@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { memo, useCallback } from 'react';
 import { AppButton } from 'shared/ui/AppButton';
 import { selectViewButtons, ArticleViewType } from '../../config';
-import styles from './ArticlesViewTypeSelect.module.scss';
+import styles from './index.module.scss';
 
 interface ArticlesViewTypeSelectProps {
 	className?: string;

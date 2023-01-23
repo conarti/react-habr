@@ -4,7 +4,7 @@ import { articleConfig, ArticleGridItem, ArticleListItem } from 'entities/articl
 import { AppText } from 'shared/ui/AppText';
 import { ArticleViewType } from '../../config';
 import { makeSkeletons } from '../../lib';
-import styles from './ArticlesView.module.scss';
+import styles from './index.module.scss';
 
 interface ArticlesViewProps {
 	className?: string;

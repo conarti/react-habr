@@ -1,1 +1,0 @@
-export { ArticlesView } from './ArticlesView';
