@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { memo } from 'react';
-import { articleConfig, ArticleGridItem, ArticleListItem } from 'entities/article';
+import { articleConfig } from 'entities/article';
 import { AppText } from 'shared/ui/AppText';
 import { ArticleViewType } from '../../config';
-import { makeSkeletons } from '../../lib';
+import { makeSkeletons, makeArticleItem } from '../../lib';
 import styles from './index.module.scss';
 
 interface ArticlesViewProps {
@@ -25,27 +25,6 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 		pageLimit,
 	} = props;
 
-	const renderArticle = (article: articleConfig.Article) => {
-		switch (viewType) {
-		case 'grid':
-			return (
-				<ArticleGridItem
-					key={article.id}
-					article={article}
-				/>
-			);
-		case 'list':
-			return (
-				<ArticleListItem
-					key={article.id}
-					article={article}
-				/>
-			);
-		default:
-			throw new Error(`no component specified for view type "${viewType}"`);
-		}
-	};
-
 	if (error) return <AppText message={error} />;
 
 	return (
@@ -57,7 +36,7 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 			},
 		)}
 		>
-			{articles.map(renderArticle)}
+			{articles.map((article) => makeArticleItem(article, viewType))}
 			{isLoading && makeSkeletons(pageLimit, viewType)}
 		</div>
 	);
