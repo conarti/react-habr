@@ -11,7 +11,6 @@ import {
 	useArticlesView,
 	useArticlesCategoryFilter,
 } from 'features/get-articles';
-import { AppCard } from 'shared/ui/AppCard';
 
 const ArticlesPage = memo(() => {
 	const {
@@ -51,34 +50,31 @@ const ArticlesPage = memo(() => {
 			loadMore={fetchNextPage}
 			hasMore={hasMore}
 		>
-			<AppCard className="mb-md">
-				<div className="d-flex items-center">
-					<ArticlesViewTypeSelect
-						viewType={viewType}
-						onChangeViewType={setViewType}
-					/>
-					<div className="ml-auto d-flex items-center">
-						<ArticlesViewSearch
-							className="mr-lg"
-							value={search}
-							onInput={setSearch}
-						/>
-						<ArticlesViewSort
-							by={sortBy}
-							onChangeBy={setSortBy}
-							order={sortOrder}
-							onChangeOrder={setSortOrder}
-						/>
-					</div>
-				</div>
-			</AppCard>
+			<div className="d-flex flex-wrap items-center mb-md">
+				<ArticlesViewTypeSelect
+					className="mr-lg"
+					viewType={viewType}
+					onChangeViewType={setViewType}
+				/>
 
-			<AppCard className="mb-md">
 				<ArticlesCategoryFilter
 					value={category}
 					onChange={setCategory}
 				/>
-			</AppCard>
+
+				<ArticlesViewSearch
+					className="ml-auto mr-lg"
+					value={search}
+					onInput={setSearch}
+				/>
+
+				<ArticlesViewSort
+					by={sortBy}
+					onChangeBy={setSortBy}
+					order={sortOrder}
+					onChangeOrder={setSortOrder}
+				/>
+			</div>
 
 			<ArticlesView
 				viewType={viewType}
