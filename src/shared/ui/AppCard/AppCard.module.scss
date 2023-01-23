@@ -1,4 +1,7 @@
 .app-card {
+	display: flex;
+	flex-direction: column;
+
 	background: var(--bg-light-color);
 	border-radius: var(--border-radius-base);
 
@@ -9,6 +12,7 @@
 	}
 
 	&-body {
+		flex-grow: 1;
 		padding: var(--spacer-md);
 	}
 
