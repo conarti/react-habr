@@ -11,8 +11,10 @@ import {
 } from 'react';
 import XmarkIcon from 'shared/assets/icons/xmark.svg';
 import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
-import styles from './AppInput.module.scss';
-import './AppInput.variables.scss';
+import styles from './index.module.scss';
+import './index.variables.scss';
+
+export { AppInputSkeleton } from './index.skeleton';
 
 interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput' | 'readonly' | 'size'> {
 	className?: string;

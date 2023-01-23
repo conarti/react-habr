@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AppInput } from './AppInput';
+import { AppInput } from './index';
 
 export default {
 	title: 'shared/AppInput',

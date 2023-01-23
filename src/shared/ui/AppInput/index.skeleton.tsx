@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
-import styles from './AppInput.module.scss';
+import styles from './index.module.scss';
 
 interface AppInputSkeletonProps {
 	className?: string;
