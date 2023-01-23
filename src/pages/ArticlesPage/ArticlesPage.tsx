@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import {
-	ArticlesViewSort,
 	ArticlesView,
+	ArticlesViewSearch,
+	ArticlesViewSort,
 	ArticlesViewTypeSelect,
-	useArticles,
-	useArticlesView,
+	useArticles, useArticlesSearch,
 	useArticlesSort,
+	useArticlesView,
 } from 'features/get-articles';
 import { AppCard } from 'shared/ui/AppCard';
 
@@ -32,6 +33,11 @@ const ArticlesPage = memo(() => {
 		setSortOrder,
 	} = useArticlesSort();
 
+	const {
+		search,
+		setSearch,
+	} = useArticlesSearch();
+
 	return (
 		<InfiniteScroll
 			pageStart={1}
@@ -44,13 +50,19 @@ const ArticlesPage = memo(() => {
 						viewType={viewType}
 						onChangeViewType={setViewType}
 					/>
-					<ArticlesViewSort
-						className="ml-auto"
-						by={sortBy}
-						onChangeBy={setSortBy}
-						order={sortOrder}
-						onChangeOrder={setSortOrder}
-					/>
+					<div className="ml-auto d-flex items-center">
+						<ArticlesViewSearch
+							className="mr-md"
+							value={search}
+							onInput={setSearch}
+						/>
+						<ArticlesViewSort
+							by={sortBy}
+							onChangeBy={setSortBy}
+							order={sortOrder}
+							onChangeOrder={setSortOrder}
+						/>
+					</div>
 				</div>
 			</AppCard>
 			<ArticlesView

@@ -15,3 +15,5 @@ export const getArticlesPage = (state: StateSchema) => state.articles?.page ?? 1
 export const getArticlesSort = (state: StateSchema) => state.articles?.sort ?? 'createdAt';
 
 export const getArticlesOrder = (state: StateSchema) => state.articles?.order ?? 'desc';
+
+export const getArticlesSearch = (state: StateSchema) => state.articles?.search ?? '';

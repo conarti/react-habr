@@ -2,7 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { articleConfig } from 'entities/article';
 import { ThunkConfig } from 'shared/config/types';
-import { getArticlesOrder, getArticlesPageLimit, getArticlesSort } from '../selectors';
+import {
+	getArticlesOrder,
+	getArticlesPageLimit,
+	getArticlesSearch,
+	getArticlesSort,
+} from '../selectors';
 
 interface FetchArticlesPayload {
 	page: number;
@@ -17,6 +22,7 @@ export const fetchArticles = createAsyncThunk<articleConfig.Article[], FetchArti
 		const limit = getArticlesPageLimit(getState());
 		const sort = getArticlesSort(getState());
 		const order = getArticlesOrder(getState());
+		const search = getArticlesSearch(getState());
 
 		try {
 			const { data } = await extra.api.get<articleConfig.Article[]>('/articles', {
@@ -25,6 +31,7 @@ export const fetchArticles = createAsyncThunk<articleConfig.Article[], FetchArti
 					_limit: limit,
 					_sort: sort,
 					_order: order,
+					q: search,
 				},
 			});
 			return data;
