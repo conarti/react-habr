@@ -74,7 +74,7 @@
 	}
 
 	&-clear {
-		@include button-theme(var(--on-bg-secondary), transparent, var(--on-bg-secondary-hover));
+		@include button-theme(var(--on-bg-secondary), var(--bg-light-color), var(--on-bg-secondary-hover));
 	}
 
 	&-primary {
@@ -84,8 +84,8 @@
 	&-primary-outline {
 		@include button-theme(
 			var(--on-bg-secondary),
-			transparent,
-			transparent,
+			var(--bg-light-color),
+			var(--bg-light-color),
 			var(--on-bg-secondary-hover),
 			var(--primary-color-hover),
 			var(--primary-color-bg),
