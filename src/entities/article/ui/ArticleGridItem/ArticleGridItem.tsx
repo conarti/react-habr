@@ -31,22 +31,25 @@ export const ArticleGridItem = (props: ArticleGridItemProps) => {
 			className={classNames(styles.articleGridItem, className)}
 			cover={article.img}
 		>
-			<ArticleInfo.Row
-				className="mb-md"
-				justify="between"
-			>
-				<ArticleInfo.Created value={article.createdAt} />
-				<ArticleInfo.Views value={article.views} />
-			</ArticleInfo.Row>
-			<h2 className="mb-sm">{article.title}</h2>
-			<div className={classNames(styles.articleGridItemLink)}>
-				<AppButton
-					className="stretched-link"
-					theme="clear"
-					onClick={openArticle}
-				>
-					{t('Читать')}
-				</AppButton>
+			<div className="d-flex column h-100">
+				<h2 className="mb-sm">{article.title}</h2>
+				<div className="d-flex items-center mt-auto">
+					<div className="d-flex column">
+						<ArticleInfo.Created
+							className="mb-sm"
+							value={article.createdAt}
+						/>
+						<ArticleInfo.Views value={article.views} />
+					</div>
+					<AppButton
+						className="ml-auto align-self-end"
+						theme="primary"
+						size="sm"
+						onClick={openArticle}
+					>
+						{t('Читать')}
+					</AppButton>
+				</div>
 			</div>
 		</AppCard>
 	);
