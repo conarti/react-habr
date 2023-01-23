@@ -9,12 +9,13 @@ import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
 import styles from './AppInput.module.scss';
 import './AppInput.variables.scss';
 
-interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput' | 'readonly'> {
+interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onInput' | 'readonly' | 'size'> {
 	className?: string;
 	label?: string;
 	isFill?: boolean;
 	icon?: ReactElement<any, any>;
 	iconPlacement?: 'start' | 'end';
+	size?: 'sm' | 'md' | 'lg';
 	value: string | number;
 	onInput: (value: string) => void;
 	isReadonly?: boolean;
@@ -27,6 +28,7 @@ export const AppInput = memo((props: AppInputProps) => {
 		value,
 		onInput,
 		icon,
+		size = 'md',
 		iconPlacement = 'start',
 		isReadonly = false,
 		id = uniqueId(),
@@ -50,6 +52,7 @@ export const AppInput = memo((props: AppInputProps) => {
 				[styles.appInputHasIconPlacementStart]: icon && iconPlacement === 'start',
 				[styles.appInputHasIconPlacementEnd]: icon && iconPlacement === 'end',
 			},
+			styles[`app-input--is-${size}`],
 		)}
 		>
 			{icon && (

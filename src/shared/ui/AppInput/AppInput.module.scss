@@ -39,6 +39,14 @@
 		}
 	}
 
+	&--is-sm &-native {
+		padding: var(--app-input-padding-sm);
+	}
+
+	&--is-lg &-native {
+		padding: var(--app-input-padding-lg);
+	}
+
 	&--has-icon#{&}--has-icon-placement-start &-native {
 		padding-left: calc(var(--app-icon-size) + $icon-padding + $icon-padding);
 	}
