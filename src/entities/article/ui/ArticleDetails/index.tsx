@@ -3,6 +3,7 @@ import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppCode } from 'shared/ui/AppCode';
+import { AppImage } from 'shared/ui/AppImage';
 import { AppText } from 'shared/ui/AppText';
 import { ArticleBlock } from '../../config/types/article';
 import { getArticleDetails, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
@@ -11,8 +12,8 @@ import { articleDetailsReducer } from '../../model/store';
 import { ArticleBlockImage } from '../ArticleBlockImage';
 import { ArticleBlockText } from '../ArticleBlockText';
 import { ArticleInfo } from '../ArticleInfo';
-import styles from './ArticleDetails.module.scss';
-import { ArticleDetailsSkeleton } from './ArticleDetails.skeleton';
+import styles from './index.module.scss';
+import { ArticleDetailsSkeleton } from './index.skeleton';
 
 interface ArticleDetailsProps {
 	id: string;
@@ -66,17 +67,26 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 			{error && <AppText message={error} />}
 			{articleDetails && (
 				<>
-					<img
-						className={classNames(styles.articleDetailsImage)}
-						src={articleDetails.img}
-						alt="article"
-					/>
-					<h1>{articleDetails.title}</h1>
-					<h2>{articleDetails.subtitle}</h2>
-					<ArticleInfo.Row className="mb-md">
-						<ArticleInfo.Created value={articleDetails.createdAt} />
-						<ArticleInfo.Views value={articleDetails.views} />
-					</ArticleInfo.Row>
+					<div className={classNames(styles.articleDetailsHeader)}>
+						<AppImage
+							className="mb-sm"
+							width="100%"
+							height="500px"
+							src={articleDetails.img}
+							alt="article"
+						/>
+						<div className={classNames(styles.articleDetailsHeaderGradient)} />
+						<div className={classNames(styles.articleDetailsHeaderInfo)}>
+							<div>
+								<h1>{articleDetails.title}</h1>
+								<h2>{articleDetails.subtitle}</h2>
+							</div>
+							<ArticleInfo.Row className="mb-md">
+								<ArticleInfo.Created value={articleDetails.createdAt} />
+								<ArticleInfo.Views value={articleDetails.views} />
+							</ArticleInfo.Row>
+						</div>
+					</div>
 					{
 						articleDetails.blocks.map((block) => (
 							<div

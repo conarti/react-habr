@@ -1,8 +1,5 @@
-import classNames from 'classnames';
 import { memo } from 'react';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
-import { ArticleInfo } from '../ArticleInfo';
-import styles from './ArticleDetails.module.scss';
 
 export const ArticleDetailsSkeleton = memo(() => {
 	const contentBlocks: { key: number, height: number | string, color?: 'primary' }[] = [
@@ -23,24 +20,11 @@ export const ArticleDetailsSkeleton = memo(() => {
 
 	return (
 		<>
-			<AppSkeleton className={classNames(styles.articleDetailsImage)} />
-
 			<AppSkeleton
-				className={classNames('h1')}
-				height={40}
-				width="60%"
+				className="mb-sm"
+				width="100%"
+				height="500px"
 			/>
-
-			<AppSkeleton
-				className={classNames('h2')}
-				height={32}
-				width="30%"
-			/>
-
-			<ArticleInfo.Row className="mb-md">
-				<ArticleInfo.CreatedSkeleton />
-				<ArticleInfo.ViewsSkeleton />
-			</ArticleInfo.Row>
 
 			{
 				contentBlocks.map(({ key, height, color }) => (
