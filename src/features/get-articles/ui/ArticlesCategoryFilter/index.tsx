@@ -40,6 +40,7 @@ export const ArticlesCategoryFilter = memo((props: ArticlesCategoryFilterProps) 
 			{articleCategories.map((category) => (
 				<AppButton
 					className="mr-sm"
+					size="sm"
 					key={category.label}
 					theme={category.value === value ? 'primary' : 'primary-outline'}
 					onClick={() => setValue(category.value)}
