@@ -23,6 +23,7 @@ const store = createSlice({
 		order: 'desc',
 		sort: 'createdAt',
 		search: '',
+		category: undefined,
 	}),
 	reducers: {
 		setPage(state, action: PayloadAction<number>) {
@@ -36,6 +37,9 @@ const store = createSlice({
 		},
 		setSearch(state, action: PayloadAction<string>) {
 			state.search = action.payload;
+		},
+		setCategory(state, action: PayloadAction<articleConfig.ArticleCategory | undefined>) {
+			state.category = action.payload;
 		},
 	},
 	extraReducers: (builder) => {

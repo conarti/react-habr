@@ -2,17 +2,15 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { getArticlesOrder, getArticlesSort } from '../selectors';
-import { fetchArticles } from '../services';
 import { articlesActions } from '../store';
+import { useRefetchArticles } from './useRefetchArticles';
 
 export const useArticlesSort = () => {
 	const dispatch = useAppDispatch();
 	const sortBy = useSelector(getArticlesSort);
 	const sortOrder = useSelector(getArticlesOrder);
 
-	const refetchArticles = useCallback(() => {
-		dispatch(fetchArticles({ page: 1, replace: true }));
-	}, [dispatch]);
+	const refetchArticles = useRefetchArticles();
 
 	const setSortBy = useCallback((sortBy) => {
 		dispatch(articlesActions.setSortBy(sortBy));

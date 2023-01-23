@@ -7,6 +7,7 @@ import {
 	getArticlesPageLimit,
 	getArticlesSearch,
 	getArticlesSort,
+	getArticlesCategory,
 } from '../selectors';
 
 interface FetchArticlesPayload {
@@ -23,6 +24,7 @@ export const fetchArticles = createAsyncThunk<articleConfig.Article[], FetchArti
 		const sort = getArticlesSort(getState());
 		const order = getArticlesOrder(getState());
 		const search = getArticlesSearch(getState());
+		const type = getArticlesCategory(getState());
 
 		try {
 			const { data } = await extra.api.get<articleConfig.Article[]>('/articles', {
@@ -32,6 +34,7 @@ export const fetchArticles = createAsyncThunk<articleConfig.Article[], FetchArti
 					_sort: sort,
 					_order: order,
 					q: search,
+					type,
 				},
 			});
 			return data;

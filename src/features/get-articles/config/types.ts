@@ -15,6 +15,7 @@ export interface ArticlesSchema extends EntityState<articleConfig.Article> {
 	sort: SortBy;
 	order: SortOrder;
 	search: string;
+	category?: articleConfig.ArticleCategory;
 }
 
 export type ArticleViewType = 'grid' | 'list';

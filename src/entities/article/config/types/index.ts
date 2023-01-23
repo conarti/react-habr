@@ -1,2 +1,2 @@
 export * from './articleDetailsSchema';
-export { Article } from './article';
+export { Article, ArticleCategory } from './article';

@@ -24,7 +24,7 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock;
 
-export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
+export type ArticleCategory = 'IT' | 'SCIENCE' | 'ECONOMICS';
 
 export interface Article {
 	id: string;
@@ -33,6 +33,6 @@ export interface Article {
 	img: string;
 	views: number;
 	createdAt: string;
-	type: ArticleType[];
+	type: ArticleCategory[];
 	blocks: ArticleBlock[];
 }

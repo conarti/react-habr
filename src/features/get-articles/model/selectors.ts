@@ -17,3 +17,5 @@ export const getArticlesSort = (state: StateSchema) => state.articles?.sort ?? '
 export const getArticlesOrder = (state: StateSchema) => state.articles?.order ?? 'desc';
 
 export const getArticlesSearch = (state: StateSchema) => state.articles?.search ?? '';
+
+export const getArticlesCategory = (state: StateSchema) => state.articles?.category;

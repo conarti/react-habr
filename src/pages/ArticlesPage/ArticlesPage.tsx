@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import {
+	ArticlesCategoryFilter,
 	ArticlesView,
 	ArticlesViewSearch,
 	ArticlesViewSort,
@@ -8,6 +9,7 @@ import {
 	useArticles, useArticlesSearch,
 	useArticlesSort,
 	useArticlesView,
+	useArticlesCategoryFilter,
 } from 'features/get-articles';
 import { AppCard } from 'shared/ui/AppCard';
 
@@ -38,6 +40,11 @@ const ArticlesPage = memo(() => {
 		setSearch,
 	} = useArticlesSearch();
 
+	const {
+		category,
+		setCategory,
+	} = useArticlesCategoryFilter();
+
 	return (
 		<InfiniteScroll
 			pageStart={1}
@@ -65,6 +72,14 @@ const ArticlesPage = memo(() => {
 					</div>
 				</div>
 			</AppCard>
+
+			<AppCard className="mb-md">
+				<ArticlesCategoryFilter
+					value={category}
+					onChange={setCategory}
+				/>
+			</AppCard>
+
 			<ArticlesView
 				viewType={viewType}
 				articles={articles}

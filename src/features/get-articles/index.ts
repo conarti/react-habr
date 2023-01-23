@@ -1,3 +1,4 @@
+export { ArticlesCategoryFilter } from './ui/ArticlesCategoryFilter';
 export { ArticlesView } from './ui/ArticlesView';
 export { ArticlesViewSearch } from './ui/ArticlesViewSearch';
 export { ArticlesViewTypeSelect } from './ui/ArticlesViewTypeSelect';
@@ -8,5 +9,6 @@ export {
 	useArticles,
 	useArticlesSort,
 	useArticlesSearch,
+	useArticlesCategoryFilter,
 } from './model';
 export { makeSkeletons } from './lib';
