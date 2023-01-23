@@ -22,6 +22,18 @@
 	margin-right: var(--spacer-lg);
 }
 
+.ml-auto {
+	margin-left: auto;
+}
+
 .m-none {
 	margin: 0;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.items-center {
+	align-items: center;
 }
