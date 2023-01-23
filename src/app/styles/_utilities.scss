@@ -26,6 +26,10 @@
 	margin-left: auto;
 }
 
+.mt-auto {
+	margin-top: auto;
+}
+
 .m-none {
 	margin: 0;
 }
@@ -34,6 +38,22 @@
 	display: flex;
 }
 
+.column {
+	flex-direction: column;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.align-self-end {
+	align-self: flex-end;
+}
+
 .items-center {
 	align-items: center;
+}
+
+.h-100 {
+	height: 100%;
 }
