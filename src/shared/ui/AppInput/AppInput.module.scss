@@ -57,6 +57,14 @@
 		padding-right: calc(var(--app-icon-size) + $icon-padding * 2);
 	}
 
+	&--is-clearable &-native {
+		padding-right: calc(var(--app-icon-size) + $icon-padding * 2);
+	}
+
+	&--is-clearable#{&}--has-icon#{&}--has-icon-placement-end &-native {
+		padding-left: calc(var(--app-icon-size) + $icon-padding * 2);
+	}
+
 	&--is-readonly &-native,
 	&--is-readonly &-native:focus,
 	&--is-readonly &-native:hover {
@@ -86,5 +94,40 @@
 
 	&--has-icon-placement-end &-icon {
 		right: 0;
+	}
+
+	&-clear-button {
+		position: absolute;
+		top: 50%;
+		right: 0;
+
+		height: var(--app-icon-size);
+		padding: 0 $icon-padding;
+
+		transform: translateY(-50%);
+
+		cursor: pointer;
+	}
+
+	&--has-icon#{&}--has-icon-placement-end &-clear-button {
+		right: unset;
+		left: 0;
+	}
+
+	&-clear-button-transition {
+		&-enter,
+		&-leave {
+			transition: opacity 0.15s;
+		}
+
+		&-enter-from,
+		&-leave-to {
+			opacity: 0;
+		}
+
+		&-enter-to,
+		&-leave-from {
+			opacity: 1;
+		}
 	}
 }

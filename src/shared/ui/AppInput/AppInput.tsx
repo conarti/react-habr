@@ -1,10 +1,15 @@
+import { Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import {
 	ChangeEvent,
+	Fragment,
 	InputHTMLAttributes,
 	memo,
 	ReactElement,
+	useCallback,
+	useMemo,
 } from 'react';
+import XmarkIcon from 'shared/assets/icons/xmark.svg';
 import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
 import styles from './AppInput.module.scss';
 import './AppInput.variables.scss';
@@ -16,6 +21,7 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'val
 	icon?: ReactElement<any, any>;
 	iconPlacement?: 'start' | 'end';
 	size?: 'sm' | 'md' | 'lg';
+	clearable?: boolean;
 	value: string | number;
 	onInput: (value: string) => void;
 	isReadonly?: boolean;
@@ -28,6 +34,7 @@ export const AppInput = memo((props: AppInputProps) => {
 		value,
 		onInput,
 		icon,
+		clearable = false,
 		size = 'md',
 		iconPlacement = 'start',
 		isReadonly = false,
@@ -41,6 +48,13 @@ export const AppInput = memo((props: AppInputProps) => {
 		onInput(ev.target.value);
 	};
 
+	const clear = useCallback(() => {
+		onInput('');
+	}, [onInput]);
+
+	const hasValue = useMemo(() => String(value).length > 0, [value]);
+	const isClearButtonVisible = useMemo(() => clearable && hasValue, [clearable, hasValue]);
+
 	return (
 		<div className={classNames(
 			styles.appInput,
@@ -51,6 +65,7 @@ export const AppInput = memo((props: AppInputProps) => {
 				[styles.appInputHasIcon]: icon,
 				[styles.appInputHasIconPlacementStart]: icon && iconPlacement === 'start',
 				[styles.appInputHasIconPlacementEnd]: icon && iconPlacement === 'end',
+				[styles.appInputIsClearable]: clearable,
 			},
 			styles[`app-input--is-${size}`],
 		)}
@@ -75,6 +90,23 @@ export const AppInput = memo((props: AppInputProps) => {
 						{icon}
 					</div>
 				)}
+				<Transition
+					show={isClearButtonVisible}
+					as={Fragment}
+					enter={styles.appInputClearButtonTransitionEnter}
+					enterFrom={styles.appInputClearButtonTransitionEnterFrom}
+					enterTo={styles.appInputClearButtonTransitionEnterTo}
+					leave={styles.appInputClearButtonTransitionLeave}
+					leaveFrom={styles.appInputClearButtonTransitionLeaveFrom}
+					leaveTo={styles.appInputClearButtonTransitionLeaveTo}
+				>
+					<div
+						className={classNames(styles.appInputClearButton)}
+						onClick={clear}
+					>
+						<XmarkIcon />
+					</div>
+				</Transition>
 			</div>
 		</div>
 	);
