@@ -2,6 +2,9 @@ import { EntityState } from '@reduxjs/toolkit';
 import { ReactElement } from 'react';
 import { articleConfig } from 'entities/article';
 
+export type SortBy = 'createdAt' | 'views';
+export type SortOrder = 'asc' | 'desc';
+
 export interface ArticlesSchema extends EntityState<articleConfig.Article> {
 	isLoading: boolean;
 	error?: string;
@@ -9,6 +12,8 @@ export interface ArticlesSchema extends EntityState<articleConfig.Article> {
 	page: number;
 	limit: number;
 	hasMore: boolean;
+	sort: SortBy;
+	order: SortOrder;
 }
 
 export type ArticleViewType = 'grid' | 'list';

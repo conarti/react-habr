@@ -11,3 +11,7 @@ export const getArticlesPageLimit = (state: StateSchema) => state.articles?.limi
 export const getArticlesHasMore = (state: StateSchema) => state.articles?.hasMore;
 
 export const getArticlesPage = (state: StateSchema) => state.articles?.page ?? 1;
+
+export const getArticlesSort = (state: StateSchema) => state.articles?.sort ?? 'createdAt';
+
+export const getArticlesOrder = (state: StateSchema) => state.articles?.order ?? 'desc';

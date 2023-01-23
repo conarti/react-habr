@@ -5,12 +5,15 @@ import { LocalStorage } from 'shared/lib/LocalStorage/LocalStorage';
 import { ArticleViewType, VIEW_TYPE_LOCAL_STORAGE_KEY } from '../config';
 import {
 	getArticlesErrorMessage,
-	getArticlesHasMore, getArticlesPageLimit,
+	getArticlesHasMore,
+	getArticlesOrder,
+	getArticlesPageLimit,
+	getArticlesSort,
 	isArticlesLoaded,
 	isArticlesLoading,
 } from './selectors';
 import { fetchArticles, fetchNextArticlesPage } from './services';
-import { articlesReducer, getArticles } from './store';
+import { articlesActions, articlesReducer, getArticles } from './store';
 
 export const useArticles = () => {
 	const dispatch = useAppDispatch();
@@ -55,5 +58,34 @@ export const useArticlesView = () => {
 	return {
 		viewType,
 		setViewType,
+	};
+};
+
+export const useArticlesSort = () => {
+	const dispatch = useAppDispatch();
+	const sortBy = useSelector(getArticlesSort);
+	const sortOrder = useSelector(getArticlesOrder);
+
+	const refetchArticles = useCallback(() => {
+		dispatch(fetchArticles({ page: 1, replace: true }));
+	}, [dispatch]);
+
+	const setSortBy = useCallback((sortBy) => {
+		dispatch(articlesActions.setSortBy(sortBy));
+		dispatch(articlesActions.setPage(1));
+		refetchArticles();
+	}, [dispatch, refetchArticles]);
+
+	const setSortOrder = useCallback((order) => {
+		dispatch(articlesActions.setSortOrder(order));
+		dispatch(articlesActions.setPage(1));
+		refetchArticles();
+	}, [dispatch, refetchArticles]);
+
+	return {
+		sortBy,
+		setSortBy,
+		sortOrder,
+		setSortOrder,
 	};
 };

@@ -1,8 +1,14 @@
 import { memo } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import {
-	ArticlesView, ArticlesViewTypeSelect, useArticles, useArticlesView,
+	ArticlesViewSort,
+	ArticlesView,
+	ArticlesViewTypeSelect,
+	useArticles,
+	useArticlesView,
+	useArticlesSort,
 } from 'features/get-articles';
+import { AppCard } from 'shared/ui/AppCard';
 
 const ArticlesPage = memo(() => {
 	const {
@@ -19,18 +25,34 @@ const ArticlesPage = memo(() => {
 		limit,
 	} = useArticles();
 
+	const {
+		sortBy,
+		sortOrder,
+		setSortBy,
+		setSortOrder,
+	} = useArticlesSort();
+
 	return (
 		<InfiniteScroll
 			pageStart={1}
 			loadMore={fetchNextPage}
 			hasMore={hasMore}
 		>
-			<div className="mb-md">
-				<ArticlesViewTypeSelect
-					viewType={viewType}
-					onChangeViewType={setViewType}
-				/>
-			</div>
+			<AppCard className="mb-md">
+				<div className="d-flex items-center">
+					<ArticlesViewTypeSelect
+						viewType={viewType}
+						onChangeViewType={setViewType}
+					/>
+					<ArticlesViewSort
+						className="ml-auto"
+						by={sortBy}
+						onChangeBy={setSortBy}
+						order={sortOrder}
+						onChangeOrder={setSortOrder}
+					/>
+				</div>
+			</AppCard>
 			<ArticlesView
 				viewType={viewType}
 				articles={articles}
