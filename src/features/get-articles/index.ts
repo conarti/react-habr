@@ -11,4 +11,3 @@ export {
 	useArticlesSearch,
 	useArticlesCategoryFilter,
 } from './model';
-export { makeSkeletons } from './lib';

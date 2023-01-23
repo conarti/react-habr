@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { AppSkeleton } from 'shared/ui/AppSkeleton';
 import { ArticleViewType } from '../config';
 
-export const makeSkeletons = (count: number, viewType: ArticleViewType): ReactElement[] => {
+export const makeArticleSkeletons = (count: number, viewType: ArticleViewType): ReactElement[] => {
 	const componentsMapper: Record<ArticleViewType, (key: number | string) => ReactElement> = {
 		grid: (key) => (
 			<AppSkeleton

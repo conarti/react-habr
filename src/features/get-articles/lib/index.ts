@@ -1,2 +1,2 @@
-export { makeSkeletons } from './makeSkeletons';
+export { makeArticleSkeletons } from './makeArticleSkeletons';
 export { makeArticleItem } from './makeArticleItem';

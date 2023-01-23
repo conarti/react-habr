@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { articleConfig } from 'entities/article';
 import { AppText } from 'shared/ui/AppText';
 import { ArticleViewType } from '../../config';
-import { makeSkeletons, makeArticleItem } from '../../lib';
+import { makeArticleSkeletons, makeArticleItem } from '../../lib';
 import styles from './index.module.scss';
 
 interface ArticlesViewProps {
@@ -37,7 +37,7 @@ export const ArticlesView = memo((props: ArticlesViewProps) => {
 		)}
 		>
 			{articles.map((article) => makeArticleItem(article, viewType))}
-			{isLoading && makeSkeletons(pageLimit, viewType)}
+			{isLoading && makeArticleSkeletons(pageLimit, viewType)}
 		</div>
 	);
 });
