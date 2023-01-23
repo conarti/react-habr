@@ -46,10 +46,7 @@ export const AppImage = memo((props: AppImageProps) => {
 					[styles.appImageIsLoaded]: isImageLoaded,
 				},
 			)}
-			style={{
-				width,
-				height,
-			}}
+			style={{ width, height }}
 		>
 			<img
 				className={classNames(styles.appImageNative)}
@@ -57,6 +54,7 @@ export const AppImage = memo((props: AppImageProps) => {
 				alt={alt}
 				onLoad={onImageLoad}
 				onError={onImageLoadError}
+				style={{ width, height }}
 			/>
 			{!isImageLoaded && !hasLoadError && <AppLoader isFill />}
 			{hasLoadError && (
