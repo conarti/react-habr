@@ -55,25 +55,27 @@ export const AppInput = memo((props: AppInputProps) => {
 			styles[`app-input--is-${size}`],
 		)}
 		>
-			{icon && (
-				<div className={classNames(styles.appInputIcon)}>
-					{icon}
-				</div>
-			)}
 			{label && (
 				<label htmlFor={id}>
 					{label}
 				</label>
 			)}
-			<input
-				id={id}
-				className={classNames(styles.appInputNative)}
-				type={type}
-				value={value}
-				onInput={onInputHandler}
-				readOnly={isReadonly}
-				{...otherProps}
-			/>
+			<div className={classNames(styles.appInputContainer)}>
+				<input
+					id={id}
+					className={classNames(styles.appInputNative)}
+					type={type}
+					value={value}
+					onInput={onInputHandler}
+					readOnly={isReadonly}
+					{...otherProps}
+				/>
+				{icon && (
+					<div className={classNames(styles.appInputIcon)}>
+						{icon}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 });

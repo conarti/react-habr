@@ -1,13 +1,14 @@
 .app-input {
 	$icon-padding: var(--spacer-sm);
-
-	position: relative;
-
 	display: inline-grid;
 	row-gap: var(--spacer-sm);
 
 	&--is-fill {
 		width: 100%;
+	}
+
+	&-container {
+		position: relative;
 	}
 
 	&-native {
