@@ -1,5 +1,5 @@
 @mixin dark-variables {
-	--bg-color: rgb(16 16 16);
+	--bg-color: rgb(10 10 10);
 	--bg-light-color: rgb(22 22 22);
 	--bg-light-color-transparent: rgb(22 22 22 / 70%);
 	--primary-color: rgb(100 140 255);
@@ -10,7 +10,7 @@
 	--on-bg-secondary: rgb(216 216 216);
 	--on-bg-secondary-hover: rgb(216 216 216 / 8%);
 	--overlay-color: rgb(0 0 0 / 70%);
-	--shadow-color: var(--on-bg-secondary-hover);
+	--shadow-color: var(--bg-color);
 }
 
 body[data-theme="auto"] {
