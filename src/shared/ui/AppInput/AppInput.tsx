@@ -1,5 +1,10 @@
 import classNames from 'classnames';
-import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
+import {
+	ChangeEvent,
+	InputHTMLAttributes,
+	memo,
+	ReactElement,
+} from 'react';
 import { uniqueId } from 'shared/lib/uniqueId/uniqueId';
 import styles from './AppInput.module.scss';
 import './AppInput.variables.scss';
@@ -8,6 +13,7 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'val
 	className?: string;
 	label?: string;
 	isFill?: boolean;
+	icon?: ReactElement<any, any>;
 	value: string | number;
 	onInput: (value: string) => void;
 	isReadonly?: boolean;
@@ -19,6 +25,7 @@ export const AppInput = memo((props: AppInputProps) => {
 		label,
 		value,
 		onInput,
+		icon,
 		isReadonly = false,
 		id = uniqueId(),
 		isFill = false,
@@ -37,9 +44,15 @@ export const AppInput = memo((props: AppInputProps) => {
 			{
 				[styles.appInputIsFill]: isFill,
 				[styles.appInputIsReadonly]: isReadonly,
+				[styles.appInputHasIcon]: icon,
 			},
 		)}
 		>
+			{icon && (
+				<div className={classNames(styles.appInputIcon)}>
+					{icon}
+				</div>
+			)}
 			{label && (
 				<label htmlFor={id}>
 					{label}

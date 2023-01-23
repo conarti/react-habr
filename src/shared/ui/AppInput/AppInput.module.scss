@@ -1,4 +1,8 @@
 .app-input {
+	$icon-padding: var(--spacer-sm);
+
+	position: relative;
+
 	display: inline-grid;
 	row-gap: var(--spacer-sm);
 
@@ -35,6 +39,10 @@
 		}
 	}
 
+	&--has-icon &-native {
+		padding-left: calc(var(--app-icon-size) + $icon-padding + $icon-padding);
+	}
+
 	&--is-readonly &-native,
 	&--is-readonly &-native:focus,
 	&--is-readonly &-native:hover {
@@ -44,5 +52,17 @@
 			-4px 4px 0 0 var(--primary-color-hover),
 			0 0 0 1px var(--primary-color-hover) inset;
 		cursor: default;
+	}
+
+	&-icon {
+		position: absolute;
+		top: 50%;
+
+		height: var(--app-icon-size);
+		padding: 0 $icon-padding;
+
+		transform: translateY(-50%);
+
+		pointer-events: none;
 	}
 }
