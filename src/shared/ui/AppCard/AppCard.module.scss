@@ -2,6 +2,8 @@
 	background: var(--bg-light-color);
 	border-radius: var(--border-radius-base);
 
+	box-shadow: 0 5px 15px var(--shadow-color);
+
 	&-head {
 		padding: var(--spacer-md) var(--spacer-md) 0;
 	}
