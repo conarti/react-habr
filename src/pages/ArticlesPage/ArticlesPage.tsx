@@ -52,7 +52,7 @@ const ArticlesPage = memo(() => {
 					/>
 					<div className="ml-auto d-flex items-center">
 						<ArticlesViewSearch
-							className="mr-md"
+							className="mr-lg"
 							value={search}
 							onInput={setSearch}
 						/>
