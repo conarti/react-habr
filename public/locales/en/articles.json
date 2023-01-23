@@ -1,5 +1,8 @@
 {
   "Читать": "Read",
   "Читать дальше": "Read more",
-  "Сортировка по": "Sort by"
+  "Сортировка по": "Sort by",
+  "view": {
+    "emptyMessage": "Articles not found"
+  }
 }

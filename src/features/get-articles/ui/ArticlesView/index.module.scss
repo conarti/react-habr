@@ -5,4 +5,15 @@
 	&.is-grid {
 		grid-template-columns: repeat(4, 1fr);
 	}
+
+	&-empty-message {
+		margin: var(--spacer-lg) 0;
+
+		font: var(--font-l);
+		text-align: center;
+	}
+
+	&-empty-message-icon {
+		vertical-align: sub;
+	}
 }
