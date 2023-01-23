@@ -38,8 +38,32 @@
 	display: flex;
 }
 
-.column {
+.d-inline-grid {
+	display: inline-grid;
+}
+
+.d-inline-grid.gap-sm {
+	gap: var(--spacer-sm);
+}
+
+.d-inline-grid.gap-md {
+	gap: var(--spacer-md);
+}
+
+.d-inline-grid.gap-lg {
+	gap: var(--spacer-lg);
+}
+
+.d-flex.column {
 	flex-direction: column;
+}
+
+.d-inline-grid.column {
+	grid-auto-flow: row;
+}
+
+.d-inline-grid.row {
+	grid-auto-flow: column;
 }
 
 .flex-wrap {
