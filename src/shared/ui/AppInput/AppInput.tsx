@@ -14,6 +14,7 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'val
 	label?: string;
 	isFill?: boolean;
 	icon?: ReactElement<any, any>;
+	iconPlacement?: 'start' | 'end';
 	value: string | number;
 	onInput: (value: string) => void;
 	isReadonly?: boolean;
@@ -26,6 +27,7 @@ export const AppInput = memo((props: AppInputProps) => {
 		value,
 		onInput,
 		icon,
+		iconPlacement = 'start',
 		isReadonly = false,
 		id = uniqueId(),
 		isFill = false,
@@ -45,6 +47,8 @@ export const AppInput = memo((props: AppInputProps) => {
 				[styles.appInputIsFill]: isFill,
 				[styles.appInputIsReadonly]: isReadonly,
 				[styles.appInputHasIcon]: icon,
+				[styles.appInputHasIconPlacementStart]: icon && iconPlacement === 'start',
+				[styles.appInputHasIconPlacementEnd]: icon && iconPlacement === 'end',
 			},
 		)}
 		>

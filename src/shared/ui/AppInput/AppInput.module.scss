@@ -39,8 +39,12 @@
 		}
 	}
 
-	&--has-icon &-native {
+	&--has-icon#{&}--has-icon-placement-start &-native {
 		padding-left: calc(var(--app-icon-size) + $icon-padding + $icon-padding);
+	}
+
+	&--has-icon#{&}--has-icon-placement-end &-native {
+		padding-right: calc(var(--app-icon-size) + $icon-padding + $icon-padding);
 	}
 
 	&--is-readonly &-native,
@@ -64,5 +68,13 @@
 		transform: translateY(-50%);
 
 		pointer-events: none;
+	}
+
+	&--has-icon-placement-start &-icon {
+		left: 0;
+	}
+
+	&--has-icon-placement-end &-icon {
+		right: 0;
 	}
 }
