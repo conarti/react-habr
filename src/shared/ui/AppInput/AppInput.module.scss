@@ -1,5 +1,6 @@
 .app-input {
 	$icon-padding: var(--spacer-sm);
+
 	display: inline-grid;
 	row-gap: var(--spacer-sm);
 
@@ -17,7 +18,7 @@
 		color: var(--on-bg-secondary);
 		font: var(--font-m);
 
-		background-color: transparent;
+		background-color: var(--bg-light-color);
 		border: none;
 		border-radius: var(--border-radius-base);
 		outline: none;
@@ -49,11 +50,11 @@
 	}
 
 	&--has-icon#{&}--has-icon-placement-start &-native {
-		padding-left: calc(var(--app-icon-size) + $icon-padding + $icon-padding);
+		padding-left: calc(var(--app-icon-size) + $icon-padding * 2);
 	}
 
 	&--has-icon#{&}--has-icon-placement-end &-native {
-		padding-right: calc(var(--app-icon-size) + $icon-padding + $icon-padding);
+		padding-right: calc(var(--app-icon-size) + $icon-padding * 2);
 	}
 
 	&--is-readonly &-native,
