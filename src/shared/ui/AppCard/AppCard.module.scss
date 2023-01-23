@@ -9,4 +9,20 @@
 	&-body {
 		padding: var(--spacer-md);
 	}
+
+	&--is-sm &-head {
+		padding: var(--spacer-sm) var(--spacer-sm) 0;
+	}
+
+	&--is-sm &-body {
+		padding: var(--spacer-sm);
+	}
+
+	&--is-lg &-head {
+		padding: var(--spacer-lg) var(--spacer-lg) 0;
+	}
+
+	&--is-lg &-body {
+		padding: var(--spacer-lg);
+	}
 }

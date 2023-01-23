@@ -6,6 +6,7 @@ import styles from './AppCard.module.scss';
 interface AppCardProps {
     className?: string;
 		head?: ReactNode;
+		size?: 'sm' | 'md' | 'lg';
 		children: ReactNode;
 		cover?: string;
 }
@@ -16,10 +17,16 @@ export const AppCard = (props: AppCardProps) => {
 		children,
 		cover,
 		head,
+		size = 'md',
 	} = props;
 
 	return (
-		<div className={classNames(styles.appCard, className)}>
+		<div className={classNames(
+			styles.appCard,
+			className,
+			styles[`app-card--is-${size}`],
+		)}
+		>
 			{cover && (
 				<AppImage
 					height={200}
