@@ -15,7 +15,6 @@ export const useArticlesSearch = () => {
 
 	const setSearch = useCallback((search: string) => {
 		dispatch(articlesActions.setSearch(search));
-		dispatch(articlesActions.setPage(1));
 		deboncedRefetchArticles();
 	}, [deboncedRefetchArticles, dispatch]);
 

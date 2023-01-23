@@ -14,7 +14,6 @@ export const useArticlesCategoryFilter = () => {
 
 	const setCategory = useCallback((category: articleConfig.ArticleCategory | undefined) => {
 		dispatch(articlesActions.setCategory(category));
-		dispatch(articlesActions.setPage(1));
 		refetchArticles();
 	}, [dispatch, refetchArticles]);
 

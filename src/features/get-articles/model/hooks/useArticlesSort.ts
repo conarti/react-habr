@@ -14,13 +14,11 @@ export const useArticlesSort = () => {
 
 	const setSortBy = useCallback((sortBy) => {
 		dispatch(articlesActions.setSortBy(sortBy));
-		dispatch(articlesActions.setPage(1));
 		refetchArticles();
 	}, [dispatch, refetchArticles]);
 
 	const setSortOrder = useCallback((order) => {
 		dispatch(articlesActions.setSortOrder(order));
-		dispatch(articlesActions.setPage(1));
 		refetchArticles();
 	}, [dispatch, refetchArticles]);
 
