@@ -42,7 +42,7 @@ export const ArticleGridItem = (props: ArticleGridItemProps) => {
 						<ArticleInfo.Views value={article.views} />
 					</div>
 					<AppButton
-						className="ml-auto align-self-end"
+						className="stretched-link ml-auto align-self-end"
 						theme="primary"
 						size="sm"
 						onClick={openArticle}
