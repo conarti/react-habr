@@ -28,8 +28,8 @@ body {
 }
 
 .app-icon {
-	width: 24px;
-	height: 24px;
+	width: var(--app-icon-size);
+	height: var(--app-icon-size);
 }
 
 h1,
