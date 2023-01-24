@@ -1,17 +1,4 @@
 .article-list-item {
-	&-head-row {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	&-cover {
-		display: block;
-		max-width: 100%;
-		height: 300px;
-		margin: 0 auto var(--spacer-md);
-		object-fit: cover;
-	}
-
 	&-content-preview {
 		position: relative;
 

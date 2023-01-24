@@ -5,42 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { AppButton } from 'shared/ui/AppButton';
 import { AppCard } from 'shared/ui/AppCard';
 import { Article, ArticleTextBlock } from '../../config/types/article';
-import { ArticleInfo } from '../ArticleInfo';
+import { ArticleHeader } from '../ArticleHeader';
 import styles from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
 	className?: string;
 	article: Article;
 }
-
-interface ArticleListItemHeadProps {
-	title: string;
-	subtitle: string;
-	createdAt: string;
-	views: number;
-}
-
-const ArticleListItemHead = (props: ArticleListItemHeadProps) => {
-	const {
-		title,
-		subtitle,
-		createdAt,
-		views,
-	} = props;
-
-	return (
-		<div>
-			<div className={classNames(styles.articleListItemHeadRow)}>
-				<h2 className="h1">{title}</h2>
-				<ArticleInfo.Created value={createdAt} />
-			</div>
-			<div className={classNames(styles.articleListItemHeadRow)}>
-				<h3 className="h2 m-none">{subtitle}</h3>
-				<ArticleInfo.Views value={views} />
-			</div>
-		</div>
-	);
-};
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
 	const {
@@ -75,7 +46,8 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 		<AppCard
 			className={classNames(styles.articleListItem, className)}
 			head={(
-				<ArticleListItemHead
+				<ArticleHeader
+					img={article.img}
 					title={article.title}
 					subtitle={article.subtitle}
 					createdAt={article.createdAt}
@@ -83,11 +55,6 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 				/>
 			)}
 		>
-			<img
-				className={classNames(styles.articleListItemCover)}
-				src={article.img}
-				alt={article.title}
-			/>
 			{contentPreview && (
 				<div className={classNames(styles.articleListItemContentPreview)}>
 					{contentPreview.map((paragraph) => (
