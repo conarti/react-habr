@@ -6,7 +6,7 @@ import { AppButton } from 'shared/ui/AppButton';
 import { AppCard } from 'shared/ui/AppCard';
 import { Article, ArticleTextBlock } from '../../config/types/article';
 import { ArticleHeader } from '../ArticleHeader';
-import styles from './ArticleListItem.module.scss';
+import styles from './index.module.scss';
 
 interface ArticleListItemProps {
 	className?: string;
