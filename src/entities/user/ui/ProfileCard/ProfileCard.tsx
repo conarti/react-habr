@@ -93,6 +93,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 										key={field}
 										label={t(field)}
 										isReadonly={!isEditable}
+										isFill
 										value={profile[field as keyof UserProfile]}
 										onInput={onUpdateField(field as keyof UserProfile)}
 									/>
