@@ -1,13 +1,11 @@
-.article-details {
-	&-header {
-		position: relative;
+.article-header {
+	position: relative;
 
-		overflow: hidden;
+	overflow: hidden;
 
-		border-radius: var(--border-radius-base);
-	}
+	border-radius: var(--border-radius-base);
 
-	&-header-gradient {
+	&-gradient {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -17,7 +15,7 @@
 		background: linear-gradient(0deg, var(--bg-color) 3%, transparent 100%);
 	}
 
-	&-header-info {
+	&-info {
 		position: absolute;
 		right: 0;
 		bottom: 0;

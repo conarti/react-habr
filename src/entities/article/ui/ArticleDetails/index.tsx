@@ -3,7 +3,6 @@ import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAsyncReducer } from 'shared/lib/hooks';
 import { AppCode } from 'shared/ui/AppCode';
-import { AppImage } from 'shared/ui/AppImage';
 import { AppText } from 'shared/ui/AppText';
 import { ArticleBlock } from '../../config/types/article';
 import { getArticleDetails, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
@@ -11,8 +10,7 @@ import { fetchArticleByID } from '../../model/services';
 import { articleDetailsReducer } from '../../model/store';
 import { ArticleBlockImage } from '../ArticleBlockImage';
 import { ArticleBlockText } from '../ArticleBlockText';
-import { ArticleInfo } from '../ArticleInfo';
-import styles from './index.module.scss';
+import { ArticleHeader } from '../ArticleHeader';
 import { ArticleDetailsSkeleton } from './index.skeleton';
 
 interface ArticleDetailsProps {
@@ -62,31 +60,18 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	}, [dispatch, id]);
 
 	return (
-		<div className={classNames(styles.articleDetails, className)}>
+		<div className={classNames(className)}>
 			{isLoading && <ArticleDetailsSkeleton />}
 			{error && <AppText message={error} />}
 			{articleDetails && (
 				<>
-					<div className={classNames(styles.articleDetailsHeader)}>
-						<AppImage
-							className="mb-sm"
-							width="100%"
-							height="500px"
-							src={articleDetails.img}
-							alt="article"
-						/>
-						<div className={classNames(styles.articleDetailsHeaderGradient)} />
-						<div className={classNames(styles.articleDetailsHeaderInfo)}>
-							<div>
-								<h1>{articleDetails.title}</h1>
-								<h2>{articleDetails.subtitle}</h2>
-							</div>
-							<ArticleInfo.Row className="mb-md">
-								<ArticleInfo.Created value={articleDetails.createdAt} />
-								<ArticleInfo.Views value={articleDetails.views} />
-							</ArticleInfo.Row>
-						</div>
-					</div>
+					<ArticleHeader
+						img={articleDetails.img}
+						title={articleDetails.title}
+						createdAt={articleDetails.createdAt}
+						views={articleDetails.views}
+						subtitle={articleDetails.subtitle}
+					/>
 					{
 						articleDetails.blocks.map((block) => (
 							<div
