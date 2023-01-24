@@ -41,6 +41,10 @@
 		}
 	}
 
+	&--is-fill &-native {
+		width: 100%;
+	}
+
 	&--is-sm &-native {
 		padding: var(--app-input-padding-sm);
 	}
