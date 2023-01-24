@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { articleConfig } from 'entities/article';
 import { AppButton } from 'shared/ui/AppButton';
 
@@ -35,6 +35,14 @@ export const ArticlesCategoryFilter = memo((props: ArticlesCategoryFilterProps) 
 		onChange: setValue,
 	} = props;
 
+	const setCategory = useCallback((newValue) => {
+		if (newValue === value) {
+			return;
+		}
+
+		setValue(newValue);
+	}, [setValue, value]);
+
 	return (
 		<div className={classNames(className, 'd-inline-grid row gap-sm')}>
 			{articleCategories.map((category) => (
@@ -42,7 +50,7 @@ export const ArticlesCategoryFilter = memo((props: ArticlesCategoryFilterProps) 
 					size="sm"
 					key={category.label}
 					theme={category.value === value ? 'primary' : 'primary-outline'}
-					onClick={() => setValue(category.value)}
+					onClick={() => setCategory(category.value)}
 				>
 					{category.label}
 				</AppButton>
