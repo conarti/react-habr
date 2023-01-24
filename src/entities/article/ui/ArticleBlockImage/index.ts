@@ -1,1 +1,0 @@
-export { ArticleBlockImage } from './ArticleBlockImage';

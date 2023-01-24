@@ -1,6 +1,8 @@
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { AppInfo } from 'shared/ui/AppInfo';
 
+export { ArticleViewsInfoSkeleton } from './index.skeleton';
+
 interface ArticleViewsInfoProps {
 	value: number;
 }

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { memo } from 'react';
-import styles from './ArticleBlockImage.module.scss';
+import styles from './index.module.scss';
 
 interface ArticleBlockImageProps {
 	src: string;

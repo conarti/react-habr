@@ -1,6 +1,8 @@
 import CalendarDayIcon from 'shared/assets/icons/calendar-day.svg';
 import { AppInfo } from 'shared/ui/AppInfo';
 
+export { ArticleCreatedInfoSkeleton } from './index.skeleton';
+
 interface ArticleCreatedInfoProps {
 	className?: string;
 	value: string;

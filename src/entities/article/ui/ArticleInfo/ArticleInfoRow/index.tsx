@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ReactNode } from 'react';
-import styles from './ArticleInfoRow.module.scss';
+import styles from './index.module.scss';
 
 interface ArticleInfoRowProps {
 	className?: string;

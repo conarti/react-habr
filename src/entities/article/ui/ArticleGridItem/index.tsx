@@ -6,7 +6,7 @@ import { AppButton } from 'shared/ui/AppButton';
 import { AppCard } from 'shared/ui/AppCard';
 import { Article } from '../../config/types/article';
 import { ArticleInfo } from '../ArticleInfo';
-import styles from './ArticleGridItem.module.scss';
+import styles from './index.module.scss';
 
 interface ArticleGridItemProps {
 	className?: string;

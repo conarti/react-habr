@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { memo } from 'react';
-import styles from './ArticleBlockText.module.scss';
+import styles from './index.module.scss';
 
 interface ArticleBlockTextProps {
 	title?: string;

@@ -1,1 +1,0 @@
-export { ArticleInfoRow } from './ArticleInfoRow';
