@@ -26,7 +26,6 @@ export const ArticleHeader = memo((props: ArticleHeaderProps) => {
 	return (
 		<div className={classNames(styles.articleHeader, className)}>
 			<AppImage
-				className="mb-sm"
 				width="100%"
 				height="500px"
 				src={img}
@@ -36,9 +35,9 @@ export const ArticleHeader = memo((props: ArticleHeaderProps) => {
 			<div className={classNames(styles.articleHeaderInfo)}>
 				<div>
 					<h1>{title}</h1>
-					<h2>{subtitle}</h2>
+					<h2 className="m-none">{subtitle}</h2>
 				</div>
-				<ArticleInfo.Row className="mb-md">
+				<ArticleInfo.Row>
 					<ArticleInfo.Created value={createdAt} />
 					<ArticleInfo.Views value={views} />
 				</ArticleInfo.Row>
